@@ -1,0 +1,230 @@
+@font-face {
+    font-family: myFont;
+    src: url(../Fonts/Regular\ Brush.otf);
+   
+ }
+ @font-face {
+    font-family: Planr;
+    src: url(../Fonts/SimpleHandmade.otf);
+ }
+
+ @keyframes slide-up {
+     from{
+        transform: translateX(-300px);
+     }
+   
+     to{
+        transform: translateX(0);
+     }
+
+
+  }
+ 
+:root{
+    --light-green: #606C38;
+    --dark-green: #283618;
+    --milky-white: #FEFAE0;
+    --light-brown: #DDA15E;
+    --dark-brown: #BC6C25;
+}
+
+/* Apply basic styles to all elements */
+*{
+      margin:0; padding: 0;
+      box-sizing: border-box;
+      outline: none; 
+      border: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      transition: .2s linear;
+      
+}
+
+/* Set font size on the root element */
+html{
+
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7em; 
+    overflow-x: hidden; 
+
+} 
+
+/* Add responsive styles for the header */
+header{
+
+    position: fixed;
+    top:0; left: 0; right: 0;
+    padding: 1.5rem 15%;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    z-index: 999;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+
+}
+ 
+header .logo img{
+
+  display: flex;
+  align-items: center;
+  height: 4.5rem;
+
+}
+
+
+header .navbar a{
+
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    margin-right: 3rem;
+    padding: 0 1.5rem;
+    color: var(--light-green);
+
+ }
+
+
+header .navbar a:hover{
+       color: var(--light-brown)
+
+} 
+
+header .icon i {
+
+    font-size: 3rem;
+    margin-right: 2rem;
+    color : var(--light-green);
+    cursor: pointer;
+
+ }
+
+ .about{
+    
+    min-height: 100vh;
+    display: flex;
+    background-image: url("../Images/AboutImages/BackgroundAboutPage.jpg");
+    background-size: cover;
+
+}
+  
+.aboutContent{
+    
+    padding-top: 10rem;
+    padding-right: 70rem;
+    padding-left: 5rem;
+
+ }
+
+.about h2{ 
+
+  font-family: myFont;
+  font-size: 5rem;
+   margin-bottom: 2rem;
+  background-color: var(--light-brown);
+  color: var(--dark-green);
+
+}
+
+.about p{
+
+   font-family: 'Lato', sans-serif;
+   text-transform: none;
+   font-size: 2.5rem;
+   text-align: left;
+
+}
+.about span{
+
+    font-weight: bold;
+    text-transform: none;
+    color: var(--dark-green);
+}
+
+ 
+.container {
+
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    background-color: var(--dark-green);
+    height: 9%;
+    justify-content: center;
+    flex-wrap: wrap;
+    width:100%;
+      
+     
+}
+  
+.item {
+
+    text-transform: none;
+    text-align: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: var(--milky-white);
+    animation: slide-up 1s ease-in;
+    transition: all 0.3s;
+    cursor: pointer;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  
+}
+  
+.container .item:hover{
+    color: var(--light-brown);
+     transform: translateY(-3px)
+   }
+/* media queries for web responsive */
+
+@media(max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 1.3rem 3rem;
+    }
+    .home .homeContent{
+        margin-left: 0;
+        width: 80%;
+    }
+    
+
+}
+ 
+@media (max-width: 768px){
+
+    #menu-bar{
+        display: inline-block;
+
+    }
+
+    header .navbar{
+         position: absolute;
+         top:100%;
+         right: 0;
+         width: 20rem;
+         color: var(--light-brown);
+         height: 18vh;
+         background-color: var(--dark-green);
+
+    }
+
+    header .navbar a{
+        display: block;
+        font-size: 2rem;
+        color: var(--light-brown) ;
+        margin: 1.5rem;
+
+    }
+    .home .homeContent{
+        margin-left: 0;
+        width: 90%;
+    }
+
+}
+
+@media (max-width:600px){
+    html{
+        font-size: 50%;
+    }
+}

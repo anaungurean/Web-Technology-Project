@@ -1,0 +1,194 @@
+@font-face {
+    font-family: CaligraphicFont;
+    src: url(../Fonts/font2.ttf);
+ }
+
+ @font-face {
+    font-family: BasicFont;
+    src: url(../Fonts/SimpleHandmade.otf);
+ }
+
+
+:root{
+
+    --light-green: #606C38;
+    --dark-green: #283618;
+    --milky-white: #FEFAE0;
+    --light-brown: #DDA15E;
+    --dark-brown: #BC6C25;
+}
+
+/* Apply basic styles to all elements */
+
+*{
+      margin:0; padding: 0;
+      box-sizing: border-box;
+      outline: none; 
+      border: none;
+      text-decoration: none;
+      transition: .2s linear;
+}
+
+/* Set font size on the root element */
+html{
+
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7em; 
+    overflow-x: hidden; 
+
+} 
+
+/* Add responsive styles for the header */
+header{
+
+    position: absolute;
+    top:0; left: 0; right: 0;
+    padding: 1.5rem 15%;
+    display: flex;
+    align-items: center ;
+    justify-content: space-between;
+    z-index: 999;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+
+}
+ 
+header .logo img{
+
+  display: flex;
+  align-items: center;
+  height: 4.5rem;
+
+}
+
+
+header .navbar a{
+
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    margin-right: 3rem;
+    padding: 0 1.5rem;
+    color: var(--light-green);
+
+ }
+
+
+header .navbar a:hover{
+
+       color: var(--light-brown);
+
+} 
+
+header .icon i {
+
+    font-size: 3rem;
+    margin-right: 2rem;
+    color : var(--light-green);
+    cursor: pointer;
+
+}
+
+ 
+  
+.welcomeText p{
+
+    display: flex;
+    margin-top: 10rem; /*responsive de modif */
+    justify-content: center;
+    font-size: 3rem;
+    font-family: BasicFont ;
+    font-weight: bold;
+ 
+}
+    
+
+.plants {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left:2.5rem;
+    margin-right:2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    gap: 5rem;
+
+}
+
+.plant {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 27%;
+    background-color: #F2F9F1    ;    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10%;
+
+}
+
+.plant:hover {
+
+    color: var(--milky-white) ;
+    background-color: var(--dark-green);
+  
+}
+
+.plant img{
+
+   width: 90%;
+   height: 90%;
+   border-radius: 10%;
+   margin-top: 1rem;
+  
+}
+
+
+.plant p{
+
+  font-size: 2.5rem;
+  font-family: CaligraphicFont;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+}
+
+
+button {
+
+  position: absolute;
+  margin-top: 2rem;
+  right: 10rem;
+  padding: 15px 35px;
+  font-family: BasicFont;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border: 3px solid #2F5C2F;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5s;
+ 
+}
+
+button::after {
+  
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 10px;
+  left: 10px;
+  background-color: var(--light-green);
+  border-radius: 8px;
+  z-index: -1;
+  transition: all 0.5s;
+ }
+
+button:hover::after {
+  top: 0;
+  left: 0;
+}
+
+ 
