@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HelpPage</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/HelpStyle.css">
+
+</head>
+
+<body>
+    <div>
+        <header class="header">
+          <nav>
+              <div class="logo">
+                  <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+              </div>
+              <input type="checkbox" id="menu-toggle">
+              <label for="menu-toggle" class="menu-icon">&#9776;</label>
+              <ul class="menu">
+                  <li><a href="#homePage"> Home </a></li>
+                  <li><a href="#aboutPage"> About </a></li>
+                  <li><a href="#helpPage"> Help </a></li>
+                  <li><a href="#contactPage"> Contact </a></li>
+              </ul>
+          </nav>
+        </header>
+
+        <div class="wrapper">
+
+            <h1>Frequently Asked Questions</h1>
+      
+            <div class="faq">
+              <button class="accordion">
+                I've forgotten my password and have been locked out of my HeMa account
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="pannel">
+                <p>Locked out of your HeMa account?</p>
+                <p> 1.Open the HeMa app</p>
+                <p> 2.On the main view of the app, tap "Sign in"</p>
+                <p> 3.Tap "Forgot password?"</p>
+                <p> 4.Enter the email address associated with your account</p>
+                <p> 5.Tap "Send" and you will receive an email with a link to reset your password (make sure you check the junk or spam folder)</p>
+              </div>
+            </div>
+      
+            <div class="faq">
+              <button class="accordion">
+                How can I add photos of my plants?
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="pannel">
+                <p>Here's how to add photos / images of your plants:</p>
+                <p> 1.Tap the plus button in the bottom right corner in the main page (to do-list) </p>
+                <p> 2.Select "Add task to a plant" </p>
+                <p> 3.Pick plant</p>
+                <p> 4.Tap button "Note & Picture"</p>
+                <p> 5.Take a new picture with your camera or select an image from your photo library</p>
+                <p> 6.Make sure "Use as plant head image" is selected</p>
+                <p> 7.Save!</p>
+              </div>
+            </div>
+      
+            <div class="faq">
+              <button class="accordion">
+                intrebarea 3
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="pannel">
+                <p>
+                  raspuns
+                </p>
+              </div>
+            </div>
+      
+            <div class="faq">
+              <button class="accordion">
+                intrebarea4
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="pannel">
+                <p>
+                  raspuns
+                </p>
+              </div>
+            </div>
+      
+            <div class="faq">
+              <button class="accordion">
+                intrebarea5
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="pannel">
+                <p>
+                  raspuns
+                </p>
+              </div>
+            </div>
+      
+            <div class="faq">
+              <button class="accordion">
+                intrebarea6
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="pannel">
+                <p>
+                  raspuns
+                </p>
+              </div>
+            </div>
+          </div>
+    
+          <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+        
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        </script>
+
+    </div>
+
+
+
+</body>
+
+</html>
