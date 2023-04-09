@@ -1,3 +1,8 @@
+@font-face {
+    font-family: BasicFont;
+    src: url(../Fonts/SimpleHandmade.otf);
+ }
+
 .fundal-image {
     background-image: url("../Images/ContactImages/fundal.jpg");
     background-position: center;
@@ -10,13 +15,20 @@
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    height: calc(100vh - 82px);
+    height: calc(100vh - 79px);
 }
 
 .title-text{
     display: flex;
     color: #283618;
     text-align: center;
+}
+
+.title-text p b{
+    font-size: 3rem;
+    font-family: BasicFont;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .first-part {
@@ -42,6 +54,11 @@
     gap: 5px;
 }
 
+.form-group label{
+    font-family: BasicFont;
+    font-size: 1.5rem;
+}
+
 .form-control{
     text-align: left;
     text-transform: none;
@@ -58,12 +75,18 @@
 }
 
 .btn {
-    transition: none;
+    border: none;
     color: #fff;
-    background-color: var(--light-green);;
-    border-radius: 15px;
     text-align: center;
-    padding: 5px;
+    padding: 0.313rem 0.625rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5rem;
+    transition-duration: 0.4s;
+    background-color: var(--light-green);
+    cursor:pointer;
+    border-radius: 0.938rem;
+    font-family: BasicFont;
 }
 
 .btn:hover {
@@ -72,9 +95,10 @@
     text-decoration: none;
 }
 
-@media screen and (max-width: 1900px) {
+@media screen and (max-width: 1400px) {
     .fundal-image{
         margin: auto;
+        height: auto;
     }
 
 }

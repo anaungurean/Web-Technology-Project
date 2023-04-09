@@ -1,9 +1,13 @@
+@font-face {
+  font-family: BasicFont;
+  src: url(../Fonts/SimpleHandmade.otf);
+}
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'DM Serif Display', sans-serif;
+  font-family: 'DM Serif Display', serif;
 }
 
 .wrapper {
@@ -17,7 +21,7 @@
 }
 
 .wrapper > h1 {
-  letter-spacing: 3px;
+  letter-spacing: 0.188rem;
 }
 
 .accordion {
@@ -25,6 +29,7 @@
   color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   font-size: 1.2rem;
+  font-family: 'DM Serif Display', serif;
   width: 100%;
   padding: 2rem 2.5rem;
   border: none;
@@ -55,11 +60,12 @@
   color: rgba(0, 0, 0, 0.7);
   font-size: 1.2rem;
   line-height: 1.4;
+  font-family: 'DM Serif Display', serif;
 }
 
 .faq {
   border: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 10px 0;
+  margin: 0.625rem 0;
 }
 .faq.active {
   border: none;
