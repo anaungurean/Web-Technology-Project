@@ -90,12 +90,21 @@ body {
     .w-md-25 {
         width: 25% !important;
     }
+
+    .w-md-40 {
+        width: 40% !important;
+    }
+
     .w-md-45 {
         width: 45% !important;
     }
 
     .w-md-50 {
         width: 50% !important;
+    }
+
+    .w-md-60 {
+        width: 60% !important;
     }
 
     .w-md-75 {
@@ -112,6 +121,10 @@ body {
     .w-lg-25 {
         width: 25% !important;
     }
+    
+    .w-lg-40 {
+        width: 40% !important;
+    }
 
     .w-lg-50 {
         width: 50% !important;
@@ -122,6 +135,64 @@ body {
     }
 
     .w-lg-100 {
+        width: 100% !important;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .w-xl-25 {
+        width: 25% !important;
+    }
+
+    .w-xl-30 {
+        width: 40% !important;
+    }
+    
+    .w-xl-40 {
+        width: 40% !important;
+    }
+
+    .w-xl-50 {
+        width: 50% !important;
+    }
+
+    .w-xl-75 {
+        width: 75% !important;
+    }
+
+    .w-xl-100 {
+        width: 100% !important;
+    }
+
+}
+
+@media (min-width: 1400px) {
+    .w-xxl-25 {
+        width: 25% !important;
+    }
+    
+    .w-xxl-30 {
+        width: 30% !important;
+    }
+
+    .w-xxl-40 {
+        width: 40% !important;
+    }
+
+    .w-xxl-50 {
+        width: 50% !important;
+    }
+
+    .w-xxl-60 {
+        width: 60% !important;
+    }
+
+    .w-xxl-75 {
+        width: 75% !important;
+    }
+
+    .w-xxl-100 {
         width: 100% !important;
     }
 
