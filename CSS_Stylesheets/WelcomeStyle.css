@@ -112,20 +112,6 @@ button {
     }
   }
 
-  @media screen and( min-width: 768px) and (max-width:1023px) 
-  {
-    .title-text p{
-        font-size: 15vw;
-        margin-top: 0rem;
-
-    }
-    button {
-
-        font-size: 5vw;
-        min-height: 10vw;
-        
-     }
-  } 
 
   @media screen and (max-width: 767px){
     .title-text p{
