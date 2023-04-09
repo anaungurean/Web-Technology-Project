@@ -1,0 +1,165 @@
+@font-face {
+    font-family: CaligraphicFont;
+    src: url(../Fonts/font2.ttf);
+ }
+
+ @font-face {
+    font-family: BasicFont;
+    src: url(../Fonts/SimpleHandmade.otf);
+ }
+
+.image-backgroud {
+    background-image: url("../Images/AddPlantImages/Background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+ }
+
+.main-container{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    height: calc(100vh - 78px);
+}
+
+.user-profile-card {
+    flex-wrap: wrap;
+    border: 0.063rem solid #ccc;
+    border-radius: 0.313rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    margin: 1.25rem auto;
+    padding: 1.25rem;
+    background-color: #fff;
+}
+
+.row{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+
+
+
+.photo-profile {
+    margin-top: 0.938rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.title {
+   text-align: center;
+   font-weight: bold ;
+}
+
+.title p{
+    font-size: 2rem;
+
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.875rem;
+    margin-left: 3.125rem;
+    margin-right: 3.125rem;
+
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.313rem;
+    margin-bottom: 2rem;
+}
+
+
+
+.form-group p {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-family: BasicFont;
+    font-size: 1.3rem;
+}
+
+label {
+    font-size: 1.5rem;
+    font-family: BasicFont;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.063rem solid #ccc;
+    font-size: 1rem;
+    font-family:BasicFont;
+    font-size: 1.25rem;
+}
+
+.container-buttons{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.button1 {
+    border: none;
+    color: #fff;
+    text-align: center;
+    padding: 0.313rem 0.625rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    background-color: var(--light-green);
+    cursor:pointer;
+    border-radius: 0.938rem;
+    font-family: BasicFont;
+}
+
+.button1:hover {
+    color: #ffff;
+    background-color: #283618;
+}
+
+.button2 {
+    border: none;
+    color: #fff;
+    text-align: center;
+    padding: 0.313rem 0.625rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    background-color: var(--light-green);
+    cursor:pointer;
+    border-radius: 0.938rem;
+    font-family: BasicFont;
+}
+
+.button2:hover {
+    color: #ffff;
+    background-color: #283618;
+}
+
+
+
+
+@media screen and (max-width: 118.75rem) {
+    .image-backgroud{
+        margin: auto;
+        height: auto;
+    }
+
+    .logo-image {
+        margin: auto;
+        height: auto;
+    }
+
+}
