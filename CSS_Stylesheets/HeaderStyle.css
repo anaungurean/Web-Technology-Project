@@ -43,6 +43,7 @@ nav {
     transition: 0.2s all ease-in-out;
     color: var(--dark-green);
     font-family: 'DM Serif Display', serif;
+    font-weight: bold;
     font-size: 1.3rem;
 }
 
