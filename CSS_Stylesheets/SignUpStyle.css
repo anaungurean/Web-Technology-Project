@@ -157,6 +157,12 @@ body {
     color: var(--light-green);
   }
 
+  .btn a {
+    color: var(--light-brown);
+    text-decoration: none;
+
+  }
+
   @media screen and (max-width: 767px) {
     .left-section{
      flex-grow: 0.5;
