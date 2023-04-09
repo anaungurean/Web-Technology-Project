@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/HomePage.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+
+    <title>HomePage</title>
+
+    <script>
+        function findPlants() {
+            window.location.href = "PageInProgress.html";
+            }
+    </script>
+    <script>
+        function addPlants() {
+        window.location.href = "PageInProgress.html";
+        }
+    </script>
+    <script>
+        function myGarden() {
+            window.location.href = "MyGarden.html";
+            }
+    </script>
+    <script>
+        function myProfile() {
+        window.location.href = "PageInProgress.html";
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu">
+                <li><a href="HomePage.html"> Home </a></li>
+                <li><a href="About.html"> About </a></li>
+                <li><a href="Help.html"> Help </a></li>
+                <li><a href="Contact.html"> Contact </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="user-options">
+
+            <div class="option" onclick="findPlants()">
+                <div class="option-name">
+                    <p>FIND PLANTS</p>
+                </div>
+                <div class="icon">
+                    <img class="icon-svg" src="../Images/HomePageImages/potted-plant.svg" alt="image">
+                </div>
+            </div>
+
+            <div class="option" onclick="addPlants()">
+                <div class="option-name">
+                    <p>ADD PLANTS TO MY GARDEN</p>
+                </div>
+                <div class="icon">
+                    <img class="icon-svg" src="../Images/HomePageImages/potted-plant-fill.svg" alt="image">
+                </div>
+            </div>
+
+            <div class="option" onclick="myGarden()">
+                <div class="option-name">
+                    <p>MY GARDEN</p>
+                </div>
+                <div class="icon">
+                    <img class="icon-svg" src="../Images/HomePageImages/plant-fill.svg" alt="image">
+                </div>
+            </div>
+
+            <div class="option" onclick="myProfile()">
+                <div class="option-name">
+                    <p>MY PROFILE</p>
+                </div>
+                <div class="icon">
+                    <img class="icon-svg" src="../Images/HomePageImages/profile-circle.svg" alt="image">
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+   
+
+</body>
+
+
+
+</html>
