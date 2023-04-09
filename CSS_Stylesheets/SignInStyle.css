@@ -161,7 +161,13 @@ body {
   }
 
   .sign-up a {
-    color: var(--light-green)
+    color: var(--light-green);
+  }
+
+  .btn a {
+    color: var(--light-brown);
+    text-decoration: none;
+
   }
 
   @media screen and (max-width: 767px) {
