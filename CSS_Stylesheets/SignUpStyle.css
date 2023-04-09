@@ -123,16 +123,21 @@ body {
     margin-top: 1em;
 
     width: 7em;
-    height: 2.2em;
+    height: 2em;
 
 
     font-weight: bold;
     letter-spacing: 0.1em;
     font-size: 1.1em;
+    text-decoration: none;
 
     transition: .4s ease-in-out opacity,.1s ease-in-out;
 
     cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
   }
   
