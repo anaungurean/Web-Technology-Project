@@ -29,73 +29,19 @@
       transition: .2s linear;
 }
 
-/* Set font size on the root element */
-html{
+ html{
 
-    font-size: 62.5%;
-    scroll-behavior: smooth;
+     scroll-behavior: smooth;
     scroll-padding-top: 7em; 
     overflow-x: hidden; 
 
 } 
 
-/* Add responsive styles for the header */
-header{
-
-    position: absolute;
-    top:0; left: 0; right: 0;
-    padding: 1.5rem 15%;
-    display: flex;
-    align-items: center ;
-    justify-content: space-between;
-    z-index: 999;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
-
-}
- 
-header .logo img{
-
-  display: flex;
-  align-items: center;
-  height: 4.5rem;
-
-}
-
-
-header .navbar a{
-
-    font-family: 'DM Serif Display', serif;
-    font-size: 3rem;
-    margin-right: 3rem;
-    padding: 0 1.5rem;
-    color: var(--light-green);
-
- }
-
-
-header .navbar a:hover{
-
-       color: var(--light-brown);
-
-} 
-
-header .icon i {
-
-    font-size: 3rem;
-    margin-right: 2rem;
-    color : var(--light-green);
-    cursor: pointer;
-
-}
-
- 
-  
 .welcomeText p{
 
     display: flex;
-    margin-top: 10rem; /*responsive de modif */
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: BasicFont ;
     font-weight: bold;
  
@@ -146,7 +92,7 @@ header .icon i {
 
 .plant p{
 
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   font-family: CaligraphicFont;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -156,12 +102,11 @@ header .icon i {
 
 button {
 
-  position: absolute;
+  position: relative;
   margin-top: 2rem;
-  right: 10rem;
   padding: 15px 35px;
   font-family: BasicFont;
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   font-weight: bold;
   color: white;
   background-color: transparent;
@@ -191,3 +136,29 @@ button:hover::after {
   left: 0;
 }
 
+@media screen and (max-width: 767px){
+
+  .plant p{
+
+    font-size: 5vw;
+    font-family: CaligraphicFont;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  
+  }
+
+  .welcomeText p{
+    font-size: 1rem;
+ 
+   }
+
+.plants {
+
+  margin-left:1.5rem;
+  margin-right:1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+
+}
+} 
