@@ -1,0 +1,30 @@
+<?php
+
+namespace Application\Model;
+
+use Application\Database\DatabaseHandler;
+
+class UserModel extends DatabaseHandler
+{
+    private $pdo;
+
+    public function __construct()
+    {
+        $this->pdo = $this->getConn();
+    }
+
+    public function isUserExists($email, $username)
+    {
+        $stmt = $this->pdo->prepare('SELECT id FROM users WHERE email = ? OR username = ?');
+        $stmt->execute([$email, $username]);
+        $rowCount = $stmt->rowCount();
+        return $rowCount > 0;
+    }
+
+    public function registerUser($email, $username, $password)
+    {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $this->pdo->prepare('INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)');
+        $stmt->execute([$email, $username, $hashedPassword]);
+    }
+}
