@@ -31,5 +31,21 @@ class UserDAO
 
         return $stmt->fetch() !== false;
     }
+
+    public function checkLogin($username, $password) {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt->execute([$username]);
+
+        $user = $stmt->fetch();
+
+        if ($user && password_verify($password, $user['password_hash'])) {
+            // Parola este corectă
+            return true;
+        } else {
+            // Autentificare eșuată
+            return false;
+        }
+    }
+
 }
 ?>
