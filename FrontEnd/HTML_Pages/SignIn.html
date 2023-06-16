@@ -31,12 +31,13 @@
 
             <div class="right-section">
 
-                <form class="form">
+                <form class="form" id="login-form">
                     <p class="heading">SIGN IN</p>
-                    <input placeholder="Username" class="input" type="text">
-                    <input placeholder="Password" class="input" type="password">
+                    <input id="username-input" placeholder="Username" class="input" type="text">
+                    <input id="password-input" placeholder="Password" class="input" type="password">
                     <a class="forgot-password" href="#forgotPass">Forgot password?</a>
-                    <a class="btn" href="HomePage.html">Submit</a>
+                    <button class="btn" type="submit" id="submit-button">Submit</button>
+                    <div id="response-message"></div>
                     <p class="sign-up"> Don't have an account? <a href="SignUp.html">Sign Up</a></p>
                 </form>
 
@@ -46,5 +47,8 @@
     </main> 
 
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../Scripts/Login.js"></script>
 
 </html>
