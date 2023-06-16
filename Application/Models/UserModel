@@ -1,30 +1,34 @@
 <?php
-
-namespace Application\Model;
-
-use Application\Database\DatabaseHandler;
-
-class UserModel extends DatabaseHandler
-{
+class User {
     private $pdo;
 
-    public function __construct()
-    {
-        $this->pdo = $this->getConn();
+    public function __construct($pdo) {
+        $this->pdo = $pdo;
     }
 
-    public function isUserExists($email, $username)
-    {
-        $stmt = $this->pdo->prepare('SELECT id FROM users WHERE email = ? OR username = ?');
-        $stmt->execute([$email, $username]);
-        $rowCount = $stmt->rowCount();
-        return $rowCount > 0;
+    public function isEmailUnique($email) {
+        $stmt = $this->pdo->prepare('SELECT COUNT(*) FROM users WHERE email = ?');
+        $stmt->execute([$email]);
+        return $stmt->fetchColumn() == 0;
     }
 
-    public function registerUser($email, $username, $password)
-    {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $this->pdo->prepare('INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)');
-        $stmt->execute([$email, $username, $hashedPassword]);
+    public function isUsernameUnique($username) {
+        $stmt = $this->pdo->prepare('SELECT COUNT(*) FROM users WHERE username = ?');
+        $stmt->execute([$username]);
+        return $stmt->fetchColumn() == 0;
+    }
+
+    public function createUser($email, $username, $password) {
+        if ($this->isEmailUnique($email) && $this->isUsernameUnique($username)) {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            $stmt = $this->pdo->prepare('INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)');
+            $stmt->execute([$email, $username, $hashedPassword]);
+
+            return $stmt->rowCount() > 0;
+        }
+
+        return false;
     }
 }
+?>

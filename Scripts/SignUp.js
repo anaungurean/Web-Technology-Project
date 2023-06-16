@@ -16,7 +16,7 @@ $(document).ready(function () {
 
         // Send an AJAX request to the API
         $.ajax({
-            url: 'signup_api.php',
+            url: '../Application/Controllers/SignUpController.php',
             method: 'POST',
             data: data,
             dataType: 'json',

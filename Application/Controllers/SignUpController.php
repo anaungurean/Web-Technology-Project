@@ -1,20 +1,10 @@
 <?php
 // Retrieve the form data from the AJAX request
-$email = isset($_POST['email']) ? $_POST['email'] : '';
-$username = isset($_POST['username']) ? $_POST['username'] : '';
-$password = isset($_POST['password']) ? $_POST['password'] : '';
+$email = $_POST['email'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-// Validate the form data
-if (empty($email) || empty($username) || empty($password)) {
-    // Form data is incomplete
-    $response = array(
-        'success' => false,
-        'message' => 'Please fill in all the required fields.'
-    );
-    header('Content-Type: application/json');
-    echo json_encode($response);
-    exit;
-}
+// Validate the form data (you can add your own validation logic here)
 
 // Create a new PDO instance (replace the database credentials with your own)
 $dsn = 'mysql:host=localhost;dbname=hemadatabase;charset=utf8mb4';
