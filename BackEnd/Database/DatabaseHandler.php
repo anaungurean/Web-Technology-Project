@@ -7,7 +7,7 @@
     private function __construct()
     {
         // Perform the database connection here
-        $this->connection = new PDO("mysql:host=localhost;dbname=hemadatabase", "root", "");
+        $this->connection = new PDO("mysql:host=localhost;dbname=webdb", "root", "");
     }
 
     public static function getInstance()
