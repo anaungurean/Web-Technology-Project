@@ -10,15 +10,19 @@ class UserDAO
         $this->db = DatabaseConnection::getInstance()->getConnection();
     }
 
-    public function createUser(User $user)
+   public function createUser(User $user)
     {
-        $email = $user->getEmail();
-        $username = $user->getUsername();
-        $password = $user->getPassword();
+    $email = $user->getEmail();
+    $username = $user->getUsername();
+    $password = $user->getPassword();
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $this->db->prepare("INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)");
-        $stmt->execute([$email, $username, $password]);
+    $stmt = $this->db->prepare("INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)");
+    $success = $stmt->execute([$email, $username, $hashedPassword]);
+
+    return $success;
     }
+
 
     public function checkExistingUser($email, $username)
     {
