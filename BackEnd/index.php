@@ -1,10 +1,10 @@
 <?php
- if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle the AJAX request
     $email = $_POST['email'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    
+
     // Include necessary files and classes
     require_once '../BackEnd/UserDAO';
     require_once '../BackEnd/Models/UserModel';
@@ -15,10 +15,5 @@
     $controller = new SignUpController();
     $response = $controller->signUpUser($email, $username, $password);
 
-    // Send the response as JSON
-    header('Content-Type: application/json');
-    echo json_encode($response);
-    exit;
-}
-
-?>
+    echo ($response);
+ }
