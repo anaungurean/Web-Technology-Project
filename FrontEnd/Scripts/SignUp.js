@@ -16,24 +16,19 @@ $(document).ready(function () {
 
         // Send an AJAX request to the API
         $.ajax({
-            url: '../Application/Controllers/SignUpController.php',
+            url: '../../BackEnd/index.php',
             method: 'POST',
             data: data,
             dataType: 'json',
-            success: function (response) {
-                if (response.success) {
-                    // User registered successfully
-                    alert(response.message);
-                    // Perform any further actions or redirect the user as needed
-                } else {
-                    // User registration failed
-                    alert(response.message);
-                }
-            },
-            error: function (xhr, status, error) {
-                // Handle any errors that occur during the AJAX request
-                console.log(error);
-            }
+             success: function (response) {
+    try {
+        var parsedResponse = JSON.parse(response);
+        // Handle the parsed response here
+    } catch (error) {
+        console.log("Error parsing JSON response: " + error);
+    }
+}
+
         });
     });
 });

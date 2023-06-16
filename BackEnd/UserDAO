@@ -1,0 +1,31 @@
+<?php
+require_once '../BackEnd/Database/DatabaseHandler.php';  
+
+class UserDAO
+{
+    private $db;
+
+    public function __construct()
+    {
+        $this->db = DatabaseConnection::getInstance()->getConnection();
+    }
+
+    public function createUser(User $user)
+    {
+        $email = $user->getEmail();
+        $username = $user->getUsername();
+        $password = $user->getPassword();
+
+        $stmt = $this->db->prepare("INSERT INTO users (email, username, password_hash) VALUES (?, ?, ?)");
+        $stmt->execute([$email, $username, $password]);
+    }
+
+    public function checkExistingUser($email, $username)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE email = ? OR username = ?");
+        $stmt->execute([$email, $username]);
+
+        return $stmt->fetch() !== false;
+    }
+}
+?>
