@@ -1,8 +1,5 @@
 <?php
 
-require_once '../BackEnd/UserDAO'; // Assuming it's a PHP file
-require_once '../BackEnd/Models/UserModel'; // Assuming it's a PHP file
-
 class SignUpController {
 
     public function signUpUser($email, $username, $password) {
@@ -23,7 +20,7 @@ class SignUpController {
                 'message' => 'User already exists.'
             ];
         } else {
-            // Call the UserDAO class to handle the user registration
+            
             $success = $userDAO->createUser($user);
 
             if ($success) {
