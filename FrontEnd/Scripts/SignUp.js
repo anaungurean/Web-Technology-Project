@@ -1,13 +1,13 @@
-$(document).ready(function () {
-  $('#signup-form').submit(function (event) {
-    event.preventDefault();  
+document.addEventListener('DOMContentLoaded', function () {
+  var signupForm = document.getElementById('signup-form');
+  signupForm.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    var email = $('#email-input').val();
-    var username = $('#username-input').val();
-    var password = $('#password-input').val();
-    var confirmPassword = $('#confirm-password-input').val();
-  
- 
+    var email = document.getElementById('email-input').value;
+    var username = document.getElementById('username-input').value;
+    var password = document.getElementById('password-input').value;
+    var confirmPassword = document.getElementById('confirm-password-input').value;
+
     if (!isValidEmail(email)) {
       displayMessage('Invalid email format.');
       return;
@@ -23,47 +23,47 @@ $(document).ready(function () {
       return;
     }
 
-    // Create the data object to be sent to the API
-    var data = {
+    var requestBody = JSON.stringify({
       email: email,
       username: username,
       password: password
-    };
-
-    // Send an AJAX request to the API
-    $.ajax({
-      url: '../../BackEnd/index.php',
-      method: 'POST',
-      data: data,
-      dataType: 'json', 
-      success: function(response) {
-     
-        if (response && response.success) {
-           window.location.href = '..//HTML_Pages/SignIn.html';
-        } else if (response && response.message) {
-           displayMessage(response.message);
-        } else {
-           displayMessage('An unexpected error occurred.');
-        }
-      },
-      error: function(xhr, status, error) {
-         displayMessage('An error occurred: ' + error);
-      }
     });
+
+    fetch('http://localhost/TW/BackEnd/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: requestBody
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        if (data.Result === 'User already exists') {
+          displayMessage('User already exists.');
+        } else if (data.Result === 'User created successfully') {
+          displayMessage('User created successfully.');
+        } else {
+          displayMessage('Unknown response from the server.');
+        }
+      })
+      .catch(function (error) {
+        console.error('Error:', error);
+      });
   });
+
+  function isValidEmail(email) {
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  function isEmpty(value) {
+    return value.trim() === '';
+  }
+
+  function displayMessage(message) {
+    var responseMessage = document.getElementById('response-message');
+    responseMessage.innerHTML = '<p>' + message + '</p>';
+  }
 });
-
-
-
-function isValidEmail(email) {
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-function isEmpty(value) {
-  return value.trim() === '';
-}
-
-function displayMessage(message) {
-  $('#response-message').html('<p>' + message + '</p>');
-}
