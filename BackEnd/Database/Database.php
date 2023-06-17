@@ -7,7 +7,7 @@
     private function __construct()
     {
         // Perform the database connection here
-        $this->conn = new mysqli('localhost', 'root','', 'webdb');
+        $this->conn = new mysqli('localhost', 'root','', 'hemadatabase');
 
     if (!$this->conn) {
         trigger_error("Could not connect to database: " . mysqli_connect_error(), E_USER_ERROR);
