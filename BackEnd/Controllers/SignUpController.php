@@ -29,33 +29,50 @@ class SignUpController {
     }
 
 
-    private function createUserFromRequest(): array
-    {
-        $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
-        $response['content_type_header'] = 'Content-Type: application/json';
+ private function createUserFromRequest(): array
+{
+    $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
+    $response['content_type_header'] = 'Content-Type: application/json';
 
-        $input = (array) json_decode(file_get_contents('php://input'), TRUE);
+    $input = (array) json_decode(file_get_contents('php://input'), TRUE);
 
-
-        if (!$this->validateUser($input)) {
-            return $this->unprocessableEntityResponse();
-        }
-        $user = new User($input['email'], $input['username'], $input['password']);
-
-        if(!($this->userDAO->findByEmail($user->getEmail())))
-        {
-            $this->userDAO->createUser($user);
-            $response['status_code_header'] = 'HTTP/1.1 201 Created';
-            $response['body'] = json_encode(array("Result"=>"User created successfully"));
-        }
-        else
-        {
-            $response['status_code_header'] = 'HTTP/1.1 409 Conflict';
-            $response['body'] = json_encode(array("Result"=>"User exist"));
-        }
-
-        return $response;
+    if (!$this->validateUser($input)) {
+        return $this->unprocessableEntityResponse();
     }
+
+    $user = new User($input['email'], $input['username'], $input['password']);
+
+    if ($this->userDAO->checkExistingUser($user->getEmail(), $user->getUsername())) {
+
+        $response['status_code_header'] = 'HTTP/1.1 409 Conflict';
+        $response['body'] = json_encode(array(
+            "Result" => "User already exists",));
+
+    } else {
+        $this->userDAO->createUser($user);
+        $response['status_code_header'] = 'HTTP/1.1 201 Created';
+        $response['body'] = json_encode(array(
+            "Result" => "User created successfully",));
+    }
+
+    return $response;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private function validateUser(array $input): bool
     {

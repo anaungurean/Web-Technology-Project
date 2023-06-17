@@ -49,55 +49,51 @@ class UserDAO
     }
 
 
-    public function findByUsername($username)
-    {
-        try {
-            $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE username = ?");
-            $statement->bind_param("s", $username);
-            $statement->execute();
-            $statement->store_result();
-            $id = null;
-            $email = null;
-            $username = null;
-            $password = null;
-            $statement->bind_result($id, $email, $username, $password);
-            $statement->fetch();
-            return new User($email, $username, $password);
-        } catch (PDOException $e) {
-            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
-        }
+   public function findByUsername($username)
+{
+    try {
+        $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE username = ?");
+        $statement->bind_param("s", $username);
+        $statement->execute();
+        $statement->store_result();
+        $count = $statement->num_rows;
+        $statement->close();
+        return ($count > 0);
+    } catch (PDOException $e) {
+        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
     }
+}
 
-    public function findByEmail($email)
-    {
-        try {
-            $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE email = ?");
-            $statement->bind_param("s", $email);
-            $statement->execute();
-            $statement->store_result();
-            $id = null;
-            $email = null;
-            $username = null;
-            $password = null;
-            $statement->bind_result($id, $email, $username, $password);
-            $statement->fetch();
-            return new User($email, $username, $password);
-        } catch (PDOException $e) {
-            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
-        }
+public function findByEmail($email)
+{
+    try {
+        $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE email = ?");
+        $statement->bind_param("s", $email);
+        $statement->execute();
+        $statement->store_result();
+        $count = $statement->num_rows;
+        $statement->close();
+        return ($count > 0);
+    } catch (PDOException $e) {
+        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
     }
+}
+
 
     public function checkExistingUser($email, $username): bool
     {
         $existingUserByEmail = $this->findByEmail($email);
         $existingUserByUsername = $this->findByUsername($username);
     
-        if ($existingUserByEmail !== null || $existingUserByUsername !== null) {
+        if ($existingUserByEmail || $existingUserByUsername ) {
             return true; // Utilizatorul există deja
         } else {
             return false; // Utilizatorul nu există
         }
     }
+
+
+
 
     public function checkLogin($username, $password) {
         $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ?");
