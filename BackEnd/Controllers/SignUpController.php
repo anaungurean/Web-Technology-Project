@@ -1,46 +1,94 @@
 <?php
-
 class SignUpController {
+    private $requestMethod;
+    private $request;
+    private $userDAO;
 
-    public function signUpUser($email, $username, $password) {
-        // Create a new instance of User
-        $user = new User();
-        $user->setEmail($email);
-        $user->setUsername($username);
-        $user->setPassword($password);
+    public function __construct($requestMethod, $request)
+    {
+        $this->requestMethod = $requestMethod;
+        $this->request = $request;
+        $this->userDAO = new UserDAO();
+    }
 
-        // Call the UserDAO class to check for existing user
-        $userDAO = new UserDAO();
-        $existingUser = $userDAO->checkExistingUser($email, $username);
+    public function processRequest(): void
+    {
+        switch ($this->requestMethod) {
+            case 'POST':
+                $response = $this->createUserFromRequest();
+                break;
+            default:
+                $response = $this->notFoundResponse();
+                break;
+        }
+        header($response['status_code_header']);
+        header($response['content_type_header']);
+        if ($response['body']) {
+            echo $response['body'];
+        }
+    }
 
-        if ($existingUser) {
-            // User already exists
-            $response = [
-                'success' => false,
-                'message' => 'User already exists.'
-            ];
-        } else {
-            
-            $success = $userDAO->createUser($user);
 
-            if ($success) {
-                // Registration successful
-                $response = [
-                    'success' => true,
-                    'message' => 'User registered successfully!'
-                ];
-            } else {
-                // Registration failed
-                $response = [
-                    'success' => false,
-                    'message' => 'Failed to register user.'
-                ];
-            }
+    private function createUserFromRequest(): array
+    {
+        $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
+        $response['content_type_header'] = 'Content-Type: application/json';
+
+        $input = (array) json_decode(file_get_contents('php://input'), TRUE);
+
+
+        if (!$this->validateUser($input)) {
+            return $this->unprocessableEntityResponse();
+        }
+        $user = new User($input['email'], $input['username'], $input['password']);
+
+        if(!($this->userDAO->findByEmail($user->getEmail())))
+        {
+            $this->userDAO->createUser($user);
+            $response['status_code_header'] = 'HTTP/1.1 201 Created';
+            $response['body'] = json_encode(array("Result"=>"User created successfully"));
+        }
+        else
+        {
+            $response['status_code_header'] = 'HTTP/1.1 409 Conflict';
+            $response['body'] = json_encode(array("Result"=>"User exist"));
         }
 
-        // Send the response as JSON
-        echo json_encode($response);
+        return $response;
     }
-}
 
-?>
+    private function validateUser(array $input): bool
+    {
+        if (!isset($input['email'])) {
+            return false;
+        }
+        if (!isset($input['username'])) {
+            return false;
+        }
+        if (!isset($input['password'])) {
+            return false;
+        }
+        return true;
+    }
+
+
+    private function notFoundResponse(): array
+    {
+        $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
+        $response['content_type_header'] = 'Content-Type: application/json';
+        $response['body'] = json_encode(array("Result"=>"Not Found"));
+        return $response;
+    }
+
+
+    private function unprocessableEntityResponse(): array
+    {
+        $response['status_code_header'] = 'HTTP/1.1 422 Unprocessable Entity';
+        $response['body'] = json_encode([
+            'error' => 'Invalid input'
+        ]);
+        return $response;
+    }
+
+
+}
