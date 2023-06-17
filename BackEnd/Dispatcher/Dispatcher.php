@@ -4,8 +4,6 @@ class Dispatcher{
     public static function dispatch($requestMethod, $request) : void{
         $authController = new AuthController($requestMethod);
 
-//        echo $request[0];
-
         switch($request[0]){
             case 'register':
                 $controller = new SignUpController($requestMethod, $request);

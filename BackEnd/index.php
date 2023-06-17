@@ -1,7 +1,7 @@
 <?php
 
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . 'phpMyAdmin\vendor\autoload.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/TW/vendor/autoload.php');
 
 include_once "../BackEnd/Controllers/SignUpController.php";
 include_once "../BackEnd/Controllers/AuthController.php";

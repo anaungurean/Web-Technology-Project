@@ -64,6 +64,26 @@ class UserDAO
     }
 }
 
+public function findByUsernameAndPassword($username, $password)
+{
+    try {
+        $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE username = ?");
+        $statement->bind_param("s", $username);
+        $statement->execute();
+        $result = $statement->get_result();
+        $user = $result->fetch_assoc();
+
+        if ($user && password_verify($password, $user['password_hash'])) {
+             return true;
+        } else {
+             return false;
+        }
+    } catch (PDOException $e) {
+        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+    }
+}
+
+
 public function findByEmail($email)
 {
     try {
@@ -86,27 +106,22 @@ public function findByEmail($email)
         $existingUserByUsername = $this->findByUsername($username);
     
         if ($existingUserByEmail || $existingUserByUsername ) {
-            return true; // Utilizatorul există deja
+            return true; 
         } else {
-            return false; // Utilizatorul nu există
+            return false;  
         }
     }
 
 
 
-
     public function checkLogin($username, $password) {
-        $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ?");
-        $stmt->execute([$username]);
 
-        $user = $stmt->fetch();
-
-        if ($user && password_verify($password, $user['password_hash'])) {
-            // Parola este corectă
-            return true;
+        $existingUser = $this->findByUsernameAndPassword($username, $password);
+    
+        if ($existingUser) {
+            return true;  
         } else {
-            // Autentificare eșuată
-            return false;
+            return false;  
         }
     }
 

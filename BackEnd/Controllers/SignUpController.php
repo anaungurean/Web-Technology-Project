@@ -40,7 +40,13 @@ class SignUpController {
         return $this->unprocessableEntityResponse();
     }
 
-    $user = new User($input['email'], $input['username'], $input['password']);
+    // $user = new User($input['email'], $input['username'], $input['password']);
+    
+      $user = new User();
+      $user -> setEmail($input['email']);
+      $user -> setUsername($input['username']);
+      $user -> setPassword($input['password']);
+
 
     if ($this->userDAO->checkExistingUser($user->getEmail(), $user->getUsername())) {
 
@@ -57,20 +63,6 @@ class SignUpController {
 
     return $response;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
