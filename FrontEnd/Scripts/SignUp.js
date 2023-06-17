@@ -41,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(function (data) {
         if (data.Result === 'User already exists') {
-          displayMessage('User already exists.');
+          displayMessage('The email or the username is already used.');
         } else if (data.Result === 'User created successfully') {
-          displayMessage('User created successfully.');
+            window.location.href = '../HTML_Pages/SignIn.html';
         } else {
           displayMessage('Unknown response from the server.');
         }

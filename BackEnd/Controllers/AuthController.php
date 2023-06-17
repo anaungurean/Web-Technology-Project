@@ -9,6 +9,7 @@ class AuthController
     private $requestMethod;
     private $secret_Key  = '%aaSWvtJ98os_b<IQ_c$j<_A%bo_[xgct+j$d6LJ}^<pYhf+53k^-R;Xs<l%5dF';
     private $domainName = "https://127.0.0.1";
+    private $userDAO;
 
     /**
      * @param $requestMethod
@@ -16,15 +17,18 @@ class AuthController
     public function __construct($requestMethod)
     {
         $this->requestMethod = $requestMethod;
+        $this->userDAO = new UserDAO();
+
     }
     
-    public function processRequest() {
+    public function processRequest(): void {
+
         switch ($this->requestMethod) {
             case 'POST':
-                $response = $this->createJWT();
+                $response = $this->signIn();
                 break;
             default:
-
+                $response = $this->notFoundResponse();
                 break;
         }
 
@@ -35,13 +39,56 @@ class AuthController
         }
     }
 
-    private function createJWT() {
+
+
+    private function signIn() : array{
+
+      $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
+      $response['content_type_header'] = 'Content-Type: application/json';
+
+       $input = (array) json_decode(file_get_contents('php://input'), TRUE);
+
+    if (!$this->validateUser($input)) {
+        return $this->unprocessableEntityResponse();
+    }
+
+      $user = new User();
+      $user -> setUsername($input['username']);
+      $user -> setPassword($input['password']);
+
+
+     if($this->userDAO->checkLogin($user->getUsername(), $user->getPassword())){
+       
+        $jwtResponse = $this->createJWT($user->getUsername(), $user->getPassword());
+        // $response['status_code_header'] = $jwtResponse['status_code_header'];
+        // $response['content_type_header'] = $jwtResponse['content_type_header'];
+        // $response['body'] = $jwtResponse['body'];
+        
+         $jwt = $jwtResponse['body'];
+        $response['body'] = json_encode(array(
+            "jwt" => $jwt,
+            "message" => "Authentication successful"
+        ));
+
+
+
+     }
+     else{
+          $response['status_code_header'] = 'HTTP/1.1 401 No-authorized';
+          $response['body'] = json_encode(array(
+            "Result" => "Invalid info." ));
+     }
+
+       return $response;
+
+    }
+
+    private function createJWT($username, $password) {
+
         $secret_Key = $this -> secret_Key;
         $date   = new DateTimeImmutable();
         $expire_at     = $date->modify('+6 minutes')->getTimestamp();
         $domainName = $this -> domainName;
-        $username   = "username";
-        $password   = "password";
         $request_data = [
             'iat'  => $date->getTimestamp(),         // ! Issued at: time when the token was generated
             'iss'  => $domainName,                   // ! Issuer
@@ -60,9 +107,21 @@ class AuthController
         );
 
         return $response;
+
     }
 
-    function checkJWTExistance () {
+        private function validateUser(array $input): bool
+    {
+        if (!isset($input['username'])) {
+            return false;
+        }
+        if (!isset($input['password'])) {
+            return false;
+        }
+        return true;
+    }
+
+    function checkJWTExistence () {
         // Check JWT
         if (! preg_match('/Bearer\s(\S+)/', $this -> getAuthorizationHeader(), $matches)) {
             header('HTTP/1.0 400 Bad Request');
@@ -108,6 +167,23 @@ class AuthController
             header('HTTP/1.1 401 Unauthorized');
             exit;
         }
+    }
+
+    private function unprocessableEntityResponse(): array
+    {
+        $response['status_code_header'] = 'HTTP/1.1 422 Unprocessable Entity';
+        $response['body'] = json_encode([
+            'error' => 'Invalid input'
+        ]);
+        return $response;
+    }
+
+        private function notFoundResponse(): array
+    {
+        $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
+        $response['content_type_header'] = 'Content-Type: application/json';
+        $response['body'] = json_encode(array("Result"=>"Not Found"));
+        return $response;
     }
 
 }

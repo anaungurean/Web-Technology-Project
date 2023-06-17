@@ -1,51 +1,53 @@
-$(document).ready(function() {
-    $('#login-form').submit(function(event) {
-        event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+  var loginForm = document.getElementById('login-form');
+  loginForm.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-        var username = $('#username-input').val();
-        var password = $('#password-input').val();
+    var username = document.getElementById('username-input').value;
+    var password = document.getElementById('password-input').value;
 
-        if (isEmpty(username) || isEmpty(password)) {
-            displayMessage('Username and password cannot be empty.');
-            return;
-        }
+    if (isEmpty(username) || isEmpty(password)) {
+      displayMessage('Username and password cannot be empty.');
+      return;
+    }
 
-        // Create the data object to be sent to the API
-        var data = {
-            username: username,
-            password: password
-        };
-
-        // Send an AJAX request to the API
-        $.ajax({
-            url: '../../BackEnd/index2.php',
-            method: 'POST',
-            data: data,
-            dataType: 'json',
-            success: function(response) {
-                if (response && response.success) {
-                    window.location.href = '..//HTML_Pages/HomePage.html';
-                } else if (response && response.message) {
-                    displayMessage(response.message);
-                } else {
-                    displayMessage('An unexpected error occurred.');
-                }
-            },
-            error: function(xhr, status, error) {
-                displayMessage('An error occurred: ' + error);
-            }
-        });
+   var requestBody = JSON.stringify({
+       username: username,
+      password: password
     });
+
+ 
+    fetch('http://localhost/TW/BackEnd/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: requestBody
+    })
+      .then(function (response) {
+        return response.json();
+      })
+    
+      .then(function (data) {
+        if (data.Result === 'Invalid info.') {
+          displayMessage('The username or the password is not correct.');
+        } else   {
+             window.location.href = '../HTML_Pages/HomePage.html';
+         }  
+      })
+      .catch(function (error) {
+        console.error('Error:', error);
+      });
+      
+  });
+     
 });
 
-
 function isEmpty(value) {
-    return value.trim() === '';
-  }
+  return value.trim() === '';
+}
 
 function displayMessage(message) {
-    $('#response-message').html('<p>' + message + '</p>');
-  }
-  
-
-  
+  var responseMessage = document.getElementById('response-message');
+  responseMessage.innerHTML = '<p>' + message + '</p>';
+}
