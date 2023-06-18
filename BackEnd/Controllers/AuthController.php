@@ -57,8 +57,8 @@ class AuthController
     $user->setPassword($input['password']);
 
     $loggedInUserId = $this->userDAO->checkLogin($user->getUsername(), $user->getPassword());
-
-    if ($loggedInUserId !== null) {
+    
+    if ($loggedInUserId !== -1) {
         $jwtResponse = $this->createJWT($user->getUsername(), $loggedInUserId);
         $jwt = $jwtResponse['body'];
 
