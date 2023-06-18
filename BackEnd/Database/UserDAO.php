@@ -74,9 +74,9 @@ public function findByUsernameAndPassword($username, $password)
         $user = $result->fetch_assoc();
 
         if ($user && password_verify($password, $user['password_hash'])) {
-             return true;
+             return $user['id'];
         } else {
-             return false;
+             return null;
         }
     } catch (PDOException $e) {
         trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
@@ -114,16 +114,17 @@ public function findByEmail($email)
 
 
 
-    public function checkLogin($username, $password) {
+  public function checkLogin($username, $password)
+{
+    $existingIdUser = $this->findByUsernameAndPassword($username, $password);
 
-        $existingUser = $this->findByUsernameAndPassword($username, $password);
-    
-        if ($existingUser) {
-            return true;  
-        } else {
-            return false;  
-        }
+    if ($existingIdUser !== null) {
+        return $existingIdUser;
+    } else {
+        return null;
     }
+}
+
 
 }
 ?>
