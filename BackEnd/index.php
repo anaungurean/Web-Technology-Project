@@ -5,9 +5,14 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/TW/vendor/autoload.php');
 
 include_once "../BackEnd/Controllers/SignUpController.php";
 include_once "../BackEnd/Controllers/AuthController.php";
+include_once "../BackEnd/Controllers/AddPlantController.php";
 
 include_once "../BackEnd/Database/UserDAO.php";
+include_once "../BackEnd/Database/PlantDAO.php";
+
 include_once "../BackEnd/Models/User.php";
+include_once "../BackEnd/Models/Plant.php";
+
 include_once "../BackEnd/Dispatcher/Dispatcher.php";
 
 

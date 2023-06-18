@@ -13,6 +13,10 @@ class Dispatcher{
                 $controller = new AuthController($requestMethod);
                 $controller->processRequest();
                 break;
+            case 'addPlant':
+                $controller = new AddPlantController($requestMethod, $request);
+                $controller->processRequest();
+                break;
             default:
                 header("HTTP/1.1 404 Not Found");
                 exit();
