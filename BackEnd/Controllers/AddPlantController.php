@@ -23,7 +23,7 @@ class AddPlantController {
                 break;
         }
         header($response['status_code_header']);
-        header($response['content_type_header']);
+        // header($response['content_type_header']);
         if ($response['body']) {
             echo $response['body'];
         }
@@ -92,8 +92,9 @@ class AddPlantController {
             return $this->unprocessableEntityResponse();
         }
 
+
         $plant = new Plant();
-        $plant->setIdUser($input['user_id']);
+        $plant->setIdUser($input['id_user']);
         $plant->setCommonName($input['common_name']);
         $plant->setScientificName($input['scientific_name']);
         $plant->setFamily($input['family']);
@@ -118,8 +119,12 @@ class AddPlantController {
 
 
 
+
     private function validatePlant(array $input): bool
     {
+        if (!isset($input['id_user'])) {
+            return false;
+        }
         if (!isset($input['common_name'])) {
             return false;
         }
