@@ -94,7 +94,7 @@ class AuthController
             'iss'  => $domainName,                   // ! Issuer
             'nbf'  => $date->getTimestamp(),         // ! Not before
             'exp'  => $expire_at,                    // ! Expire
-            'userName' => $username, 
+            'username' => $username, 
             'id' => $id,                // User name
         ];
 
