@@ -42,23 +42,111 @@
 
         <div class="left-section">
 
-            <div class="criteria">
-                <p class="title">Commom name</p>
-                <ul class="elements">
-                    <li><input type="checkbox">Daisy</li>
-                    <li><input type="checkbox">Lavander</li>
-                    <li><input type="checkbox">Pine</li>
-                </ul>
-            </div>
+        <div class="criteria">
+            <p class="title">Common name</p>
+            <ul class="elements">
+                <li><input type="checkbox" value="amaryllis">Amaryllis</li>
+                <li><input type="checkbox" value="begonia">Begonia</li>
+                <li><input type="checkbox" value="bluebell">Bluebell</li>
+                <!-- Add more initial options here -->
+        
+                <!-- Hidden options -->
+                <li class="hidden"><input type="checkbox" value="carnation">Carnation</li>
+                <li class="hidden"><input type="checkbox" value="chrysanthemum">Chrysanthemum</li>
+                <li class="hidden"><input type="checkbox" value="cosmos">Cosmos</li>
+                <li class="hidden"><input type="checkbox" value="daffodil">Daffodil</li>
+                <li class="hidden"><input type="checkbox" value="dahlia">Dahlia</li>
+                <li class="hidden"><input type="checkbox" value="daisy">Daisy</li>
+                <li class="hidden"><input type="checkbox" value="dandelion">Dandelion</li>
+                <li class="hidden"><input type="checkbox" value="forget-me-not">Forget-me-not</li>
+                <li class="hidden"><input type="checkbox" value="foxglove">Foxglove</li>
+                <li class="hidden"><input type="checkbox" value="fuchsia">Fuchsia</li>
+                <li class="hidden"><input type="checkbox" value="geranium">Geranium</li>
+                <li class="hidden"><input type="checkbox" value="gladiolus">Gladiolus</li>
+                <li class="hidden"><input type="checkbox" value="honeysuckle">Honeysuckle</li>
+                <li class="hidden"><input type="checkbox" value="hollyhock">Hollyhock</li>
+                <li class="hidden"><input type="checkbox" value="hyacinth">Hyacinth</li>
+                <li class="hidden"><input type="checkbox" value="iris">Iris</li>
+                <li class="hidden"><input type="checkbox" value="jasmine">Jasmine</li>
+                <li class="hidden"><input type="checkbox" value="jonquil">Jonquil</li>
+                <li class="hidden"><input type="checkbox" value="lavender">Lavender</li>
+                <li class="hidden"><input type="checkbox" value="lily">Lily</li>
+                <li class="hidden"><input type="checkbox" value="lupine">Lupine</li>
+                <li class="hidden"><input type="checkbox" value="magnolia">Magnolia</li>
+                <li class="hidden"><input type="checkbox" value="marigold">Marigold</li>
+                <li class="hidden"><input type="checkbox" value="narcissus">Narcissus</li>
+                <li class="hidden"><input type="checkbox" value="orchid">Orchid</li>
+                <li class="hidden"><input type="checkbox" value="pansy">Pansy</li>
+                <li class="hidden"><input type="checkbox" value="petunia">Petunia</li>
+                <li class="hidden"><input type="checkbox" value="poppy">Poppy</li>
+                <li class="hidden"><input type="checkbox" value="primrose">Primrose</li>
+                <li class="hidden"><input type="checkbox" value="rhododendron">Rhododendron</li>
+                <li class="hidden"><input type="checkbox" value="rose">Rose</li>
+                <li class="hidden"><input type="checkbox" value="snapdragon">Snapdragon</li>
+                <li class="hidden"><input type="checkbox" value="sunflower">Sunflower</li>
+                <li class="hidden"><input type="checkbox" value="sweet-pea">Sweet pea</li>
+                <li class="hidden"><input type="checkbox" value="tulip">Tulip</li>
+                <li class="hidden"><input type="checkbox" value="violet">Violet</li>
+                <li class="hidden"><input type="checkbox" value="yarrow">Yarrow</li>
+                <li class="hidden"><input type="checkbox" value="zinnia">Zinnia</li>
+            </ul>
+            <button id="showMoreButton" onclick="showMoreNames()">Show more</button>
+        </div>
 
-            <div class="criteria">
-                <p class="title">Scientific name</p>
-                <ul class="elements">
-                    <li><input type="checkbox">Helianthus annuus</li>
-                    <li><input type="checkbox">Pinus</li>
-                    <li><input type="checkbox">Hedera</li>
-                </ul>
-            </div>
+
+    <div class="criteria">
+        <p class="title">Scientific name</p>
+        <ul class="elements">
+            <li><input type="checkbox" value="achillea">Achillea</li>
+            <li><input type="checkbox" value="alcea">Alcea</li>
+            <li><input type="checkbox" value="amaryllis">Amaryllis</li>
+            <!-- Add more initial options here -->
+    
+            <!-- Hidden options -->
+            <li class="hidden"><input type="checkbox" value="antirrhinum">Antirrhinum</li>
+            <li class="hidden"><input type="checkbox" value="bellis perennis">Bellis perennis</li>
+            <li class="hidden"><input type="checkbox" value="begonia">Begonia</li>
+            <li class="hidden"><input type="checkbox" value="chrysanthemum">Chrysanthemum</li>
+            <li class="hidden"><input type="checkbox" value="cosmos bipinnatus">Cosmos bipinnatus</li>
+            <li class="hidden"><input type="checkbox" value="daffodil">Daffodil</li>
+            <li class="hidden"><input type="checkbox" value="dahlia">Dahlia</li>
+            <li class="hidden"><input type="checkbox" value="daisy">Daisy</li>
+            <li class="hidden"><input type="checkbox" value="digitalis">Digitalis</li>
+            <li class="hidden"><input type="checkbox" value="dianthus caryophyllus">Dianthus caryophyllus</li>
+            <li class="hidden"><input type="checkbox" value="fuchsia">Fuchsia</li>
+            <li class="hidden"><input type="checkbox" value="gladiolus">Gladiolus</li>
+            <li class="hidden"><input type="checkbox" value="helianthus annuus">Helianthus annuus</li>
+            <li class="hidden"><input type="checkbox" value="hippeastrum">Hippeastrum</li>
+            <li class="hidden"><input type="checkbox" value="hyacinthus">Hyacinthus</li>
+            <li class="hidden"><input type="checkbox" value="hyacinthoides non-scripta">Hyacinthoides non-scripta</li>
+            <li class="hidden"><input type="checkbox" value="iris">Iris</li>
+            <li class="hidden"><input type="checkbox" value="jasminum">Jasminum</li>
+            <li class="hidden"><input type="checkbox" value="lathyrus odoratus">Lathyrus odoratus</li>
+            <li class="hidden"><input type="checkbox" value="lavandula">Lavandula</li>
+            <li class="hidden"><input type="checkbox" value="lilium">Lilium</li>
+            <li class="hidden"><input type="checkbox" value="lonicera">Lonicera</li>
+            <li class="hidden"><input type="checkbox" value="magnolia">Magnolia</li>
+            <li class="hidden"><input type="checkbox" value="marigold">Marigold</li>
+            <li class="hidden"><input type="checkbox" value="myosotis">Myosotis</li>
+            <li class="hidden"><input type="checkbox" value="narcissus">Narcissus</li>
+            <li class="hidden"><input type="checkbox" value="narcissus jonquilla">Narcissus jonquilla</li>
+            <li class="hidden"><input type="checkbox" value="orchidaceae">Orchidaceae</li>
+            <li class="hidden"><input type="checkbox" value="paeonia">Paeonia</li>
+            <li class="hidden"><input type="checkbox" value="papaver">Papaver</li>
+            <li class="hidden"><input type="checkbox" value="pelargonium">Pelargonium</li>
+            <li class="hidden"><input type="checkbox" value="primula">Primula</li>
+            <li class="hidden"><input type="checkbox" value="rhododendron">Rhododendron</li>
+            <li class="hidden"><input type="checkbox" value="rosa">Rosa</li>
+            <li class="hidden"><input type="checkbox" value="tagetes">Tagetes</li>
+            <li class="hidden"><input type="checkbox" value="taraxacum">Taraxacum</li>
+            <li class="hidden"><input type="checkbox" value="tulipa">Tulipa</li>
+            <li class="hidden"><input type="checkbox" value="viola">Viola</li>
+            <li class="hidden"><input type="checkbox" value="viola tricolor">Viola tricolor</li>
+            <li class="hidden"><input type="checkbox" value="zinnia">Zinnia</li>
+        </ul>
+        <button id="showMoreButton" onclick="showMoreScientific()">Show more</button>
+    </div>
+
 
             <div class="criteria">
                 <p class="title">Plant family</p>
@@ -188,6 +276,7 @@
     </main>
 
     <script src="../Scripts/Logout.js"></script>
+    <script src="../Scripts/ShowMore.js"></script>
 
  </body>
 
