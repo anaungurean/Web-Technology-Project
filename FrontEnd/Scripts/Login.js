@@ -37,23 +37,23 @@ document.addEventListener('DOMContentLoaded', function() {
             // Save JWT in a cookie
             document.cookie = 'jwt=' + data.jwt + '; path=/;';
 
-            // Retrieve JWT from cookie
-            const jwt = getCookie('jwt');
+            // // Retrieve JWT from cookie
+            // const jwt = getCookie('jwt');
 
-            // Make subsequent requests with the JWT
-            fetch('http://localhost/TW/BackEnd/some-api-endpoint', {
-            headers: {
-                'Authorization': 'Bearer ' + jwt,
-                'Content-Type': 'application/json'
-            },
-            // ... other request options
-            })
-            .then(function (response) {
-                // Handle the response
-            })
-            .catch(function (error) {
-                console.error('Error:', error);
-            });
+            // // Make subsequent requests with the JWT
+            // fetch('http://localhost/TW/BackEnd/some-api-endpoint', {
+            // headers: {
+            //     'Authorization': 'Bearer ' + jwt,
+            //     'Content-Type': 'application/json'
+            // },
+            // // ... other request options
+            // })
+            // .then(function (response) {
+            //     // Handle the response
+            // })
+            // .catch(function (error) {
+            //     console.error('Error:', error);
+            // });
 
             window.location.href = '../HTML_Pages/HomePage.html';
         }
