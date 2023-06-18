@@ -121,6 +121,25 @@ li {
     display: block;
 }
 
+.slider {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.slider ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.slider li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.slider li:last-child {
+    border-bottom: none;
+}
 @media screen and (max-width: 767px) {
     .right-section{
         grid-template-columns: 1fr 1fr;

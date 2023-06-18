@@ -1,25 +1,25 @@
-function handleFileSelect(event) {
-  const fileInput = event.target;
-  const file = fileInput.files[0];
+function uploadFile() {
+    const fileInput = document.getElementById('photoInput');
+    const file = fileInput.files[0];
 
-  if (file) {
-    // Create a FormData object to store the file
     const formData = new FormData();
-    formData.append('image', file);
-   console.log("annanan");
-    // Send the file to the server using fetch
+    formData.append('photoInput', file);
+
     fetch('../../BackEnd/UploadPhoto.php', {
       method: 'POST',
       body: formData
     })
-      .then(response => response.text())
-      .then(result => {
-        // Handle the server response
-        console.log(result);
-      })
-      .catch(error => {
-        // Handle any errors that occurred during the upload
-        console.error('Error:', error);
-      });
-  }
+    .then(response => {
+      if (response.ok) {
+        console.log('File uploaded successfully.');
+        // Handle successful upload
+      } else {
+        console.error('Error uploading file.');
+        // Handle upload error
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      // Handle network or fetch error
+    });
 }
