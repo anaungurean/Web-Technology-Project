@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             displayMessage('The username or the password is not correct.');
         } else {
             // Save JWT in a cookie
-            document.cookie = 'jwt=' + data.jwt + '; path=/;';
+            // document.cookie = 'jwt=' + data.jwt + '; path=/;';
 
             // // Retrieve JWT from cookie
             // const jwt = getCookie('jwt');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             //     console.error('Error:', error);
             // });
 
-            window.location.href = '../HTML_Pages/HomePage.html';
+            window.location.href = '../HTML_Pages/WelcomeLoggedIn.html';
         }
         })
       

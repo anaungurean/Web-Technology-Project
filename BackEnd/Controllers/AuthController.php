@@ -41,52 +41,49 @@ class AuthController
 
 
 
-    private function signIn() : array{
+   private function signIn(): array
+{
+    $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
+    $response['content_type_header'] = 'Content-Type: application/json';
 
-      $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
-      $response['content_type_header'] = 'Content-Type: application/json';
-
-       $input = (array) json_decode(file_get_contents('php://input'), TRUE);
+    $input = (array) json_decode(file_get_contents('php://input'), TRUE);
 
     if (!$this->validateUser($input)) {
         return $this->unprocessableEntityResponse();
     }
 
-      $user = new User();
-      $user -> setUsername($input['username']);
-      $user -> setPassword($input['password']);
+    $user = new User();
+    $user->setUsername($input['username']);
+    $user->setPassword($input['password']);
 
+    $loggedInUserId = $this->userDAO->checkLogin($user->getUsername(), $user->getPassword());
 
-     if($this->userDAO->checkLogin($user->getUsername(), $user->getPassword())){
-       
-        $jwtResponse = $this->createJWT($user->getUsername(), $user->getPassword());
-        // $response['status_code_header'] = $jwtResponse['status_code_header'];
-        // $response['content_type_header'] = $jwtResponse['content_type_header'];
-        // $response['body'] = $jwtResponse['body'];
-        
+    if ($loggedInUserId !== null) {
+        $jwtResponse = $this->createJWT($user->getUsername(), $loggedInUserId);
         $jwt = $jwtResponse['body'];
 
-        setcookie('jwt', $jwt, time() + (6 * 60), '/');
-        
+        // Set the JWT as a cookie
+
         $response['body'] = json_encode(array(
             "jwt" => $jwt,
             "message" => "Authentication successful"
         ));
+                
+        setcookie('User', $jwt, time() + 30 * 24 * 60 * 60, '/');
 
-
-
-     }
-     else{
-          $response['status_code_header'] = 'HTTP/1.1 401 No-authorized';
-          $response['body'] = json_encode(array(
-            "Result" => "Invalid info." ));
-     }
-
-       return $response;
-
+    } 
+    
+    else {
+        $response['status_code_header'] = 'HTTP/1.1 401 No-authorized';
+        $response['body'] = json_encode(array(
+            "Result" => "Invalid info."
+        ));
     }
 
-    private function createJWT($username, $password) {
+    return $response;
+}
+
+    private function createJWT($username, $id) {
 
         $secret_Key = $this -> secret_Key;
         $date   = new DateTimeImmutable();
@@ -98,7 +95,7 @@ class AuthController
             'nbf'  => $date->getTimestamp(),         // ! Not before
             'exp'  => $expire_at,                    // ! Expire
             'userName' => $username, 
-            'password' => $password,                // User name
+            'id' => $id,                // User name
         ];
 
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
