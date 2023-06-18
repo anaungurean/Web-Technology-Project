@@ -10,23 +10,26 @@ class PlantDAO
         $this->conn = Database::getInstance()->getConnection();
     }
 
-      public function createPlant($plant): void
-   {
-    try {
-        $email = $user->getEmail();
-        $username = $user->getUsername();
-        $password = $user->getPassword();
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    public function createPlant($plant): void
+    {
+        try {
+            $id_user = $plant->getIdUser();
+            $common_name = $plant->getCommonName();
+            $scientific_name = $plant->getScientificName();
+            $family = $plant->getFamily();
+            $genus = $plant->getGenus();
+            $species = $plant->getSpecies();
+            $place = $plant->getPlace();
+            $date_of_collection = $plant->getDateOfCollection();
+            $color = $plant->getColor();
+            $collection_name = $plant->getCollectionName();
+            $hashtags = $plant->getHashtags();
 
-        $stmt = $this->conn->prepare("INSERT INTO plants (email, username, password_hash) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $email, $username, $hashedPassword);
-        $stmt->execute();
-
-    } catch (PDOException $e) {
-        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+            $stmt = $this->conn->prepare("INSERT INTO plants (id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("issssssssss", $id_user, $common_name, $scientific_name, $family, $genus, $species, $place, $date_of_collection, $color, $collection_name, $hashtags);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+        }
     }
-    
-    }
- 
 }
-?>
