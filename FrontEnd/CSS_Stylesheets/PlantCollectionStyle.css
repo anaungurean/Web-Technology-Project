@@ -113,6 +113,14 @@ li {
     text-decoration: none;
 }
 
+.criteria .elements li.hidden {
+    display: none;
+}
+
+.criteria .elements li.visible {
+    display: block;
+}
+
 @media screen and (max-width: 767px) {
     .right-section{
         grid-template-columns: 1fr 1fr;

@@ -39,8 +39,6 @@ class SignUpController {
     if (!$this->validateUser($input)) {
         return $this->unprocessableEntityResponse();
     }
-
-    // $user = new User($input['email'], $input['username'], $input['password']);
     
       $user = new User();
       $user -> setEmail($input['email']);
