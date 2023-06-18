@@ -1,0 +1,35 @@
+<?php
+include_once "Database.php";  
+
+class PlantDAO
+{
+    private $conn;
+
+    public function __construct()
+    {
+        $this->conn = Database::getInstance()->getConnection();
+    }
+
+    public function createPlant($plant): void
+    {
+        try {
+            $id_user = $plant->getIdUser();
+            $common_name = $plant->getCommonName();
+            $scientific_name = $plant->getScientificName();
+            $family = $plant->getFamily();
+            $genus = $plant->getGenus();
+            $species = $plant->getSpecies();
+            $place = $plant->getPlace();
+            $date_of_collection = $plant->getDateOfCollection();
+            $color = $plant->getColor();
+            $collection_name = $plant->getCollectionName();
+            $hashtags = $plant->getHashtags();
+
+            $stmt = $this->conn->prepare("INSERT INTO plants (id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("issssssssss", $id_user, $common_name, $scientific_name, $family, $genus, $species, $place, $date_of_collection, $color, $collection_name, $hashtags);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+}

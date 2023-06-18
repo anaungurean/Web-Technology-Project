@@ -11,6 +11,7 @@ CREATE TABLE PLANTS (
     place VARCHAR(255),
     date_of_collection DATE,
     color VARCHAR(255),
+    collection_name VARCHAR(255),
     hashtags VARCHAR(255),
     FOREIGN KEY (id_user) REFERENCES users(id)
 );
