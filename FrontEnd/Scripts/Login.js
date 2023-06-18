@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
       password: password
     });
 
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
  
     fetch('http://localhost/TW/BackEnd/auth', {
       method: 'POST',
@@ -24,20 +30,34 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       body: requestBody
     })
-      .then(function (response) {
-        return response.json();
-      })
-    
       .then(function (data) {
         if (data.Result === 'Invalid info.') {
-          displayMessage('The username or the password is not correct.');
-        } else   {
-             window.location.href = '../HTML_Pages/HomePage.html';
-         }  
-      })
-      .catch(function (error) {
-        console.error('Error:', error);
-      });
+            displayMessage('The username or the password is not correct.');
+        } else {
+            // Save JWT in a cookie
+            document.cookie = 'jwt=' + data.jwt + '; path=/;';
+
+            // Retrieve JWT from cookie
+            const jwt = getCookie('jwt');
+
+            // Make subsequent requests with the JWT
+            fetch('http://localhost/TW/BackEnd/some-api-endpoint', {
+            headers: {
+                'Authorization': 'Bearer ' + jwt,
+                'Content-Type': 'application/json'
+            },
+            // ... other request options
+            })
+            .then(function (response) {
+                // Handle the response
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+
+            window.location.href = '../HTML_Pages/HomePage.html';
+        }
+        })
       
   });
      
