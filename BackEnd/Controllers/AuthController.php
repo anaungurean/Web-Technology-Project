@@ -64,7 +64,10 @@ class AuthController
         // $response['content_type_header'] = $jwtResponse['content_type_header'];
         // $response['body'] = $jwtResponse['body'];
         
-         $jwt = $jwtResponse['body'];
+        $jwt = $jwtResponse['body'];
+
+        setcookie('jwt', $jwt, time() + (6 * 60), '/');
+        
         $response['body'] = json_encode(array(
             "jwt" => $jwt,
             "message" => "Authentication successful"
