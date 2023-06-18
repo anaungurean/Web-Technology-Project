@@ -41,10 +41,15 @@
                 <div class="form">
 
                 
-                    <div class="form-group w-100">
-                        <label class="label" for="CommonName">Common Name</label>
-                        <input type="text" class="form-control" name="CommonName" id="CommonName" placeholder=" " >
-                    </div>
+                <div class="form-group w-100">
+                    <label class="label" for="CommonName">Common Name</label>
+                    <select class="form-control" name="CommonName" id="CommonName">
+                        <option value="rose">Rose</option>
+                        <option value="tulip">Tulip</option>
+                        <option value="sunflower">Sunflower</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
 
                     <div class="form-group w-100">
                         <label class="label" for="ScientificName">Scientific Name</label>
@@ -71,10 +76,11 @@
                         <input type="text" class="form-control" name="Place" id="Place" placeholder=" " >
                     </div>
 
-                    <div class="form-group w-100">
-                        <label class="label" for="Dateofcollection">Date of collection</label>
-                        <input type="text" class="form-control" name="Dateofcollection" id="Dateofcollection" placeholder=" " >
-                    </div>
+                <div class="form-group w-100">
+                    <label class="label" for="Dateofcollection">Date of collection</label>
+                    <input type="date" class="form-control" name="Dateofcollection" id="Dateofcollection" placeholder=" ">
+                </div>
+
              
                     <div class="form-group w-100">
                         <label class="label" for="Placeofcollection">Place of collection</label>
