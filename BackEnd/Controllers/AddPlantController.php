@@ -1,14 +1,15 @@
 <?php
-class SignUpController {
+class AddPlantController {
+
     private $requestMethod;
     private $request;
-    private $userDAO;
+    private $plantDAO;
 
     public function __construct($requestMethod, $request)
     {
         $this->requestMethod = $requestMethod;
         $this->request = $request;
-        $this->userDAO = new UserDAO();
+        $this->plantDAO = new plantDAO();
     }
 
     public function processRequest(): void
@@ -29,7 +30,7 @@ class SignUpController {
     }
 
 
- private function createUserFromRequest(): array
+ private function createPlantFromRequest(): array
 {
     $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
     $response['content_type_header'] = 'Content-Type: application/json';
