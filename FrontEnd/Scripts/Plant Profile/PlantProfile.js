@@ -1,9 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Get the plantId from the query parameter
+  const urlParams = new URLSearchParams(window.location.search);
+  const plantId = urlParams.get('id');
+
   // Get the JWT from the cookie
   const jwt = getCookie('User');
 
-  // Fetch the plant data
-  const plantUrl = 'http://localhost/TW/BackEnd/getPlant?id=1';
+  // Fetch the plant data using the transmitted plantId
+  const plantUrl = `http://localhost/TW/BackEnd/getPlant?id=${plantId}`;
   fetch(plantUrl, {
     method: 'GET',
     headers: {
@@ -54,6 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('hashtags').value = plantData.hashtags;
     document.getElementById('collector').value = userData.username;
     document.getElementById('date-collection').value = plantData.date_of_collection;
+
+    // Set the plant image
+    const plantImage = document.getElementById('plant-image');
+    plantImage.src = `../../FrontEnd/PlantsImages/${plantData.filename}`;
+    plantImage.alt = plantData.common_name;
   }
 
   // Function to get the value of a cookie by name
