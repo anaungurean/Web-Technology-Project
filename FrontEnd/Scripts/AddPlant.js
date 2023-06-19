@@ -1,7 +1,6 @@
-
 document.addEventListener('DOMContentLoaded', function() {
 
-    var saveButton = document.getElementById('saveButton');
+  var saveButton = document.getElementById('saveButton');
   saveButton.addEventListener('click', function(event) {
     event.preventDefault();
     // Retrieve the JWT from the "User" cookie
@@ -69,20 +68,31 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(function (response) {
         return response.json();
-      })
-      .then(function (data) {
+    })
+    .then(function (data) {
         if (data.Result === 'Plant created successfully') {
-            window.location.href = '../HTML_Pages/PlantProfilePage.html';
- 
+            // Fetch the plant data to get the ID
+            fetch(`http://localhost/TW/BackEnd/getPlant?filename=${photoFileName}`)
+              .then(response => response.json())
+              .then(data => {
+                // Extract the ID value
+                const plantId = data.id;
+
+                // Redirect to the next HTML page with the ID as a query parameter
+                window.location.href = `../HTML_Pages/PlantProfilePage.html?id=${plantId}`;
+              })
+              .catch(error => {
+                console.error('Error:', error);
+              });
         } else {
             console.log("here");
-           displayMessage("Please add all the necessary info and upload the photo !")
+            displayMessage("Please add all the necessary info and upload the photo!")
         }
-      })
-      .catch(function (error) {
+    })
+    .catch(function (error) {
         console.error('Error:', error);
-      });
-});
+    });
+  });
 });
 
 function getCookie(name) {
