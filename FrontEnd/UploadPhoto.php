@@ -4,7 +4,7 @@ if (isset($_FILES['photo'])) {
   $file = $_FILES['photo'];
 
   // Specify the directory where you want to save the uploaded file
-  $targetDirectory = 'C://xampp//htdocs//TW//BackEnd//Database//PlantsImages//';
+  $targetDirectory = 'C://xampp//htdocs//TW//FrontEnd//PlantsImages';
 
   // Generate a unique filename for the uploaded file
   $filename = uniqid() . '_' . $file['name'];
