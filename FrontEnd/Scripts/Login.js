@@ -23,41 +23,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
  
-    fetch('http://localhost/TW/BackEnd/auth', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: requestBody
-    })
-      .then(function (data) {
-        if (data.Result === 'Invalid info.') {
-            displayMessage('The username or the password is not correct.');
-        } else {
-            // Save JWT in a cookie
-            // document.cookie = 'jwt=' + data.jwt + '; path=/;';
+   fetch('http://localhost/TW/BackEnd/auth', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: requestBody
+})
+  .then(function (response) {
+    return response.json(); // Convert the response to JSON
+  })
+  .then(function (data) {
+    console.log(data.Result);
+    if (data.Result === 'Invalid info.') {
+      displayMessage('The username or the password is not correct.');
+    } else {
+      window.location.href = '../HTML_Pages/WelcomeLoggedIn.html';
+    }
+  });
 
-            // // Retrieve JWT from cookie
-            // const jwt = getCookie('jwt');
-
-            // // Make subsequent requests with the JWT
-            // fetch('http://localhost/TW/BackEnd/some-api-endpoint', {
-            // headers: {
-            //     'Authorization': 'Bearer ' + jwt,
-            //     'Content-Type': 'application/json'
-            // },
-            // // ... other request options
-            // })
-            // .then(function (response) {
-            //     // Handle the response
-            // })
-            // .catch(function (error) {
-            //     console.error('Error:', error);
-            // });
-
-            window.location.href = '../HTML_Pages/WelcomeLoggedIn.html';
-        }
-        })
       
   });
      

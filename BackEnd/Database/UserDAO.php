@@ -76,7 +76,7 @@ public function findByUsernameAndPassword($username, $password)
         if ($user && password_verify($password, $user['password_hash'])) {
              return $user['id'];
         } else {
-             return null;
+             return -1;
         }
     } catch (PDOException $e) {
         trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
@@ -117,14 +117,9 @@ public function findByEmail($email)
   public function checkLogin($username, $password)
 {
     $existingIdUser = $this->findByUsernameAndPassword($username, $password);
-
-    if ($existingIdUser !== null) {
-        return $existingIdUser;
-    } else {
-        return null;
-    }
+    return $existingIdUser;
+     
 }
-
 
 }
 ?>
