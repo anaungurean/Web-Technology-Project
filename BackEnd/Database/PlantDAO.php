@@ -32,4 +32,19 @@ class PlantDAO
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
         }
     }
+
+    public function getPlantById($plantId)
+{
+    $sql = "SELECT * FROM plants WHERE id = ?";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bind_param("i", $plantId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    } else {
+        return null;
+    }
+}
 }

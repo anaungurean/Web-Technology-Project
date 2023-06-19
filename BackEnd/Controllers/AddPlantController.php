@@ -29,58 +29,6 @@ class AddPlantController {
         }
     }
 
-
-    // private function createPlantFromRequest(): array
-    // {
-    //     $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
-    //     $response['content_type_header'] = 'Content-Type: application/json';
-
-    //     $input = (array) json_decode(file_get_contents('php://input'), true);
-
-    //     if (!$this->validatePlant($input)) {
-    //         return $this->unprocessableEntityResponse();
-    //     }
-
-    //     // Assuming you have the JWT stored in a cookie 
-    //     $jwtCookie = $_COOKIE['User'];
-
-    //     // Decode the JWT
-    //     $decodedJWT = json_decode(base64_decode(str_replace('_', '/', str_replace('-', '+', explode('.', $jwtCookie)[1]))), true);
-
-    //     // Check if the JWT is valid and contains the 'id' field
-    //     if (isset($decodedJWT['id'])) {
-    //         $userId = $decodedJWT['id'];
-
-    //         $plant = new Plant();
-    //         $plant->setIdUser($userId);
-    //         $plant->setCommonName($input['common_name']);
-    //         $plant->setScientificName($input['scientific_name']);
-    //         $plant->setFamily($input['family']);
-    //         $plant->setGenus($input['genus']);
-    //         $plant->setSpecies($input['species']);
-    //         $plant->setPlace($input['place']);
-    //         $plant->setDateOfCollection($input['date_of_collection']);
-    //         $plant->setColor($input['color']);
-    //         $plant->setCollectionName($input['collection_name']);
-    //         $plant->setHashtags($input['hashtags']);
-
-    //         $this->plantDAO->createPlant($plant);
-
-    //         $response['status_code_header'] = 'HTTP/1.1 201 Created';
-    //         $response['body'] = json_encode(array(
-    //             "Result" => "Plant created successfully",
-    //         ));
-    //     } else {
-    //         // Handle the case when the JWT is invalid or doesn't contain the 'id' field
-    //         $response['status_code_header'] = 'HTTP/1.1 401 Unauthorized';
-    //         $response['body'] = json_encode(array(
-    //             "Error" => "Unauthorized access",
-    //         ));
-    //     }
-
-    //     return $response;
-    // }
-
     private function createPlantFromRequest(): array
     {
         $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
@@ -115,10 +63,6 @@ class AddPlantController {
 
         return $response;
     }
-
-
-
-
 
     private function validatePlant(array $input): bool
     {
