@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lastnameInput = document.getElementById('lastname');
     const phoneInput = document.getElementById('phone');
     const adresaInput = document.getElementById('adresa');
+    const count = document.getElementById('count');
 
     const editProfileButton = document.querySelector('.button2');
   
@@ -30,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
         lastnameInput.value = data.lastname;
         phoneInput.value = data.phone;
         adresaInput.value = data.adresa;
-        console.log(data);
+        count.value = data.count;
+
       })
       .catch(error => {
         console.error('Error:', error);
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (editProfileButton.textContent === 'Edit Profile') {
     inputFields.forEach(function(input) {
-      if (input.id !== 'username' && input.id !== 'email' && input.id !== 'password') {
+      if (input.id !== 'username' && input.id !== 'email' && input.id !== 'password'&& input.id !== 'count' ) {
         input.disabled = false;
         input.placeholder = 'You can edit this field';
       }
@@ -75,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: id_user,
             username: updatedUsername,
             email: updatedEmail,
-            password: updatedPassword,
+            // password: updatedPassword,
             descriere: updatedDescriere,
             hobby: updatedHobby,
             interes_plant: updatedInteresPlant,
