@@ -17,6 +17,14 @@ class Dispatcher
                 $controller = new AddPlantController($requestMethod, $request);
                 $controller->processRequest();
                 break;
+            case 'users':
+                $controller = new UserProfileController($requestMethod, $request);
+                $controller->processRequest();
+                break;
+            case 'profile':
+                $controller = new EditProfileController($requestMethod, $request);
+                $controller->processRequest();
+                break;
             case 'getPlant':
                 if (isset($_GET['id'])) {
                     $plantId = (int) $_GET['id'];
@@ -38,6 +46,14 @@ class Dispatcher
                 }
                 // var_dump($userId); // debug
                 $controller = new GetUserController($requestMethod, $userId);
+                $controller->processRequest();
+                break;
+             case 'getMyCollection':
+                 $userId = null;
+                if (isset($_GET['UserId'])) {
+                    $userId = (int) $_GET['UserId'];
+                }
+                $controller = new  GetMyCollectionController($requestMethod,$userId);
                 $controller->processRequest();
                 break;
             default:

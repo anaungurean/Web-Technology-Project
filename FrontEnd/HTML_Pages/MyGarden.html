@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -17,7 +16,6 @@
 </head>
 
 <body>
-
     <header class="header">
         <nav>
             <div class="logo">
@@ -26,98 +24,30 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
             <ul class="menu">
-                <li><a href= "../HTML_Pages/HomePage.html"> Home </a></li>
-                <li><a href= "../HTML_Pages/AboutLoggedIn.html"> About </a></li>
-                <li><a href= "../HTML_Pages/HelpLoggedIn.html"> Help </a></li>
-                <li><a href= "../HTML_Pages/ContactLoggedIn.html"> Contact </a></li>
+                <li><a href="../HTML_Pages/HomePage.html"> Home </a></li>
+                <li><a href="../HTML_Pages/AboutLoggedIn.html"> About </a></li>
+                <li><a href="../HTML_Pages/HelpLoggedIn.html"> Help </a></li>
+                <li><a href="../HTML_Pages/ContactLoggedIn.html"> Contact </a></li>
                 <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <main>
         
-		<div class="welcomeText">
-                <p>
-                    Here is your plant collection page ! You can easily browse and admire your beloved plants all in one place. Enjoy !
-                </p>
+        <div class="welcomeText">          
+            <p id="message"></p>
         </div>
-     
-        <div class="plants">
+        
+         <div id="plantsContainer" class="plants"></div>
 
-            <div class="plant" onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-                        
-                <img src="../Images/MyGardenImages/PlantsImages/Lotus.jpg" alt="Lotus Image"  >  
-                <p> Lotus </p>
-                    
-            </div>
- 
-            <div class="plant"  onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-
-                 <img src="../Images/MyGardenImages/PlantsImages/Hortensia.jpg" alt="Hortensia Image" >  
-                <p> Hortensia </p>
-                    
-             </div>
-
-             <div class="plant"  onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-
-                 <img src="../Images/MyGardenImages/PlantsImages/Iris.jpg" alt="Iris Image" >  
-                 <p> Iris </p>
-                    
-            </div>
-
-            <div class="plant"  onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-
-                 <img src="../Images/MyGardenImages/PlantsImages/Lila.jpg" alt="Lila Image" > 
-                 <p> Lila </p>
-
-            </div>
-
-            <div class="plant"  onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-
-                 <img src="../Images/MyGardenImages/PlantsImages/Orchid.jpg" alt="Orchid Image" >  
-                <p> Orchid </p>
-
-            </div>
-
-            <div class="plant"  onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-
-                  <img src="../Images/MyGardenImages/PlantsImages/Tulip.jpg" alt="Tulip Image" >   
-                  <p> Tulip </p> 
-
-            </div>
-
-            <div class="plant"  onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-
-             	<img src="../Images/MyGardenImages/PlantsImages/Lupin.jpg" alt="Lupin Image" > 
-            	<p> Lupin </p>
-
-            </div>
-
-            <div class="plant"  onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-
-                 <img src="../Images/MyGardenImages/PlantsImages/Peonie.jpg" alt="Peonie Image" >  
-                <p> Peonie </p>
-              
-            </div>
-
-            <div class="plant"  onclick="location.href = '../HTML_Pages/PlantProfilePage.html'">
-
-                <img src="../Images/MyGardenImages/PlantsImages/Lavender.jpg" alt="Lavender Image" >  
-                <p> Lavender </p>
-              
-            </div>
-
-  		</div>
-               
-		  
-		<button  onclick="location.href = '../HTML_Pages/AddPlant.html'" > 
-            Add a new plant!	
-         </button>
-
+        <button onclick="location.href = '../HTML_Pages/AddPlant.html'">
+            Add a new plant!
+        </button>
     </main>
-    
-<script src="../Scripts/Logout.js"></script>
+
+    <script src="../Scripts/Logout.js"></script>
+    <script src="../Scripts/Collection.js"></script>
 </body>
 
 </html>
