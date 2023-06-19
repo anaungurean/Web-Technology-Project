@@ -1,10 +1,10 @@
 <?php
 
-class Dispatcher{
-    public static function dispatch($requestMethod, $request) : void{
-        $authController = new AuthController($requestMethod);
-
-        switch($request[0]){
+class Dispatcher
+{
+    public static function dispatch($requestMethod, $request): void
+    {
+        switch ($request[0]) {
             case 'register':
                 $controller = new SignUpController($requestMethod, $request);
                 $controller->processRequest();
@@ -23,6 +23,31 @@ class Dispatcher{
                 break;
             case 'profile':
                 $controller = new EditProfileController($requestMethod, $request);
+                $controller->processRequest();
+                break;
+            case 'getPlant':
+                $plantId = null;
+                if (isset($_GET['id'])) {
+                    $plantId = (int) $_GET['id'];
+                }
+                $controller = new GetPlantController($requestMethod, $plantId);
+                $controller->processRequest();
+                break;
+            case 'getUser':
+                $userId = null;
+                if (isset($_GET['id'])) {
+                    $userId = (int) $_GET['id'];
+                }
+                //var_dump($userId); //debug
+                $controller = new GetUserController($requestMethod, $userId);
+                $controller->processRequest();
+                break;
+             case 'getMyCollection':
+                 $userId = null;
+                if (isset($_GET['UserId'])) {
+                    $userId = (int) $_GET['UserId'];
+                }
+                $controller = new  GetMyCollectionController($requestMethod,$userId);
                 $controller->processRequest();
                 break;
             default:

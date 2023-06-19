@@ -56,10 +56,10 @@ class UserDAO
     }
 
 
-    public function findById($id)
+    public function getUserById($id)
     {
         try {
-            $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE id = ?");
+            $statement = $this->conn->prepare("SELECT id, email, username FROM users WHERE id = ?");
             $statement->bind_param("i", $id);
             $statement->execute();
             $statement->store_result();
@@ -99,6 +99,7 @@ class UserDAO
             $phone = null;
             $adresa = null;
             $statement->bind_result($id, $email, $username, $password_hash, $descriere, $hobby, $interes_plant, $firstname, $lastname, $phone, $adresa);
+
             $statement->fetch();
             $user = new User();
             $user->setId($id);

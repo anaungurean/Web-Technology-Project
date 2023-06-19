@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
 
     var saveButton = document.getElementById('saveButton');
@@ -39,6 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var colorSelect = document.getElementById("Coloroftheplant");
     var color = colorSelect.options[colorSelect.selectedIndex].value;
 
+    var fileNameElement = document.getElementById("FileName");
+    var photoFileName = fileNameElement.textContent;
+
+
     var formData = JSON.stringify({
         id_user: id_user,
         common_name: commonName,
@@ -50,9 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
         date_of_collection: date,
         color: color,
         collection_name: collection,
-        hashtags: hashtags
+        hashtags: hashtags,
+        filename: photoFileName
     });
-
 
     fetch('http://localhost/TW/BackEnd/addPlant', {
         method: 'POST',
@@ -67,10 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       .then(function (data) {
         if (data.Result === 'Plant created successfully') {
-            console.log("merge");
-
+            window.location.href = '../HTML_Pages/PlantProfilePage.html';
+ 
         } else {
-            console.log("nu merge");
+            console.log("here");
+           displayMessage("Please add all the necessary info and upload the photo !")
         }
       })
       .catch(function (error) {

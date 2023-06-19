@@ -375,27 +375,31 @@
                         </select>
                     </div>
 
-    
-                    <div class="container-buttons w-100">
-                        <div class="first-button w-100 w-md-45">
-                            <div class="form-group w-100 ">
-                                <button class="button button1 " id="saveButton">Save the plant</button>
-                            </div>
-                        </div>
-    
-            <div class="form-group w-100">
-                <input type="file" id="photoInput" name="photoInput" accept="image/*">
-            </div>
-            <button type="submit" onclick="uploadFile()">Upload</button>
-
-            
-    </div>
-    </div>
-    </div>
-    </div>
+       <div class="form-group w-100">
+        <label class="label">Image of the plant</label>
+             <input type="file" id="photoInput" name="photoInput" accept="image/*">
+       </div>
  
+        <p id="FileName"></p>
+        
+        <div class="container-buttons w-100">
+            <div class="first-button w-100 w-lg-45">
+                <div class="form-group w-100 ">
+                     <button class="button button1 " type="submit" onclick="uploadFile(displayFileName)">Upload Photo</button>
+                      <p id="message"></p>
+                     <button class="button button1" id="saveButton">Save the plant</button>
+                    <div id="response-message"></div>
+                </div>
+
+                
+        </div>  
+    </div>
+    </div>
+    </div>
+    </div>
+        <script src="../Scripts/AddPhoto.js"></script>
         <script src="../Scripts/AddPlant.js"></script>
         <script src="../Scripts/Logout.js"></script>
-        <script src="../Scripts/AddPhoto.js"></script>
+ 
 </body>
 </html>
