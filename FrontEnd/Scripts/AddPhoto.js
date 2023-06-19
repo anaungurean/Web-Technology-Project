@@ -1,4 +1,4 @@
-function uploadFile() {
+function uploadFile(callback) {
   const fileInput = document.getElementById('photoInput');
   const file = fileInput.files[0];
 
@@ -11,11 +11,26 @@ function uploadFile() {
   })
   .then(response => response.json())
   .then(data => {
-    // console.log('File uploaded successfully:', data);
-    // Optionally, display a success message to the user
+    if (data.success) {
+      const photoFileName = data.fileName;
+      callback(photoFileName); // Call the callback function with photoFileName
+      console.log('File uploaded successfully:', data);
+      displayMessage('The photo was uploaded.'); // Call the displayMessage function with the success message
+    } else {
+      console.error('Error uploading file:', data.message);
+    }
   })
   .catch(error => {
-    // console.error('Error uploading file:', error);
-    // Optionally, display an error message to the user
+    console.error('Error uploading file:', error);
   });
+}
+
+function displayFileName(photoFileName) {
+  const fileNameElement = document.getElementById('FileName');
+  fileNameElement.textContent = photoFileName;
+}
+
+function displayMessage(message) {
+  const messageElement = document.getElementById('message');
+  messageElement.textContent = message;
 }

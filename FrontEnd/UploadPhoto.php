@@ -12,19 +12,12 @@ if (isset($_FILES['photo'])) {
   // Create the full path to save the file
   $targetPath = $targetDirectory . $filename;
 
-  // Check for errors during the file upload
-  if ($file['error'] !== UPLOAD_ERR_OK) {
-    // Error occurred during file upload
-    $response = ['success' => false, 'message' => 'Error uploading file. Error code: ' . $file['error']];
-  } elseif (!is_uploaded_file($file['tmp_name'])) {
-    // File was not uploaded via HTTP POST
-    $response = ['success' => false, 'message' => 'Invalid file.'];
-  } elseif (!move_uploaded_file($file['tmp_name'], $targetPath)) {
+  if (!move_uploaded_file($file['tmp_name'], $targetPath)) {
     // Error moving the uploaded file
     $response = ['success' => false, 'message' => 'Error moving uploaded file.'];
   } else {
     // File uploaded successfully
-    $response = ['success' => true, 'message' => 'File uploaded successfully.'];
+    $response = ['success' => true, 'message' => 'File uploaded successfully.', 'fileName' => $filename];
   }
 } else {
   // No file was uploaded

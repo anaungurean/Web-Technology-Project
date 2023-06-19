@@ -29,6 +29,9 @@ class AddPlantController {
         }
     }
 
+ 
+
+ 
     private function createPlantFromRequest(): array
     {
         $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
@@ -53,6 +56,7 @@ class AddPlantController {
         $plant->setColor($input['color']);
         $plant->setCollectionName($input['collection_name']);
         $plant->setHashtags($input['hashtags']);
+        $plant->setFileName($input['filename']);
 
         $this->plantDAO->createPlant($plant);
 
@@ -64,44 +68,50 @@ class AddPlantController {
         return $response;
     }
 
-    private function validatePlant(array $input): bool
-    {
-        if (!isset($input['id_user'])) {
-            return false;
-        }
-        if (!isset($input['common_name'])) {
-            return false;
-        }
-        if (!isset($input['scientific_name'])) {
-            return false;
-        }
-        if (!isset($input['family'])) {
-            return false;
-        }
-        if (!isset($input['genus'])) {
-            return false;
-        }
-        if (!isset($input['species'])) {
-            return false;
-        }
-        if (!isset($input['place'])) {
-            return false;
-        }
-        if (!isset($input['date_of_collection'])) {
-            return false;
-        }
-        if (!isset($input['color'])) {
-            return false;
-        }
-        if (!isset($input['collection_name'])) {
-            return false;
-        }
-        if (!isset($input['hashtags'])) {
-            return false;
-        }
+ 
 
-        return true;
+
+private function validatePlant(array $input): bool
+{
+    if (!isset($input['id_user']) || empty($input['id_user'])) {
+        return false;
     }
+    if (!isset($input['common_name']) || empty($input['common_name'])) {
+        return false;
+    }
+    if (!isset($input['scientific_name']) || empty($input['scientific_name'])) {
+        return false;
+    }
+    if (!isset($input['family']) || empty($input['family'])) {
+        return false;
+    }
+    if (!isset($input['genus']) || empty($input['genus'])) {
+        return false;
+    }
+    if (!isset($input['species']) || empty($input['species'])) {
+        return false;
+    }
+    if (!isset($input['place']) || empty($input['place'])) {
+        return false;
+    }
+    if (!isset($input['date_of_collection']) || empty($input['date_of_collection'])) {
+        return false;
+    }
+    if (!isset($input['color']) || empty($input['color'])) {
+        return false;
+    }
+    if (!isset($input['collection_name']) || empty($input['collection_name'])) {
+        return false;
+    }
+    if (!isset($input['hashtags']) || empty($input['hashtags'])) {
+        return false;
+    }
+    if (!isset($input['filename']) || empty($input['filename'])) {
+        return false;
+    }
+
+    return true;
+}
 
     private function notFoundResponse(): array
     {

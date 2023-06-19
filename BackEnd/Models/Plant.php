@@ -14,12 +14,13 @@ class Plant implements JsonSerializable
     private $color;
     private $collection_name;
     private $hashtags;
+    private $filename;
+
 
     public function __construct()
     {
     }
 
-    // Setter and Getter for $id
     public function getId()
     {
         return $this->id;
@@ -30,8 +31,7 @@ class Plant implements JsonSerializable
         $this->id = $id;
     }
 
-    // Setter and Getter for $id_user
-    public function getIdUser()
+     public function getIdUser()
     {
         return $this->id_user;
     }
@@ -41,8 +41,7 @@ class Plant implements JsonSerializable
         $this->id_user = $id_user;
     }
 
-    // Setter and Getter for $common_name
-    public function getCommonName()
+     public function getCommonName()
     {
         return $this->common_name;
     }
@@ -52,8 +51,7 @@ class Plant implements JsonSerializable
         $this->common_name = $common_name;
     }
 
-    // Setter and Getter for $scientific_name
-    public function getScientificName()
+     public function getScientificName()
     {
         return $this->scientific_name;
     }
@@ -63,8 +61,7 @@ class Plant implements JsonSerializable
         $this->scientific_name = $scientific_name;
     }
 
-    // Setter and Getter for $family
-    public function getFamily()
+     public function getFamily()
     {
         return $this->family;
     }
@@ -74,8 +71,7 @@ class Plant implements JsonSerializable
         $this->family = $family;
     }
 
-    // Setter and Getter for $genus
-    public function getGenus()
+     public function getGenus()
     {
         return $this->genus;
     }
@@ -85,8 +81,7 @@ class Plant implements JsonSerializable
         $this->genus = $genus;
     }
 
-    // Setter and Getter for $species
-    public function getSpecies()
+     public function getSpecies()
     {
         return $this->species;
     }
@@ -96,8 +91,7 @@ class Plant implements JsonSerializable
         $this->species = $species;
     }
 
-    // Setter and Getter for $place
-    public function getPlace()
+     public function getPlace()
     {
         return $this->place;
     }
@@ -107,8 +101,7 @@ class Plant implements JsonSerializable
         $this->place = $place;
     }
 
-    // Setter and Getter for $date_of_collection
-    public function getDateOfCollection()
+     public function getDateOfCollection()
     {
         return $this->date_of_collection;
     }
@@ -118,8 +111,7 @@ class Plant implements JsonSerializable
         $this->date_of_collection = $date_of_collection;
     }
 
-    // Setter and Getter for $color
-    public function getColor()
+     public function getColor()
     {
         return $this->color;
     }
@@ -129,8 +121,7 @@ class Plant implements JsonSerializable
         $this->color = $color;
     }
 
-    // Setter and Getter for $collection_name
-    public function getCollectionName()
+     public function getCollectionName()
     {
         return $this->collection_name;
     }
@@ -140,8 +131,7 @@ class Plant implements JsonSerializable
         $this->collection_name = $collection_name;
     }
 
-    // Setter and Getter for $hashtags
-    public function getHashtags()
+     public function getHashtags()
     {
         return $this->hashtags;
     }
@@ -149,6 +139,16 @@ class Plant implements JsonSerializable
     public function setHashtags($hashtags): void
     {
         $this->hashtags = $hashtags;
+    }
+
+       public function getFileName()
+    {
+        return $this->filename;
+    }
+
+    public function setFileName($filename): void
+    {
+        $this->filename = $filename;
     }
 
     public function jsonSerialize(): mixed
@@ -166,6 +166,7 @@ class Plant implements JsonSerializable
             'color' => $this->color,
             'collection_name' => $this->collection_name,
             'hashtags' => $this->hashtags,
+            'filename' => $this->filename,
         ];
     }
 

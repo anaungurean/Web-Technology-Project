@@ -24,9 +24,10 @@ class PlantDAO
             $color = $plant->getColor();
             $collection_name = $plant->getCollectionName();
             $hashtags = $plant->getHashtags();
+            $filename = $plant->getFileName();
 
-            $stmt = $this->conn->prepare("INSERT INTO plants (id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("issssssssss", $id_user, $common_name, $scientific_name, $family, $genus, $species, $place, $date_of_collection, $color, $collection_name, $hashtags);
+            $stmt = $this->conn->prepare("INSERT INTO plants (id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags,filename) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+            $stmt->bind_param("isssssssssss", $id_user, $common_name, $scientific_name, $family, $genus, $species, $place, $date_of_collection, $color, $collection_name, $hashtags,$filename);
             $stmt->execute();
         } catch (PDOException $e) {
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
