@@ -17,6 +17,14 @@ class Dispatcher
                 $controller = new AddPlantController($requestMethod, $request);
                 $controller->processRequest();
                 break;
+            case 'users':
+                $controller = new UserProfileController($requestMethod, $request);
+                $controller->processRequest();
+                break;
+            case 'profile':
+                $controller = new EditProfileController($requestMethod, $request);
+                $controller->processRequest();
+                break;
             case 'getPlant':
                 $plantId = null;
                 if (isset($_GET['id'])) {
