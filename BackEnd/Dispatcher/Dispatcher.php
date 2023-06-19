@@ -50,6 +50,10 @@ class Dispatcher
                 $controller = new  GetMyCollectionController($requestMethod,$userId);
                 $controller->processRequest();
                 break;
+            case 'getCollections':
+                $controller = new  GetAllCollectionController($requestMethod);
+                $controller->processRequest();
+                break;
             default:
                 header("HTTP/1.1 404 Not Found");
                 exit();
