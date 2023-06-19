@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: id_user,
             username: updatedUsername,
             email: updatedEmail,
-            password: updatedPassword,
+            // password: updatedPassword,
             descriere: updatedDescriere,
             hobby: updatedHobby,
             interes_plant: updatedInteresPlant,

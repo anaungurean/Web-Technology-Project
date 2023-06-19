@@ -37,7 +37,7 @@ class UserDAO
             $email = $user->getEmail();
             $username = $user->getUsername();
             $password = $user->getPassword();
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $descriere = $user->getDescription();
             $hobby = $user->getHobby();
             $interes_plant = $user->getInteresPlant();
@@ -47,8 +47,8 @@ class UserDAO
             $adresa = $user->getAddress();
 
 
-            $stmt = $this->conn->prepare("UPDATE users SET email = ?, username = ?, password_hash = ?, descriere = ?, hobby = ?, interes_plant = ?, firstname = ?, lastname = ?, phone = ?, adresa = ? WHERE id = ?");
-            $stmt->bind_param("ssssssssssi", $email, $username, $hashedPassword, $descriere, $hobby, $interes_plant, $firstname, $lastname, $phone, $adresa, $id);
+            $stmt = $this->conn->prepare("UPDATE users SET email = ?, username = ?, descriere = ?, hobby = ?, interes_plant = ?, firstname = ?, lastname = ?, phone = ?, adresa = ? WHERE id = ?");
+            $stmt->bind_param("ssssssssssi", $email, $username, $descriere, $hobby, $interes_plant, $firstname, $lastname, $phone, $adresa, $id);
             $stmt->execute();
         } catch (PDOException $e) {
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
