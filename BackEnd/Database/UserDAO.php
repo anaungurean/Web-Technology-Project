@@ -111,7 +111,10 @@ class UserDAO
             $user->setLastname($lastname);
             $user->setPhone($phone);
             $user->setAddress($adresa);
-            
+
+            $count = $this->countPlants($id);
+            $user->setCount($count);
+    
             return $user;
         } catch (PDOException $e) {
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
@@ -167,6 +170,24 @@ class UserDAO
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
         }
     }
+
+public function countPlants($userId)
+{
+    try {
+        $statement = $this->conn->prepare("SELECT COUNT(*)  FROM plants WHERE id_user = ?");
+        $statement->bind_param("i", $userId);
+        $statement->execute();
+        $statement->bind_result($totalPlants);
+        $statement->fetch();
+        $statement->close();
+
+        return $totalPlants;
+        
+    } catch (PDOException $e) {
+        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+    }
+}
+
 
 
     public function checkExistingUser($email, $username): bool
