@@ -66,17 +66,15 @@ class UserDAO
             $id = null;
             $email = null;
             $username = null;
-            $password_hash = null;
-            $statement->bind_result($id, $email, $username, $password_hash);
+            $statement->bind_result($id, $email, $username);
             $statement->fetch();
             $user = new User();
+            $user->setId($id);
             $user->setEmail($email);
             $user->setUsername($username);
-            
-            $user->setPassword($password_hash);
             return $user;
         } catch (PDOException $e) {
-            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+            trigger_error("Error in " . METHOD . ": " . $e->getMessage(), E_USER_ERROR);
         }
     }
 

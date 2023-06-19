@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const jwt = getCookie('User');
 
   // Fetch the plant data
-  const plantUrl = 'http://localhost/TW/BackEnd/getPlant?id=4';
+  const plantUrl = 'http://localhost/TW/BackEnd/getPlant?id=1';
   fetch(plantUrl, {
     method: 'GET',
     headers: {
@@ -30,16 +30,16 @@ document.addEventListener('DOMContentLoaded', function() {
           if (response.ok) {
             return response.json();
           } else {
-            throw new Error('Error:', response.status);
+            throw new Error('Error1:', response.status);
           }
         })
         .then(userData => {
           // Populate fields with both plant and user data
           populateFields(plantData, userData);
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error2:', error));
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => console.error('Error3:', error));
 
   // Function to populate the fields with the fetched data
   function populateFields(plantData, userData) {
