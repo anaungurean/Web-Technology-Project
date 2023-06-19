@@ -34,11 +34,25 @@ class PlantDAO
         }
     }
 
-    public function getPlantById($plantId)
-    {
+    public function getPlantById($plantId){
         $sql = "SELECT * FROM plants WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $plantId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
+    }
+
+    public function getPlantByFilename($filename)
+    {
+        // var_dump($filename);
+        $sql = "SELECT * FROM plants WHERE filename = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("s", $filename);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -79,7 +93,7 @@ class PlantDAO
 
     return $plants;
 }
- public function getPlants()
+  public function getPlants()
 {        
     $sql = "SELECT id, id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags, filename FROM plants";
     $stmt =  $this->conn->prepare($sql);
@@ -110,4 +124,6 @@ class PlantDAO
 }
 
 
+ 
 }
+
