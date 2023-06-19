@@ -38,26 +38,11 @@ class EditProfileController {
 
         $input = (array) json_decode(file_get_contents('php://input'), TRUE);
 
-        // $userId = $this->request[$input['id']];
-        // // $username = $this->request['username'];
-        // // $email = $this->request['email'];
-        // // $password = $this->request['password_hash'];
-        // $descriere = $this->request['descriere'];
-        // $hobby = $this->request['hobby'];
-        // $interes_plant = $this->request['interes_plant'];
-        // $firstname = $this->request['firstname'];
-        // $lastname = $this->request['lastname'];
-        // $phone = $this->request['phone'];
-        // $adresa = $this->request['adresa'];
-
-        // $user = $this->userDAO->findById($userId);
-
         $user = new User();
-        // Update the user object with the new values
         $user->setId($input['id']);
-        // $user->setUsername($username);
-        // $user->setEmail($email);
-        // $user->setPassword($password);
+        $user->setEmail($input['email']);
+        $user->setUsername($input['username']);
+        $user->setPassword($input['password']);
         $user->setDescription($input['descriere']);
         $user->setHobby($input['hobby']);
         $user->setInteresPlant($input['interes_plant']);
@@ -65,7 +50,6 @@ class EditProfileController {
         $user->setLastname($input['lastname']);
         $user->setPhone($input['phone']);
         $user->setAddress($input['adresa']);
-        // Save the updated user data
         $this->userDAO->updateUser($user);
 
 
