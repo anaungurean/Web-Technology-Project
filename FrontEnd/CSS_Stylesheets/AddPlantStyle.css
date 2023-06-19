@@ -100,14 +100,13 @@ input {
     font-size: 1.25rem;
 }
 
-.container-buttons{
+.container-buttons {
     margin-top: 2rem;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
 }
-
 .button1 {
     border: none;
     color: #fff;
@@ -121,6 +120,7 @@ input {
     cursor:pointer;
     border-radius: 0.938rem;
     font-family: BasicFont;
+    margin-bottom: 2rem;
 }
 
 .button1:hover {
@@ -141,14 +141,17 @@ input {
     cursor:pointer;
     border-radius: 0.938rem;
     font-family: BasicFont;
-}
+    
+ }
 
 .button2:hover {
     color: #ffff;
     background-color: #283618;
 }
 
-   
+#FileName {
+    display: none;
+}
 
 @media screen and (max-width: 118.75rem) {
     .image-backgroud{

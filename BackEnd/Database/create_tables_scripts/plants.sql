@@ -13,5 +13,6 @@ CREATE TABLE PLANTS (
     color VARCHAR(255),
     collection_name VARCHAR(255),
     hashtags VARCHAR(255),
+    filename VARCHAR(255),
     FOREIGN KEY (id_user) REFERENCES users(id)
 );
