@@ -29,7 +29,9 @@ class AddPlantController {
         }
     }
 
+ 
 
+ 
     private function createPlantFromRequest(): array
     {
         $response['status_code_header'] = 'HTTP/1.1 201 CREATED';
@@ -66,6 +68,7 @@ class AddPlantController {
         return $response;
     }
 
+ 
 
 
 private function validatePlant(array $input): bool

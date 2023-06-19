@@ -29,20 +29,23 @@ class UserDAO
     }
 
 
-    public function findById($id)
+    public function getUserById($id)
     {
         try {
-            $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE id = ?");
+            $statement = $this->conn->prepare("SELECT id, email, username FROM users WHERE id = ?");
             $statement->bind_param("i", $id);
             $statement->execute();
             $statement->store_result();
             $id = null;
             $email = null;
             $username = null;
-            $password = null;
-            $statement->bind_result($id, $email, $username, $password);
+            $statement->bind_result($id, $email, $username);
             $statement->fetch();
-            return new User($email, $username, $password);
+            $user = new User();
+            $user->setId($id);
+            $user->setEmail($email);
+            $user->setUsername($username);
+            return $user;
         } catch (PDOException $e) {
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
         }
