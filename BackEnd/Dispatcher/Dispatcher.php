@@ -34,6 +34,14 @@ class Dispatcher
                 $controller = new GetUserController($requestMethod, $userId);
                 $controller->processRequest();
                 break;
+             case 'getMyCollection':
+                 $userId = null;
+                if (isset($_GET['UserId'])) {
+                    $userId = (int) $_GET['UserId'];
+                }
+                $controller = new  GetMyCollectionController($requestMethod,$userId);
+                $controller->processRequest();
+                break;
             default:
                 header("HTTP/1.1 404 Not Found");
                 exit();
