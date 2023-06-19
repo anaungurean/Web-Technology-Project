@@ -34,10 +34,10 @@ class UserDAO
     {
         try {
             $id = $user->getId();
-            // $email = $user->getEmail();
-            // $username = $user->getUsername();
-            // $password = $user->getPassword();
-            // $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $email = $user->getEmail();
+            $username = $user->getUsername();
+            $password = $user->getPassword();
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $descriere = $user->getDescription();
             $hobby = $user->getHobby();
             $interes_plant = $user->getInteresPlant();
@@ -47,8 +47,8 @@ class UserDAO
             $adresa = $user->getAddress();
 
 
-            $stmt = $this->conn->prepare("UPDATE users SET descriere = ?, hobby = ?, interes_plant = ?, firstname = ?, lastname = ?, phone = ?, adresa = ? WHERE id = ?");
-            $stmt->bind_param("sssssssi", $descriere, $hobby, $interes_plant, $firstname, $lastname, $phone, $adresa, $id);
+            $stmt = $this->conn->prepare("UPDATE users SET email = ?, username = ?, password_hash = ?, descriere = ?, hobby = ?, interes_plant = ?, firstname = ?, lastname = ?, phone = ?, adresa = ? WHERE id = ?");
+            $stmt->bind_param("ssssssssssi", $email, $username, $hashedPassword, $descriere, $hobby, $interes_plant, $firstname, $lastname, $phone, $adresa, $id);
             $stmt->execute();
         } catch (PDOException $e) {
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
@@ -96,14 +96,13 @@ class UserDAO
             $lastname = null;
             $phone = null;
             $adresa = null;
-            $statement->bind_result($id, $email, $username, $password_hash, $descriere, $hobby, $interes_plant, $firstname, $lastname, $phone, $adresa);
+            $statement->bind_result($id, $email, $username, $password_hash, $firstname, $lastname, $phone, $adresa, $descriere, $hobby, $interes_plant);
 
             $statement->fetch();
             $user = new User();
             $user->setId($id);
             $user->setEmail($email);
             $user->setUsername($username);
-            $user->setEmail($email);
             $user->setPassword($password_hash);
             $user->setDescription($descriere);
             $user->setHobby($hobby);
@@ -121,57 +120,56 @@ class UserDAO
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
         }
     }
-
-
-   public function findByUsername($username)
-{
-    try {
-        $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE username = ?");
-        $statement->bind_param("s", $username);
-        $statement->execute();
-        $statement->store_result();
-        $count = $statement->num_rows;
-        $statement->close();
-        return ($count > 0);
-    } catch (PDOException $e) {
-        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
-    }
-}
-
-public function findByUsernameAndPassword($username, $password)
-{
-    try {
-        $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE username = ?");
-        $statement->bind_param("s", $username);
-        $statement->execute();
-        $result = $statement->get_result();
-        $user = $result->fetch_assoc();
-
-        if ($user && password_verify($password, $user['password_hash'])) {
-             return $user['id'];
-        } else {
-             return -1;
+    
+    public function findByUsername($username)
+    {
+        try {
+            $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE username = ?");
+            $statement->bind_param("s", $username);
+            $statement->execute();
+            $statement->store_result();
+            $count = $statement->num_rows;
+            $statement->close();
+            return ($count > 0);
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
         }
-    } catch (PDOException $e) {
-        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
     }
-}
+
+    public function findByUsernameAndPassword($username, $password)
+    {
+        try {
+            $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE username = ?");
+            $statement->bind_param("s", $username);
+            $statement->execute();
+            $result = $statement->get_result();
+            $user = $result->fetch_assoc();
+
+            if ($user && password_verify($password, $user['password_hash'])) {
+                return $user['id'];
+            } else {
+                return -1;
+            }
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
 
 
-public function findByEmail($email)
-{
-    try {
-        $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE email = ?");
-        $statement->bind_param("s", $email);
-        $statement->execute();
-        $statement->store_result();
-        $count = $statement->num_rows;
-        $statement->close();
-        return ($count > 0);
-    } catch (PDOException $e) {
-        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+    public function findByEmail($email)
+    {
+        try {
+            $statement = $this->conn->prepare("SELECT id, email, username, password_hash FROM users WHERE email = ?");
+            $statement->bind_param("s", $email);
+            $statement->execute();
+            $statement->store_result();
+            $count = $statement->num_rows;
+            $statement->close();
+            return ($count > 0);
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+        }
     }
-}
 
 public function countPlants($userId)
 {
@@ -206,12 +204,12 @@ public function countPlants($userId)
 
 
 
-  public function checkLogin($username, $password)
-{
-    $existingIdUser = $this->findByUsernameAndPassword($username, $password);
-    return $existingIdUser;
-     
-}
+    public function checkLogin($username, $password)
+    {
+        $existingIdUser = $this->findByUsernameAndPassword($username, $password);
+        return $existingIdUser;
+        
+    }
 
 }
 ?>
