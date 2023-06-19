@@ -13,7 +13,7 @@ class User implements JsonSerializable
     private $lastname;
     private $phone;
     private $adresa;
-
+    private $count;
 
     public function __construct( )
     {
@@ -25,7 +25,7 @@ class User implements JsonSerializable
         return $this->id;
     }
 
-    // setter for id
+
     public function setId($id): void
     {
         $this->id = $id;
@@ -133,6 +133,16 @@ class User implements JsonSerializable
         return $this->adresa;
     }
 
+      public function setCount($count): void
+    {
+        $this->count = $count;
+    }
+
+    public function getCount()
+    {
+        return $this->count;
+    }
+
 
     public function jsonSerialize(): mixed
     {
@@ -148,6 +158,7 @@ class User implements JsonSerializable
             'lastname' => $this->lastname,
             'phone' => $this->phone,
             'adresa' => $this->adresa,
+            'count' => $this->count
         ];
     }
 

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lastnameInput = document.getElementById('lastname');
     const phoneInput = document.getElementById('phone');
     const adresaInput = document.getElementById('adresa');
+    const count = document.getElementById('count');
 
     const editProfileButton = document.querySelector('.button2');
   
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lastnameInput.value = data.lastname;
         phoneInput.value = data.phone;
         adresaInput.value = data.adresa;
+        count.value = data.count;
 console.log(data);
       })
       .catch(error => {
@@ -43,7 +45,7 @@ console.log(data);
     if (editProfileButton.textContent === 'Edit Profile') {
     // Enable input fields except username, password, and email
     inputFields.forEach(function(input) {
-      if (input.id !== 'username' && input.id !== 'email' && input.id !== 'password') {
+      if (input.id !== 'username' && input.id !== 'email' && input.id !== 'password'&& input.id !== 'count' ) {
         input.disabled = false;
         input.placeholder = 'You can edit this field';
       }
