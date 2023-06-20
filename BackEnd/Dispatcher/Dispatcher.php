@@ -61,8 +61,25 @@ class Dispatcher
                 $controller = new  GetAllCollectionController($requestMethod);
                 $controller->processRequest();
                 break;
+            case 'deleteUser':
+                $userId = null;
+                if (isset($_GET['id'])) {
+                    $userId = (int) $_GET['id'];
+                }
+                $controller = new DeleteUserController($requestMethod, $userId);
+                $controller->processRequest();
+                break;
             case 'getTop':
                 $controller = new  GetTopController($requestMethod);
+                $controller->processRequest();
+                break;
+            case 'updatePlant':
+                $plantId = null;
+                if (isset($_GET['id'])) {
+                    $plantId = (int) $_GET['id'];
+                }
+                // var_dump($plantId); // debug
+                $controller = new EditPlantController($requestMethod, $plantId);
                 $controller->processRequest();
                 break;
             default:

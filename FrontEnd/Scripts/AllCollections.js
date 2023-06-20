@@ -18,13 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (Array.isArray(collectionData) && collectionData.length > 0) {
           console.log(collectionData)
           createPlantElements(collectionData);
-
-        //    displayMessage('Here is your plant collection page! You can easily browse and admire your beloved plants all in one place. Enjoy!');
-
         } else if (collectionData.Result === 'Not Found') {
-          console.log(collectionData)
-        //   displayMessage('Your garden is empty :( . Please add some plants to make this page more colorful !');
-
        }
     })
     .catch(error => console.error('Error:', error));
@@ -36,13 +30,11 @@ function createPlantElements(collectionData) {
     const plantDiv = document.createElement('div');
     plantDiv.className = 'plant';
 
-    // Set the onclick event to redirect to the plant profile page
     plantDiv.onclick = function() {
       location.href = `../HTML_Pages/PlantProfileNoEdit.html?id=${plant.id}`;
     };
 
     const imageContainerDiv = document.createElement('div');
-    // imageContainerDiv.className = 'image-container';
 
     const imgElement = document.createElement('img');
     imgElement.className = 'image';

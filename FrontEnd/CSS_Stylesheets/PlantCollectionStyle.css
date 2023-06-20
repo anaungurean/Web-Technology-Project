@@ -139,6 +139,22 @@ li {
 .slider li:last-child {
     border-bottom: none;
 }
+
+.btn{
+    text-align: center;
+    text-align: center;
+    font-family: BasicFont;
+    background-color: rgb(96, 108, 56, 0.7);
+    border-radius: 9px;
+    color: var(--dark-green);
+    font-size: 2em;
+}
+
+ .btn:hover {
+     opacity: 0.8;
+     background-color: var(--dark-green);
+     color: var(--light-brown);
+ }
 @media screen and (max-width: 767px) {
     .right-section{
         grid-template-columns: 1fr 1fr;
