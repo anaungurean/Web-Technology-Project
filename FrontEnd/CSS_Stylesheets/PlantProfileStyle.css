@@ -109,13 +109,14 @@ p {
     font-weight: bold;
 }
 
-.form-group input {
+.form-group .form-control {
     background-color: transparent;
     border: none;
     border-bottom: 0.063rem solid #ccc;
     font-size: 1rem;
     font-family:BasicFont;
     font-size: 1.25rem;
+    justify-content: flex-start;
 }
 
 .container-buttons{
