@@ -49,7 +49,7 @@ class Dispatcher
                 $controller = new GetUserController($requestMethod, $userId);
                 $controller->processRequest();
                 break;
-             case 'getMyCollection':
+            case 'getMyCollection':
                  $userId = null;
                 if (isset($_GET['UserId'])) {
                     $userId = (int) $_GET['UserId'];
@@ -67,6 +67,10 @@ class Dispatcher
                     $userId = (int) $_GET['id'];
                 }
                 $controller = new DeleteUserController($requestMethod, $userId);
+                $controller->processRequest();
+                break;
+            case 'getTop':
+                $controller = new  GetTopController($requestMethod);
                 $controller->processRequest();
                 break;
             default:

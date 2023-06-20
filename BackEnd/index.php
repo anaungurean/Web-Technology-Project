@@ -15,7 +15,8 @@ include_once "../BackEnd/Controllers/GetUserController.php";
 include_once "../BackEnd/Controllers/GetMyCollectionController.php";
 include_once "../BackEnd/Controllers/GetAllCollectionController.php";
 include_once "../BackEnd/Controllers/DeleteUserController.php";
-
+include_once "../BackEnd/Controllers/GetTopController.php";
+ 
 include_once "../BackEnd/Database/UserDAO.php";
 include_once "../BackEnd/Database/PlantDAO.php";
 
