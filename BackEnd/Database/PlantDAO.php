@@ -63,65 +63,103 @@ class PlantDAO
         }
     }
 
-  public function getPlantsByUserId($user_id)
-{        
-    $sql = "SELECT id, id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags, filename FROM plants WHERE id_user = ?";
-    $stmt =  $this->conn->prepare($sql);
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
+    public function getPlantsByUserId($user_id)
+    {        
+        $sql = "SELECT id, id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags, filename FROM plants WHERE id_user = ?";
+        $stmt =  $this->conn->prepare($sql);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
 
-    $result = $stmt->get_result();
-    $plants = [];
+        $result = $stmt->get_result();
+        $plants = [];
 
-    while ($row = $result->fetch_assoc()) {
-        $plant = new Plant();
-        $plant->setId($row['id']);
-        $plant->setIdUser($row['id_user']);
-        $plant->setCommonName($row['common_name']);
-        $plant->setScientificName($row['scientific_name']);
-        $plant->setFamily($row['family']);
-        $plant->setGenus($row['genus']);
-        $plant->setSpecies($row['species']);
-        $plant->setPlace($row['place']);
-        $plant->setDateOfCollection($row['date_of_collection']);
-        $plant->setColor($row['color']);
-        $plant->setCollectionName($row['collection_name']);
-        $plant->setHashtags($row['hashtags']);
-        $plant->setFileName($row['filename']);
-        $plants[] = $plant;
+        while ($row = $result->fetch_assoc()) {
+            $plant = new Plant();
+            $plant->setId($row['id']);
+            $plant->setIdUser($row['id_user']);
+            $plant->setCommonName($row['common_name']);
+            $plant->setScientificName($row['scientific_name']);
+            $plant->setFamily($row['family']);
+            $plant->setGenus($row['genus']);
+            $plant->setSpecies($row['species']);
+            $plant->setPlace($row['place']);
+            $plant->setDateOfCollection($row['date_of_collection']);
+            $plant->setColor($row['color']);
+            $plant->setCollectionName($row['collection_name']);
+            $plant->setHashtags($row['hashtags']);
+            $plant->setFileName($row['filename']);
+            $plants[] = $plant;
+        }
+
+        return $plants;
     }
 
-    return $plants;
-}
-  public function getPlants()
-{        
-    $sql = "SELECT id, id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags, filename FROM plants";
-    $stmt =  $this->conn->prepare($sql);
-    $stmt->execute();
+    public function getPlants()
+    {        
+        $sql = "SELECT id, id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags, filename FROM plants";
+        $stmt =  $this->conn->prepare($sql);
+        $stmt->execute();
 
-    $result = $stmt->get_result();
-    $plants = [];
+        $result = $stmt->get_result();
+        $plants = [];
 
-    while ($row = $result->fetch_assoc()) {
-        $plant = new Plant();
-        $plant->setId($row['id']);
-        $plant->setIdUser($row['id_user']);
-        $plant->setCommonName($row['common_name']);
-        $plant->setScientificName($row['scientific_name']);
-        $plant->setFamily($row['family']);
-        $plant->setGenus($row['genus']);
-        $plant->setSpecies($row['species']);
-        $plant->setPlace($row['place']);
-        $plant->setDateOfCollection($row['date_of_collection']);
-        $plant->setColor($row['color']);
-        $plant->setCollectionName($row['collection_name']);
-        $plant->setHashtags($row['hashtags']);
-        $plant->setFileName($row['filename']);
-        $plants[] = $plant;
+        while ($row = $result->fetch_assoc()) {
+            $plant = new Plant();
+            $plant->setId($row['id']);
+            $plant->setIdUser($row['id_user']);
+            $plant->setCommonName($row['common_name']);
+            $plant->setScientificName($row['scientific_name']);
+            $plant->setFamily($row['family']);
+            $plant->setGenus($row['genus']);
+            $plant->setSpecies($row['species']);
+            $plant->setPlace($row['place']);
+            $plant->setDateOfCollection($row['date_of_collection']);
+            $plant->setColor($row['color']);
+            $plant->setCollectionName($row['collection_name']);
+            $plant->setHashtags($row['hashtags']);
+            $plant->setFileName($row['filename']);
+            $plants[] = $plant;
+        }
+
+        return $plants;
     }
 
-    return $plants;
-}
+
+    public function getTopPlants()
+    {
+        $sql = "SELECT id, id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags, filename, COUNT(common_name) AS name_count 
+                FROM plants 
+                GROUP BY common_name 
+                ORDER BY name_count DESC 
+                LIMIT 2";
+                
+        $stmt =  $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $plants = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $plant = new Plant();
+            $plant->setId($row['id']);
+            $plant->setIdUser($row['id_user']);
+            $plant->setCommonName($row['common_name']);
+            $plant->setScientificName($row['scientific_name']);
+            $plant->setFamily($row['family']);
+            $plant->setGenus($row['genus']);
+            $plant->setSpecies($row['species']);
+            $plant->setPlace($row['place']);
+            $plant->setDateOfCollection($row['date_of_collection']);
+            $plant->setColor($row['color']);
+            $plant->setCollectionName($row['collection_name']);
+            $plant->setHashtags($row['hashtags']);
+            $plant->setFileName($row['filename']);
+            $plants[] = $plant;
+        }
+
+        return $plants;
+    }
+
 
 
  
