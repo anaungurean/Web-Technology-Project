@@ -48,7 +48,7 @@ class UserDAO
 
 
             $stmt = $this->conn->prepare("UPDATE users SET email = ?, username = ?, descriere = ?, hobby = ?, interes_plant = ?, firstname = ?, lastname = ?, phone = ?, adresa = ? WHERE id = ?");
-            $stmt->bind_param("ssssssssssi", $email, $username, $descriere, $hobby, $interes_plant, $firstname, $lastname, $phone, $adresa, $id);
+            $stmt->bind_param("sssssssssi", $email, $username, $descriere, $hobby, $interes_plant, $firstname, $lastname, $phone, $adresa, $id);
             $stmt->execute();
         } catch (PDOException $e) {
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);

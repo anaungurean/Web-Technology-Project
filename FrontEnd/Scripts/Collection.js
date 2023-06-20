@@ -37,8 +37,9 @@ function createPlantElements(collectionData) {
 
     // Set the onclick event to redirect to the plant profile page
     plantDiv.onclick = function() {
-      location.href = '../HTML_Pages/PlantProfilePage.html';
+      location.href = `../HTML_Pages/PlantProfilePage.html?id=${plant.id}`;
     };
+
 
     const imgElement = document.createElement('img');
     imgElement.src = '../PlantsImages/' + plant.filename;
