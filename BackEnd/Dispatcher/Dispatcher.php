@@ -18,7 +18,8 @@ class Dispatcher
                 $controller->processRequest();
                 break;
             case 'users':
-                $controller = new UserProfileController($requestMethod, $request);
+                $userId = (int) $_GET['id'];
+                $controller = new UserProfileController($requestMethod, $userId);
                 $controller->processRequest();
                 break;
             case 'profile':

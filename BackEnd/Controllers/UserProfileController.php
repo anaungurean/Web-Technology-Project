@@ -16,28 +16,33 @@ class UserProfileController {
 
     public function processRequest(): void
     {
+        $params = $_GET;
+
         switch ($this->requestMethod) {
             case 'GET':
-                $response = $this->getUserData();
+                if (!empty($params['id'])) {
+                    $response = $this->getUserData($params['id']);
+                } else {
+                    $response = $this->notFoundResponse();
+                }
                 break;
             default:
                 $response = $this->notFoundResponse();
                 break;
         }
         header($response['status_code_header']);
+        header($response['content_type_header']);
         if ($response['body']) {
             echo $response['body'];
         }
     }
 
-    private function getUserData(): array
+    private function getUserData($id): array
     {
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
         $response['content_type_header'] = 'Content-Type: application/json';
-        $jwtCookie = $_COOKIE['User'];
         
-        $decodedJWT = json_decode(base64_decode(str_replace('_', '/', str_replace('-', '+', explode('.', $jwtCookie)[1]))), true);
-        $userId = $decodedJWT['id'];
+        $userId = $id;
 
         $user = $this->userDAO->findUser($userId);
 
@@ -54,11 +59,11 @@ class UserProfileController {
 
     private function notFoundResponse(): array
     {
-        $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
-        $response['content_type_header'] = 'Content-Type: application/json';
         $response['body'] = json_encode([
             'error' => 'Not Found'
         ]);
+        $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
+        $response['content_type_header'] = 'Content-Type: application/json';
         return $response;
     }
 }
