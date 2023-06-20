@@ -186,5 +186,16 @@ class PlantDAO
         }
     }
 
+    public function deletePlant($id): void
+    {
+        try {
+            $stmt = $this->conn->prepare("DELETE FROM plants WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
 }
 
