@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const urlParams = new URLSearchParams(window.location.search);
   const plantId = urlParams.get('id');
-
+ 
   const jwt = getCookie('User');
 
   const plantUrl = `http://localhost/TW/BackEnd/getPlant?id=${plantId}`;

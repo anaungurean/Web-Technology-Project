@@ -61,6 +61,14 @@ class Dispatcher
                 $controller = new  GetAllCollectionController($requestMethod);
                 $controller->processRequest();
                 break;
+            case 'deleteUser':
+                $userId = null;
+                if (isset($_GET['id'])) {
+                    $userId = (int) $_GET['id'];
+                }
+                $controller = new DeleteUserController($requestMethod, $userId);
+                $controller->processRequest();
+                break;
             default:
                 header("HTTP/1.1 404 Not Found");
                 exit();
