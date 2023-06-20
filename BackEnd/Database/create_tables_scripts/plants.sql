@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS PLANTS;
+DROP TABLE IF EXISTS plants;
 
-CREATE TABLE PLANTS (
+CREATE TABLE plants (
     id INT AUTO_INCREMENT PRIMARY KEY,
     id_user INT,
     common_name VARCHAR(255),
@@ -14,5 +14,5 @@ CREATE TABLE PLANTS (
     collection_name VARCHAR(255),
     hashtags VARCHAR(255),
     filename VARCHAR(255),
-    FOREIGN KEY (id_user) REFERENCES users(id)
+    FOREIGN KEY (id_user) REFERENCES users(id) ON DELETE CASCADE
 );
