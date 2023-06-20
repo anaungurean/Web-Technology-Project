@@ -42,7 +42,7 @@ class EditProfileController {
         $user->setId($input['id']);
         $user->setEmail($input['email']);
         $user->setUsername($input['username']);
-        $user->setPassword($input['password']);
+        // $user->setPassword($input['password']);
         $user->setDescription($input['descriere']);
         $user->setHobby($input['hobby']);
         $user->setInteresPlant($input['interes_plant']);

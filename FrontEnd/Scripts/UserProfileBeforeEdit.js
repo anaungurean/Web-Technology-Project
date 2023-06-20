@@ -17,7 +17,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var decodedJwt = parseJwt(jwt);
     var id_user = decodedJwt.id;
   
-    fetch(`http://localhost/TW/BackEnd/users/${id_user}`)
+    fetch(`http://localhost/TW/BackEnd/users?id=${id_user}`, {
+        headers: {
+            'Authorization': `Bearer ${jwt}`
+        }
+    })
       .then(response => response.json())
       .then(data => {
 
@@ -32,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
         phoneInput.value = data.phone;
         adresaInput.value = data.adresa;
         count.value = data.count;
-
       })
       .catch(error => {
         console.error('Error:', error);
@@ -77,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: id_user,
             username: updatedUsername,
             email: updatedEmail,
-            password: updatedPassword,
+            // password: updatedPassword,
             descriere: updatedDescriere,
             hobby: updatedHobby,
             interes_plant: updatedInteresPlant,
@@ -91,7 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`http://localhost/TW/BackEnd/profile/${id_user}`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwt}`
         },
         body: updatedUser
         })
