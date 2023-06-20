@@ -1,4 +1,5 @@
 <?php
+
 include_once "Database.php";  
 
 class UserDAO
@@ -28,8 +29,6 @@ class UserDAO
     
     }
 
-
-
     public function updateUser($user): void
     {
         try {
@@ -54,7 +53,6 @@ class UserDAO
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
         }
     }
-
 
     public function getUserById($id)
     {
@@ -171,24 +169,23 @@ class UserDAO
         }
     }
 
-public function countPlants($userId)
-{
-    try {
-        $statement = $this->conn->prepare("SELECT COUNT(*)  FROM plants WHERE id_user = ?");
-        $statement->bind_param("i", $userId);
-        $statement->execute();
-        $statement->bind_result($totalPlants);
-        $statement->fetch();
-        $statement->close();
+    public function countPlants($userId)
+    {
+        try {
+            $totalPlants = null;
+            $statement = $this->conn->prepare("SELECT COUNT(*)  FROM plants WHERE id_user = ?");
+            $statement->bind_param("i", $userId);
+            $statement->execute();
+            $statement->bind_result($totalPlants);
+            $statement->fetch();
+            $statement->close();
 
-        return $totalPlants;
-        
-    } catch (PDOException $e) {
-        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+            return $totalPlants;
+            
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+        }
     }
-}
-
-
 
     public function checkExistingUser($email, $username): bool
     {
@@ -201,8 +198,6 @@ public function countPlants($userId)
             return false;  
         }
     }
-
-
 
     public function checkLogin($username, $password)
     {
