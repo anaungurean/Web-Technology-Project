@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const plantImage = document.getElementById('plant-image');
     plantImage.src = `../../FrontEnd/PlantsImages/${plantData.filename}`;
     plantImage.alt = plantData.common_name;
+
   }
 
   // Function to get the value of a cookie by name
