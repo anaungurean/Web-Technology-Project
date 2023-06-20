@@ -8,6 +8,7 @@ include_once "../BackEnd/Controllers/AuthController.php";
 
 include_once "../BackEnd/Controllers/AddPlantController.php";
 include_once "../BackEnd/Controllers/EditPlantController.php";
+include_once "../BackEnd/Controllers/DeletePlantController.php";
 
 include_once "../BackEnd/Controllers/UserProfileController.php";
 include_once "../BackEnd/Controllers/EditProfileController.php";

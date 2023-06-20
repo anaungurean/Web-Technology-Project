@@ -29,7 +29,6 @@ class Dispatcher
             case 'getPlant':
                 if (isset($_GET['id'])) {
                     $plantId = (int) $_GET['id'];
-                    // var_dump($plantId);
                     $controller = new GetPlantController($requestMethod, $plantId);
                 } elseif (isset($_GET['filename'])) {
                     $filename = $_GET['filename'];
@@ -45,7 +44,6 @@ class Dispatcher
                 if (isset($_GET['id'])) {
                     $userId = (int) $_GET['id'];
                 }
-                // var_dump($userId); // debug
                 $controller = new GetUserController($requestMethod, $userId);
                 $controller->processRequest();
                 break;
@@ -78,8 +76,15 @@ class Dispatcher
                 if (isset($_GET['id'])) {
                     $plantId = (int) $_GET['id'];
                 }
-                // var_dump($plantId); // debug
                 $controller = new EditPlantController($requestMethod, $plantId);
+                $controller->processRequest();
+                break;
+            case 'deletePlant':
+                $plantId = null;
+                if (isset($_GET['id'])) {
+                    $plantId = (int) $_GET['id'];
+                }
+                $controller = new DeletePlantController($requestMethod, $plantId);
                 $controller->processRequest();
                 break;
             default:
