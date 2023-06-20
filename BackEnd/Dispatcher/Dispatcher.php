@@ -65,6 +65,15 @@ class Dispatcher
                 $controller = new  GetTopController($requestMethod);
                 $controller->processRequest();
                 break;
+            case 'updatePlant':
+                $plantId = null;
+                if (isset($_GET['id'])) {
+                    $plantId = (int) $_GET['id'];
+                }
+                // var_dump($plantId); // debug
+                $controller = new EditPlantController($requestMethod, $plantId);
+                $controller->processRequest();
+                break;
             default:
                 header("HTTP/1.1 404 Not Found");
                 exit();
