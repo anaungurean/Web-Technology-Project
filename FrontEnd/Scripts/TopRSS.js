@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(collectionData => {
           if (Array.isArray(collectionData) && collectionData.length > 0) {
+            downloadXMLFile(collectionData);
             return collectionData;
           } else {
             throw new Error('No top plants found.');
@@ -60,6 +61,22 @@ document.addEventListener('DOMContentLoaded', function() {
       rssFeed += '</plants>\n';
   
       return rssFeed;
+    }
+
+
+    function downloadXMLFile(data) {
+      const rssFeed = generateRSSFeed(data);
+    
+      const blob = new Blob([rssFeed], { type: 'application/xml' });
+      const url = URL.createObjectURL(blob);
+    
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'top_rss.xml';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
   
     function getCookie(name) {

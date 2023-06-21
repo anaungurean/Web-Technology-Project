@@ -41,7 +41,7 @@
         
         <div id="plantsContainer" class="plants"></div>
 
-         <button onclick="toprss()"> Ranking RSS </button>
+        <button id="downloadRSSButton" onclick="toprss()"> Ranking RSS </button>
 
     </main>
 
@@ -49,6 +49,7 @@
     <script>
         function toprss() {
         window.location.href = "./TopRSS.html";
+        downloadXMLFile(collectionData);
         }
     </script>
 
