@@ -5,7 +5,10 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/TW/vendor/autoload.php');
 
 include_once "../BackEnd/Controllers/SignUpController.php";
 include_once "../BackEnd/Controllers/AuthController.php";
+
 include_once "../BackEnd/Controllers/AddPlantController.php";
+include_once "../BackEnd/Controllers/EditPlantController.php";
+include_once "../BackEnd/Controllers/DeletePlantController.php";
 
 include_once "../BackEnd/Controllers/UserProfileController.php";
 include_once "../BackEnd/Controllers/EditProfileController.php";
@@ -18,6 +21,7 @@ include_once "../BackEnd/Controllers/DeleteUserController.php";
 include_once "../BackEnd/Controllers/GetTopController.php";
 include_once "../BackEnd/Controllers/UpdatePasswordController.php";
  
+
 include_once "../BackEnd/Database/UserDAO.php";
 include_once "../BackEnd/Database/PlantDAO.php";
 

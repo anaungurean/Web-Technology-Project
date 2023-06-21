@@ -1,4 +1,5 @@
 <?php
+
 include_once "Database.php";  
 
 class UserDAO
@@ -28,8 +29,6 @@ class UserDAO
     
     }
 
-
-
     public function updateUser($user): void
     {
         try {
@@ -54,7 +53,6 @@ class UserDAO
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
         }
     }
-
 
     public function getUserById($id)
     {
@@ -171,6 +169,7 @@ class UserDAO
         }
     }
 
+
 public function countPlants($userId)
 {
     try {
@@ -220,7 +219,6 @@ public function checkUsernameExists($username): bool
         }
     }
 
-
     public function checkExistingUser($email, $username): bool
     {
         $existingUserByEmail = $this->findByEmail($email);
@@ -232,8 +230,6 @@ public function checkUsernameExists($username): bool
             return false;  
         }
     }
-
-
 
     public function checkLogin($username, $password)
     {

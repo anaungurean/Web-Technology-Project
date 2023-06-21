@@ -160,8 +160,42 @@ class PlantDAO
         return $plants;
     }
 
+    public function updatePlant($plant): void
+    {
+        try {
+            $id = $plant->getId();
 
+            var_dump($id);
+            //$id_user = $plant->getIdUser();
+            $common_name = $plant->getCommonName();
+            $scientific_name = $plant->getScientificName();
+            $family = $plant->getFamily();
+            $genus = $plant->getGenus();
+            $species = $plant->getSpecies();
+            $place = $plant->getPlace();
+            $date_of_collection = $plant->getDateOfCollection();
+            $color = $plant->getColor();
+            $collection_name = $plant->getCollectionName();
+            $hashtags = $plant->getHashtags();
 
- 
+            $stmt = $this->conn->prepare("UPDATE plants SET common_name=?, scientific_name=?, family=?, genus=?, species=?, place=?, date_of_collection=?, color=?, collection_name=?, hashtags=? WHERE id=?");
+            $stmt->bind_param("ssssssssssi", $common_name, $scientific_name, $family, $genus, $species, $place, $date_of_collection, $color, $collection_name, $hashtags, $id);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
+    public function deletePlant($id): void
+    {
+        try {
+            $stmt = $this->conn->prepare("DELETE FROM plants WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+        }
+    }
+
 }
 
