@@ -188,6 +188,37 @@ public function countPlants($userId)
     }
 }
 
+public function updatePasswordByUsername($username, $newPassword): bool
+    {
+        try {
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
+            $stmt = $this->conn->prepare("UPDATE users SET password_hash = ? WHERE username = ?");
+            $stmt->bind_param("ss", $hashedPassword, $username);
+            $stmt->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+            return false;
+        }
+ }
+
+public function checkUsernameExists($username): bool
+    {
+        try {
+            $statement = $this->conn->prepare("SELECT id FROM users WHERE username = ?");
+            $statement->bind_param("s", $username);
+            $statement->execute();
+            $statement->store_result();
+            $count = $statement->num_rows;
+            $statement->close();
+            return ($count > 0);
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+            return false;
+        }
+    }
 
 
     public function checkExistingUser($email, $username): bool
