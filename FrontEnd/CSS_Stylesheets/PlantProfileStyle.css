@@ -1,3 +1,11 @@
+:root{
+    --light-green: #606C38;
+    --dark-green: #283618;
+    --milky-white: #FEFAE0;
+    --light-brown: #DDA15E;
+    --dark-brown: #BC6C25;
+}
+
 @font-face {
     font-family: CaligraphicFont;
     src: url(../Fonts/font2.ttf);
@@ -8,12 +16,12 @@
     src: url(../Fonts/SimpleHandmade.otf);
  }
 
-.image-backgroud {
+body {
     background-image: url("../Images/PlantProfileImages/fundal.jpg");
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .main-container{

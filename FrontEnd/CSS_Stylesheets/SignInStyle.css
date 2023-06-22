@@ -1,10 +1,14 @@
-:root {
+:root{
     --light-green: #606C38;
     --dark-green: #283618;
     --milky-white: #FEFAE0;
     --light-brown: #DDA15E;
     --dark-brown: #BC6C25;
 }
+@font-face {
+    font-family: BasicFont;
+    src: url(../Fonts/SimpleHandmade.otf);
+ }
 
 body {
     height: 100%;
@@ -52,7 +56,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    font-family: 'Outfit', sans-serif;
+    font-family: BasicFont;
     
   }
   
@@ -78,7 +82,6 @@ body {
     z-index: 1;
   }
   
-  /* The ::placeholder pseudo-element in CSS is used to style the placeholder text of an input. */
   ::placeholder {
     color: var(--dark-brown);
     text-align: center;
@@ -112,116 +115,106 @@ body {
     text-align: center;
   }
   
-  .form .btn {
-    align-self: center;
-    border-radius: 18px;
-    outline: none;
-    border: none;
-    color: var(--dark-green);
-    background-color: var(--dark-brown);
+.form .btn {
+  font-family: BasicFont;
+  font-size: 1.8em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0;
+  cursor: pointer;
+  border-radius: 100px;
+  background-color: var(--light-green);
+  color: #ffffff;
+  box-shadow: 0 0 10px var(--dark-green);
+  transition: all 0.3s;
+  border: #283618;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
 
-    margin-top: 1em;
 
-    width: 7em;
+.form .btn:hover {
+background-color: #BC6C25;
+box-shadow: 0 0 10px var(--dark-green);
+transform: translateY(-5px);
+font-weight: bold;
+} 
+  
+.form .btn:active {
+  transform: translateX(0.1em) translateY(0.1em);
+  box-shadow: none;
+}
+
+.form .forgot-password {
+  margin-top: 0.2em;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--dark-green);
+}
+
+.form .sign-up {
+  font-size: 1.6em;
+  color: var(--dark-green);
+  font-weight: bold;
+}
+
+.sign-up a {
+  color: var(--light-green);
+}
+
+.btn a {
+  color: var(--light-brown);
+  text-decoration: none;
+}
+
+
+@media screen and (max-width: 767px) {
+    .left-section{
+    flex-grow: 0.5;
+    margin-right: -12rem;
+  } 
+
+  .right-section{
+    flex-grow: 1.5;
+  }
+
+  .form {
+    width: 18em;
+    height: 28em;
+  }
+
+  .form .heading {
+    font-size: 1.5em;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .left-section{
+    flex-grow: 0.5;
+    margin-right: -7.6rem;
+  } 
+
+  .right-section{
+    flex-grow: 1.5;
+  }
+
+  .form {
+    width: 16em;
+    height: 26em;
+  }
+
+  .form .heading {
+    font-size: 1.5em;
+  }
+
+  .form .input {
+    width: 14em;
     height: 2em;
-
-
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    font-size: 1.1em;
-    text-decoration: none;
-
-    transition: .4s ease-in-out opacity,.1s ease-in-out;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-  }
-  
-  .form .btn:hover {
-    opacity: 0.8;
-    background-color: var(--dark-green);
-    color: var(--light-brown);
-  }
-  
-  .form .btn:active {
-    transform: translateX(0.1em) translateY(0.1em);
-    box-shadow: none;
-  }
-
-  .form .forgot-password {
-    margin-top: 0.2em;
-    font-weight: bold;
-    font-size: 1.1em;
-    color: var(--dark-green);
   }
 
   .form .sign-up {
-    font-size: 1.1em;
-    color: var(--dark-green);
-    font-weight: bold;
-  }
+  font-size: 0.9em;
+}
 
-  .sign-up a {
-    color: var(--light-green);
-  }
-
-  .btn a {
-    color: var(--light-brown);
-    text-decoration: none;
-
-  }
-
-  @media screen and (max-width: 767px) {
-     .left-section{
-      flex-grow: 0.5;
-      margin-right: -12rem;
-    } 
-
-    .right-section{
-      flex-grow: 1.5;
-    }
-
-    .form {
-      width: 18em;
-      height: 28em;
-    }
-
-    .form .heading {
-      font-size: 1.5em;
-    }
-
-  }
-
-  @media screen and (max-width: 400px) {
-    .left-section{
-     flex-grow: 0.5;
-     margin-right: -7.6rem;
-   } 
-
-   .right-section{
-     flex-grow: 1.5;
-   }
-
-   .form {
-     width: 16em;
-     height: 26em;
-   }
-
-   .form .heading {
-     font-size: 1.5em;
-   }
-
-   .form .input {
-     width: 14em;
-     height: 2em;
-   }
-
-   .form .sign-up {
-    font-size: 0.9em;
-  }
-
- }
+}

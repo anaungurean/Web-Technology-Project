@@ -1,10 +1,14 @@
-:root {
+:root{
     --light-green: #606C38;
     --dark-green: #283618;
     --milky-white: #FEFAE0;
     --light-brown: #DDA15E;
     --dark-brown: #BC6C25;
 }
+@font-face {
+    font-family: BasicFont;
+    src: url(../Fonts/SimpleHandmade.otf);
+ }
 
 body {
     height: 100%;
@@ -15,8 +19,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0;
-
-    /* It is a relative length unit that represents a percentage of the viewport height. One vh is equal to 1/100th of the viewport height. */
     height: 100vh; 
 }
 
@@ -52,147 +54,115 @@ body {
     align-items: center;
     justify-content: center;
 
-    font-family: 'Outfit', sans-serif;
+    font-family: BasicFont;
     
   }
   
-  .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.9em;
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9em;
 
-    border: 2px dashed var(--dark-brown);
-    border-radius: 15px;
+  border: 2px dashed var(--dark-brown);
+  border-radius: 15px;
 
-    background-color: var(--light-brown);
-    box-shadow: 0 0 0 4px var(--light-brown), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
-    transition: .4s ease-in-out;
-    opacity: 0.9;
+  background-color: var(--light-brown);
+  box-shadow: 0 0 0 4px var(--light-brown), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+  transition: .4s ease-in-out;
+  opacity: 0.9;
 
-    width: 28em;
-    height: 38em;
+  width: 28em;
+  height: 38em;
 
-    position: relative;
-    z-index: 1;
-  }
+  position: relative;
+  z-index: 1;
+}
+
+::placeholder {
+  color: var(--dark-brown);
+  text-align: center;
+  font-weight: 450;
+  font-size: 1.1em;
+}
+
+.form .heading {
+  color: var(--dark-green);
+  background-color: transparent;
+
+  letter-spacing: 0.5em;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000, -1px -1px 2px var(--light-green);
+  font-size: 2.5em;
+
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.form .input {
+  outline: none;
+  border: 1px solid var(--dark-brown);
+  color: var(--dark-green);
+
+  width: 20em;
+  height: 3.8em;
+
+  border-radius: 10px;
+  background-color: var(--light-brown);
+  text-align: center;
+}
   
-  /* The ::placeholder pseudo-element in CSS is used to style the placeholder text of an input. */
-  ::placeholder {
-    color: var(--dark-brown);
-    text-align: center;
-    font-weight: 450;
-    font-size: 1.1em;
-  }
+.form .btn {
+  font-family: BasicFont;
+  font-size: 1.8em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0;
+  cursor: pointer;
+  border-radius: 100px;
+  background-color: var(--light-green);
+  color: #ffffff;
+  box-shadow: 0 0 10px var(--dark-green);
+  transition: all 0.3s;
+  border: #283618;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+
+.form .btn:hover {
+background-color: #BC6C25;
+box-shadow: 0 0 10px var(--dark-green);
+transform: translateY(-5px);
+font-weight: bold;
+} 
   
-  .form .heading {
-    color: var(--dark-green);
-    background-color: transparent;
+.form .btn:active {
+  transform: translateX(0.1em) translateY(0.1em);
+  box-shadow: none;
+}
 
-    letter-spacing: 0.5em;
-    text-align: center;
-    text-shadow: 1px 1px 2px #000, -1px -1px 2px var(--light-green);
-    font-size: 2.5em;
+.form .sign-in {
+  font-size: 1.6em;
+  color: var(--dark-green);
+  font-weight: bold;
+}
 
-    margin-right: 0;
-    padding-right: 0;
-  }
-  
-  .form .input {
-    outline: none;
-    border: 1px solid var(--dark-brown);
-    color: var(--dark-green);
+.form .sign-in a {
+  color: var(--light-green);
+}
 
-    width: 20em;
-    height: 3.8em;
+.btn a {
+  color: var(--light-brown);
+  text-decoration: none;
 
-    border-radius: 10px;
-    background-color: var(--light-brown);
-    text-align: center;
-  }
-  
-  .form .btn {
-    align-self: center;
-    border-radius: 18px;
-    outline: none;
-    border: none;
-    color: var(--dark-green);
-    background-color: var(--dark-brown);
+}
 
-    margin-top: 1em;
-
-    width: 7em;
-    height: 2em;
-
-
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    font-size: 1.1em;
-    text-decoration: none;
-
-    transition: .4s ease-in-out opacity,.1s ease-in-out;
-
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-  }
-  
-  .form .btn:hover {
-    opacity: 0.8;
-    background-color: var(--dark-green);
-    color: var(--light-brown);
-  }
-  
-  .form .btn:active {
-    transform: translateX(0.1em) translateY(0.1em);
-    box-shadow: none;
-  }
-
-  .form .sign-in {
-    font-size: 1.1em;
-    color: var(--dark-green);
-    font-weight: bold;
-  }
-
-  .form .sign-in a {
-    color: var(--light-green);
-  }
-
-  .btn a {
-    color: var(--light-brown);
-    text-decoration: none;
-
-  }
-
-  @media screen and (max-width: 767px) {
-    .left-section{
-     flex-grow: 0.5;
-     margin-right: -12rem;
-   } 
-
-   .right-section{
-     flex-grow: 1.5;
-   }
-
-   .form {
-     width: 18em;
-     height: 28em;
-   }
-
-   .form .heading {
-     font-size: 1.5em;
-   }
-
- }
-
- @media screen and (max-width: 400px) {
-   .left-section{
+@media screen and (max-width: 767px) {
+  .left-section{
     flex-grow: 0.5;
-    margin-right: -7.6rem;
+    margin-right: -12rem;
   } 
 
   .right-section{
@@ -200,22 +170,43 @@ body {
   }
 
   .form {
-    width: 16em;
-    height: 26em;
+    width: 18em;
+    height: 28em;
   }
 
   .form .heading {
     font-size: 1.5em;
   }
 
-  .form .input {
-    width: 14em;
-    height: 2em;
-  }
+}
 
-  .form .sign-in {
-    font-size: 0.9em;
-  }
+@media screen and (max-width: 400px) {
+  .left-section{
+  flex-grow: 0.5;
+  margin-right: -7.6rem;
+} 
+
+.right-section{
+  flex-grow: 1.5;
+}
+
+.form {
+  width: 16em;
+  height: 26em;
+}
+
+.form .heading {
+  font-size: 1.5em;
+}
+
+.form .input {
+  width: 14em;
+  height: 2em;
+}
+
+.form .sign-in {
+  font-size: 0.9em;
+}
 
 }
 

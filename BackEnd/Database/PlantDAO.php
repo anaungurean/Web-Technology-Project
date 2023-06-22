@@ -50,7 +50,6 @@ class PlantDAO
 
     public function getPlantByFilename($filename)
     {
-        // var_dump($filename);
         $sql = "SELECT * FROM plants WHERE filename = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("s", $filename);
@@ -167,7 +166,6 @@ class PlantDAO
             $id = $plant->getId();
 
             var_dump($id);
-            //$id_user = $plant->getIdUser();
             $common_name = $plant->getCommonName();
             $scientific_name = $plant->getScientificName();
             $family = $plant->getFamily();

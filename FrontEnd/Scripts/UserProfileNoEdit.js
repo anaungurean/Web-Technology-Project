@@ -13,10 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const id_user = urlParams.get('userId');
 
-
-    // console.log(id_user);
-
-    // Get the JWT from the cookie
     const jwt = getCookie('User');
   
     fetch(`http://localhost/TW/BackEnd/users?id=${id_user}` , {
@@ -42,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error:', error);
       });
 
-    // Function to get the value of a cookie by name
     function getCookie(name) {
       const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
       return cookieValue ? cookieValue.pop() : '';

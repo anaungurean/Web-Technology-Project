@@ -6,7 +6,6 @@ class DeletePlantController {
     public function __construct($requestMethod, $request)
     {
         $this->requestMethod = $requestMethod;
-        $this->request = $request;
         $this->plantDAO = new PlantDAO();
     }
 

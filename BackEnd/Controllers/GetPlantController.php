@@ -14,7 +14,7 @@ class GetPlantController
 
     public function processRequest(): void
     {
-        $params = $_GET; // Retrieve the request parameters
+        $params = $_GET; 
 
         switch ($this->requestMethod) {
             case 'GET':

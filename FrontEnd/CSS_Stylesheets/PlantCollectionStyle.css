@@ -148,6 +148,8 @@ li {
     border-radius: 9px;
     color: var(--dark-green);
     font-size: 2em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
  .btn:hover {

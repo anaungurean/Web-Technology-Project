@@ -1,26 +1,24 @@
-@font-face {
-    font-family: CaligraphicFont;
-    src: url(../Fonts/font2.ttf);
- }
-
  @font-face {
     font-family: BasicFont;
     src: url(../Fonts/SimpleHandmade.otf);
  }
-
-.image-backgroud {
+    
+ body {
     background-image: url("../Images/AddPlantImages/Background.jpg");
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
     
- }
+}
 
 .main-container{
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    height: calc(100vh - 78px);
+    /* height: calc(100vh - 78px); */
+    margin-bottom: 2rem;
 }
 
 .user-profile-card {
@@ -31,6 +29,7 @@
     margin: 1.25rem auto;
     padding: 1.25rem;
     background-color: #fff;
+
 }
 
 .row{
@@ -55,6 +54,8 @@
 
 .title p{
     font-size: 2rem;
+    font-style: italic;
+    letter-spacing: 0.5rem;
 
 }
 
@@ -107,6 +108,7 @@ input {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 .button1 {
     border: none;
     color: #fff;
@@ -118,9 +120,11 @@ input {
     transition-duration: 0.4s;
     background-color: var(--light-green);
     cursor:pointer;
-    border-radius: 0.938rem;
+    border-radius: 0.8rem;
     font-family: BasicFont;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .button1:hover {
@@ -148,6 +152,7 @@ input {
     color: #ffff;
     background-color: #283618;
 }
+
 
 #FileName {
     display: none;

@@ -4,11 +4,11 @@
     --milky-white: #FEFAE0;
     --light-brown: #DDA15E;
     --dark-brown: #BC6C25;
+    --header-height: 0;
 }
 
 body {
     margin: 0;
-    font-family: 'Outfit', sans-serif;
 
     background-image: url('../Images/HomePageImages/homepage-background.jpg');
     background-repeat: no-repeat;
@@ -18,26 +18,18 @@ body {
 
 }
 
-main{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap:wrap;
-
-    padding-top: 2rem;
-
-    height: 52rem;
-}
-
 .user-options {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 6rem;
-
-    padding-bottom: 2rem;
-  }
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-top: var(--header-height);
+  margin-bottom: var(--header-height);
+  padding-left: 4em;
+  padding-right: 4em;
+}
 
 .option {
     width: 25rem;
@@ -49,7 +41,7 @@ main{
 
     background: var(--dark-green);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
-    opacity: 90%;
+    opacity: 95%;
 
     display:flex;
     justify-content: space-evenly;
@@ -64,21 +56,33 @@ main{
     border-bottom-right-radius: 5rem; 
     border-top-left-radius: 5rem;
     transform: scale(1.05);
-    background : var(--light-green)
+    background : var(--light-green);
+    text-shadow: 1px 1px 3px var(--dark-green), -1px -1px 3px var(--dark-green);
   }
 
   .option-name {
-    font-family: 'Outfit', sans-serif;
-    font-size: 2.5rem;
+    font-size: 2.5em;
     color: white;
     text-align: center;
     letter-spacing: 0.3em;
-    text-shadow: 1px 1px 2px #767373, -1px -1px 2px var(--light-green);
+    text-shadow: 1px 1px 3px var(--light-green), -1px -1px 3px var(--light-green);
+  }
+
+   .option-name:hover {
+    text-shadow: 1px 1px 3px var(--dark-green), -1px -1px 3px var(--dark-green);
+  }
+
+  .option-name p {
+    font-family: 'Outfit', sans-serif, serif;
   }
 
   .icon-svg {
     width: 9em;
     height: 9em;
+  }
+
+  .icon-svg:hover {
+    filter: drop-shadow(0 2px 4px var(--dark-green));
   }
 
 

@@ -15,7 +15,7 @@ $plantDAO = new PlantDAO();
 $numberOfPlants = $plantDAO->getNumberOfPlants();
 
 $pdf->SetFont('Arial', 'B', 16);
-$pdf->Cell(0, 10, 'Total Number of Plants in the HeMa App:', 0, 1, 'C');
+$pdf->Cell(0, 10, 'Total Number of Plants Added in the HeMa App:', 0, 1, 'C');
 $pdf->SetFont('Arial', '', 12);
 $pdf->Cell(0, 10, $numberOfPlants, 0, 1, 'C');
 $pdf->Ln();

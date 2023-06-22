@@ -8,12 +8,12 @@
     src: url(../Fonts/SimpleHandmade.otf);
  }
 
-.image-backgroud {
+body {
     background-image: url("../Images/UserProfileImages/fundal1.jpg");
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .main-container{

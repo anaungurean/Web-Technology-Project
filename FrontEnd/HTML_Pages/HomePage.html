@@ -14,38 +14,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
 
     <title>HomePage</title>
-
-    <script>
-        function findPlants() {
-            window.location.href = "PlantCollection.html";
-            }
-    </script>
-    <script>
-        function addPlants() {
-        window.location.href = "AddPlant.html";
-        }
-    </script>
-    <script>
-        function myGarden() {
-            window.location.href = "MyGarden.html";
-            }
-    </script>
-    <script>
-        function myProfile() {
-        window.location.href = "UserProfile.html";
-        }
-    </script>
-
-    <script>
-        function clasament() {
-        window.location.href = "Clasament.html";
-        }
-    </script>
-
 </head>
 
-<body>
-
+<body> 
     <header class="header">
         <nav>
             <div class="logo">
@@ -63,61 +34,58 @@
         </nav>
     </header>
 
-    <main>
+    <main class="user-options">
 
-        <div class="user-options">
-
-            <div class="option" onclick="findPlants()">
-                <div class="option-name">
-                    <p>FIND PLANTS</p>
-                </div>
-                <div class="icon">
-                    <img class="icon-svg" src="../Images/HomePageImages/potted-plant.svg" alt="image">
-                </div>
+        <div class="option" onclick="findPlants()">
+            <div class="option-name">
+                <p>FIND PLANTS</p>
             </div>
-
-            <div class="option" onclick="addPlants()">
-                <div class="option-name">
-                    <p>ADD PLANTS TO MY GARDEN</p>
-                </div>
-                <div class="icon">
-                    <img class="icon-svg" src="../Images/HomePageImages/potted-plant-fill.svg" alt="image">
-                </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/potted-plant.svg" alt="image">
             </div>
+        </div>
 
-            <div class="option" onclick="myGarden()">
-                <div class="option-name">
-                    <p>MY GARDEN</p>
-                </div>
-                <div class="icon">
-                    <img class="icon-svg" src="../Images/HomePageImages/plant-fill.svg" alt="image">
-                </div>
+        <div class="option" onclick="addPlants()">
+            <div class="option-name">
+                <p>ADD PLANTS TO MY GARDEN</p>
             </div>
-
-            <div class="option" onclick="myProfile()">
-                <div class="option-name">
-                    <p>MY PROFILE</p>
-                </div>
-                <div class="icon">
-                    <img class="icon-svg" src="../Images/HomePageImages/profile-circle.svg" alt="image">
-                </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/potted-plant-fill.svg" alt="image">
             </div>
+        </div>
 
-            <div class="option" onclick="clasament()">
-                <div class="option-name">
-                    <p>TOP</p>
-                </div>
-                <div class="icon">
-                    <img class="icon-svg" src="../Images/HomePageImages/podium.svg" alt="image">
-                </div>
+        <div class="option" onclick="myGarden()">
+            <div class="option-name">
+                <p>MY GARDEN</p>
             </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/plant-fill.svg" alt="image">
+            </div>
+        </div>
 
+        <div class="option" onclick="myProfile()">
+            <div class="option-name">
+                <p>MY PROFILE</p>
+            </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/profile-circle.svg" alt="image">
+            </div>
+        </div>
+
+        <div class="option" onclick="clasament()">
+            <div class="option-name">
+                <p>TOP</p>
+            </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/podium.svg" alt="image">
+            </div>
         </div>
 
     </main>
 
    
     <script src="../Scripts/Logout.js"></script>
+    <script src="../Scripts/HomePage.js"></script>
 </body>
 
 
