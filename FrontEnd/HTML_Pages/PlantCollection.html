@@ -29,10 +29,16 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
             <ul class="menu">
-                <li><a href="HomePage.html"> Home </a></li>
-                <li><a href="AboutLoggedIn.html"> About </a></li>
-                <li><a href="HelpLoggedIn.html"> Help </a></li>
-                <li><a href="ContactLoggedIn.html"> Contact </a></li>
+                <li>
+                    <form id="searchForm">
+                        <input type="text" name="keyword" placeholder="Search a plant...">
+                        <button id="searchButton" type="submit">Search</button>
+                    </form>
+                </li>
+                <li><a href="HomePage.html">Home</a></li>
+                <li><a href="AboutLoggedIn.html">About</a></li>
+                <li><a href="HelpLoggedIn.html">Help</a></li>
+                <li><a href="ContactLoggedIn.html">Contact</a></li>
                 <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
             </ul>
         </nav>
@@ -395,6 +401,8 @@
     <script src="../Scripts/Logout.js"></script>
     <script src="../Scripts/AllCollections.js"></script>
     <script src="../Scripts/StoreCriterias.js"></script>
+    <script src="../Scripts/SearchPlants.js"></script>
+
 
  </body>
 

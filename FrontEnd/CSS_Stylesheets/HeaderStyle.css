@@ -55,6 +55,42 @@ nav {
     display: none;
 }
 
+/* Styles for the search form */
+ 
+.header form {
+    display: flex;
+    align-items: center;
+}
+
+.header input[type="text"] {
+    width: 40rem;
+    padding: 0.5rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 1.5rem;
+    margin-right: 0.5rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+
+.header button[type="submit"] {
+    padding: 0.5rem 1rem;
+    background-color: #283618;
+    color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    margin-right: 2rem;
+    font-size: 1rem;
+}
+
+.header button[type="submit"]:hover {
+    background-color: #1e2f1d;
+}
+
+.header button[type="submit"]:hover {
+    background-color: #3f5222;
+}
+
 #menu-toggle {
     display: none;
 }
