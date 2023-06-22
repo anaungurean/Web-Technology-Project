@@ -169,21 +169,53 @@ class UserDAO
         }
     }
 
-    public function countPlants($userId)
+
+public function countPlants($userId)
+{
+    try {
+        $statement = $this->conn->prepare("SELECT COUNT(*)  FROM plants WHERE id_user = ?");
+        $statement->bind_param("i", $userId);
+        $statement->execute();
+        $statement->bind_result($totalPlants);
+        $statement->fetch();
+        $statement->close();
+
+        return $totalPlants;
+        
+    } catch (PDOException $e) {
+        trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+    }
+}
+
+public function updatePasswordByUsername($username, $newPassword): bool
     {
         try {
-            $totalPlants = null;
-            $statement = $this->conn->prepare("SELECT COUNT(*)  FROM plants WHERE id_user = ?");
-            $statement->bind_param("i", $userId);
-            $statement->execute();
-            $statement->bind_result($totalPlants);
-            $statement->fetch();
-            $statement->close();
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
-            return $totalPlants;
-            
+            $stmt = $this->conn->prepare("UPDATE users SET password_hash = ? WHERE username = ?");
+            $stmt->bind_param("ss", $hashedPassword, $username);
+            $stmt->execute();
+
+            return true;
         } catch (PDOException $e) {
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+            return false;
+        }
+ }
+
+public function checkUsernameExists($username): bool
+    {
+        try {
+            $statement = $this->conn->prepare("SELECT id FROM users WHERE username = ?");
+            $statement->bind_param("s", $username);
+            $statement->execute();
+            $statement->store_result();
+            $count = $statement->num_rows;
+            $statement->close();
+            return ($count > 0);
+        } catch (PDOException $e) {
+            trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
+            return false;
         }
     }
 

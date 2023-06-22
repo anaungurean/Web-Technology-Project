@@ -71,6 +71,10 @@ class Dispatcher
                 $controller = new  GetTopController($requestMethod);
                 $controller->processRequest();
                 break;
+            case 'updatePassword':
+                $controller = new UpdatePasswordController($requestMethod, $request);
+                $controller->processRequest();
+                break;
             case 'updatePlant':
                 $plantId = null;
                 if (isset($_GET['id'])) {
@@ -86,7 +90,7 @@ class Dispatcher
                 }
                 $controller = new DeletePlantController($requestMethod, $plantId);
                 $controller->processRequest();
-                break;
+                break;   
             default:
                 header("HTTP/1.1 404 Not Found");
                 exit();

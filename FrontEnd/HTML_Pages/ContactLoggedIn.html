@@ -39,7 +39,7 @@
         </section>
         <section class="w-100 w-md-50">
             <div>
-                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                <form method="POST" id="contactForm" name="contactForm" class="contactForm" action="../SendEmail.php">
                     <div class="row">
                         <div class="form-group w-100 w-md-45">
                             <label class="label" for="name">Full Name</label>
@@ -67,12 +67,16 @@
                     <div class="row">
                         <button type="submit" class="btn">Send Message</button>
                     </div>
+                
+                    <div id="status-message" class="status-message"></div>
+
                 </form>
             </div>
         </section>
     </div>
 </div>
     <script src="../Scripts/Logout.js"></script>
+    <script src="../Scripts/SendEmail.js"></script>
 
 </body>
 
