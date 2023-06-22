@@ -1,5 +1,5 @@
 <?php
-include_once "Database.php";  
+include_once "Database.php";
 
 class PlantDAO
 {
@@ -27,14 +27,15 @@ class PlantDAO
             $filename = $plant->getFileName();
 
             $stmt = $this->conn->prepare("INSERT INTO plants (id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags,filename) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
-            $stmt->bind_param("isssssssssss", $id_user, $common_name, $scientific_name, $family, $genus, $species, $place, $date_of_collection, $color, $collection_name, $hashtags,$filename);
+            $stmt->bind_param("isssssssssss", $id_user, $common_name, $scientific_name, $family, $genus, $species, $place, $date_of_collection, $color, $collection_name, $hashtags, $filename);
             $stmt->execute();
         } catch (PDOException $e) {
             trigger_error("Error in " . __METHOD__ . ": " . $e->getMessage(), E_USER_ERROR);
         }
     }
 
-    public function getPlantById($plantId){
+    public function getPlantById($plantId)
+    {
         $sql = "SELECT * FROM plants WHERE id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bind_param("i", $plantId);
@@ -64,7 +65,7 @@ class PlantDAO
     }
 
     public function getPlantsByUserId($user_id)
-    {        
+    {
         $sql = "SELECT id, id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags, filename FROM plants WHERE id_user = ?";
         $stmt =  $this->conn->prepare($sql);
         $stmt->bind_param("i", $user_id);
@@ -95,7 +96,7 @@ class PlantDAO
     }
 
     public function getPlants()
-    {        
+    {
         $sql = "SELECT id, id_user, common_name, scientific_name, family, genus, species, place, date_of_collection, color, collection_name, hashtags, filename FROM plants";
         $stmt =  $this->conn->prepare($sql);
         $stmt->execute();
@@ -132,7 +133,7 @@ class PlantDAO
                 GROUP BY common_name 
                 ORDER BY name_count DESC 
                 LIMIT 2";
-                
+
         $stmt =  $this->conn->prepare($sql);
         $stmt->execute();
 
@@ -197,5 +198,69 @@ class PlantDAO
         }
     }
 
-}
+    //get plants for statistics 
 
+    public function getNumberOfPlants()
+    {
+        $sql = "SELECT COUNT(*) AS plant_count FROM plants";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['plant_count'];
+        } else {
+            return 0;
+        }
+    }
+
+    public function getPlantsWithPlace()
+    {
+        $sql = "SELECT common_name, place FROM plants";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $plants = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $plant = [
+                'common_name' => $row['common_name'],
+                'place' => $row['place']
+            ];
+            $plants[] = $plant;
+        }
+
+        return $plants;
+    }
+
+    public function getTop3Plants()
+    {
+        $sql = "SELECT common_name, scientific_name, COUNT(common_name) AS name_count 
+                FROM plants 
+                GROUP BY common_name 
+                ORDER BY name_count DESC 
+                LIMIT 3";
+
+        $stmt = $this->conn->prepare($sql);
+        if (!$stmt) {
+            trigger_error("Error in prepare() function: " . $this->conn->error, E_USER_ERROR);
+        }
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        $plants = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $plant = [
+                'common_name' => $row['common_name'],
+                'scientific_name' => $row['scientific_name'],
+            ];
+
+            $plants[] = $plant;
+        }
+
+        return $plants;
+    }
+}
