@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
   
       rssFeed += '  <title>Top Plants Ranking</title>\n';
       rssFeed += '  <link>http://localhost/TW/FrontEnd/HTML_Pages/TopRSS.html</link>\n';
-      rssFeed += '  <description>Top 2 most popular plants ranking</description>\n';
+      rssFeed += '  <description>Top 3 most popular plants ranking</description>\n';
   
-      data.slice(0, 2).forEach(plant => {
+      data.slice(0, 3).forEach(plant => {
         rssFeed += '  <plant>\n';
         rssFeed += `    <_id>${plant.id}</_id>\n`;
         rssFeed += `    <id_user>${plant.id_user}</id_user>\n`;
