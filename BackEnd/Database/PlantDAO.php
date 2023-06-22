@@ -131,7 +131,7 @@ class PlantDAO
                 FROM plants 
                 GROUP BY common_name 
                 ORDER BY name_count DESC 
-                LIMIT 2";
+                LIMIT 3";
 
         $stmt =  $this->conn->prepare($sql);
         $stmt->execute();

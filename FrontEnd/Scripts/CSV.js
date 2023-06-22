@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(data => {
         const csvButton = document.getElementById('csvButton');
         csvButton.addEventListener('click', () => {
-          downloadCSV(data, 'ranking.csv');
+          downloadCSV(data, 'top_plants.csv');
         });
       })
       .catch(error => console.error('Error:', error));
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
       if (navigator.msSaveBlob) {
         navigator.msSaveBlob(csvBlob, filename);
       } else {
-        // For other browsers
         const link = document.createElement('a');
         if (link.download !== undefined) {
           const csvUrl = URL.createObjectURL(csvBlob);

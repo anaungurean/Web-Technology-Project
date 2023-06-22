@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (Array.isArray(collectionData) && collectionData.length > 0) {
 
            createPlantElements(collectionData);
-           displayMessage('Top 2 most popular plants!');
+           displayMessage('Top 3 most popular plants!');
 
         } else if (collectionData.Result === 'Not Found') {
           
