@@ -13,9 +13,9 @@ function uploadFile(callback) {
   .then(data => {
     if (data.success) {
       const photoFileName = data.fileName;
-      callback(photoFileName); // Call the callback function with photoFileName
+      callback(photoFileName);  
       console.log('File uploaded successfully:', data);
-      displayMessage('The photo was uploaded.'); // Call the displayMessage function with the success message
+      displayMessage('The photo was uploaded.');  
     } else {
       console.error('Error uploading file:', data.message);
     }
