@@ -18,6 +18,10 @@ function clasament() {
     window.location.href = "Clasament.html";
 }
 
+function unsplash() {
+    window.location.href = "UnsplashRecommendation.html";
+}
+
 const header = document.querySelector('.header');
 const headerHeight = window.getComputedStyle(header).height;
 document.documentElement.style.setProperty('--header-height', headerHeight);
