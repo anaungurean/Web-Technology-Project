@@ -93,8 +93,6 @@ class Dispatcher
                 $controller->processRequest();
                 break;
             case 'updatePassword':
-                $jwt = $authController-> checkJWTExistence();
-                $authController -> validateJWT($jwt);
                 $controller = new UpdatePasswordController($requestMethod, $request);
                 $controller->processRequest();
                 break;

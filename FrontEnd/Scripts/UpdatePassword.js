@@ -18,8 +18,7 @@ function updatePassword() {
     username: username,
     password: password
   };
-  console.log(data);
-  fetch(url, {
+   fetch(url, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
