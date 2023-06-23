@@ -2,20 +2,14 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// require 'path/to/PHPMailer/Exception.php';
-// require 'path/to/PHPMailer/PHPMailer.php';
-// require 'path/to/PHPMailer/SMTP.php';
+ 
 
 require '../vendor/autoload.php';
 
-
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the email address from the form
-    $email = $_POST["email"];
+     $email = $_POST["email"];
 
-    // Validate the email address (you can add additional validation if needed)
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email address.";
         exit;
     }
@@ -23,9 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Generate a random password reset token
     $token = bin2hex(random_bytes(32));
 
-    // TODO: Save the token and associated email address in the database
-    // This step may involve updating your database schema and implementing the necessary database queries.
-
+    
     // Send the password reset email
     $smtp_host = "smtp.gmail.com";
     $smtp_port = 587;

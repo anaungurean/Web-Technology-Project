@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
     <link rel="stylesheet" href="../CSS_Stylesheets/PlantProfileStyle.css">
     <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
+    <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
+
 </head>
 
 <body>
@@ -21,15 +23,20 @@
                 <input type="checkbox" id="menu-toggle">
                 <label for="menu-toggle" class="menu-icon">&#9776;</label>
                 <ul class="menu">
-                    <li><a href="../HTML_Pages/HomePage.html"> Home </a></li>
-                    <li><a href="../HTML_Pages/AboutLoggedIn.html"> About </a></li>
-                    <li><a href="../HTML_Pages/HelpLoggedIn.html"> Help </a></li>
-                    <li><a href="../HTML_Pages/ContactLoggedIn.html"> Contact </a></li>
+                    <li>
+                        <form id="searchForm">
+                            <input type="text" name="keyword" placeholder="Search a plant...">
+                            <button id="searchButton" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="AboutLoggedIn.html">About</a></li>
+                    <li><a href="HelpLoggedIn.html">Help</a></li>
+                    <li><a href="ContactLoggedIn.html">Contact</a></li>
                     <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
                 </ul>
             </nav>
         </header>
-
         <div class="main-container image-backgroud">
             <div class="user-profile-card w-70">
                 <div class="row">
@@ -116,6 +123,8 @@
     <script src="../Scripts/Logout.js"></script>
     <script src="../Scripts/PlantProfile.js"></script>
     <script src="../Scripts/DeletePlant.js"></script>
+    <script src="../Scripts/SearchPlants.js"></script>
+
 </body>
 
 </html>

@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
 
     <title>HomePage</title>
 
@@ -46,22 +47,30 @@
 
 <body>
 
-    <header class="header">
-        <nav>
-            <div class="logo">
-                <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
-            </div>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">&#9776;</label>
-            <ul class="menu">
-                <li><a href="HomePage.html"> Home </a></li>
-                <li><a href="AboutLoggedIn.html"> About </a></li>
-                <li><a href="HelpLoggedIn.html"> Help </a></li>
-                <li><a href="ContactLoggedIn.html"> Contact </a></li>
-                <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header class="header">
+            <nav>
+                <div class="logo">
+                    <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+                </div>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <ul class="menu">
+                    <li>
+                        <form id="searchForm">
+                            <input type="text" name="keyword" placeholder="Search a plant...">
+                            <button id="searchButton" type="submit">Search</button>
+                        </form>
+                 </li>
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="AboutLoggedIn.html">About</a></li>
+                    <li><a href="HelpLoggedIn.html">Help</a></li>
+                    <li><a href="ContactLoggedIn.html">Contact</a></li>
+                    <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
 
     <main>
 
@@ -118,6 +127,8 @@
 
    
     <script src="../Scripts/Logout.js"></script>
+    <script src="../Scripts/SearchPlants.js"></script>
+
 </body>
 
 
