@@ -157,4 +157,3 @@ function displayMessage(message) {
     var responseMessage = document.getElementById('response-message');
     responseMessage.innerHTML = '<p>' + message + '</p>';
 }
-
