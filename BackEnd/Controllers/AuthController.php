@@ -62,8 +62,6 @@ class AuthController
         $jwtResponse = $this->createJWT($user->getUsername(), $loggedInUserId);
         $jwt = $jwtResponse['body'];
 
-        // Set the JWT as a cookie
-
         $response['body'] = json_encode(array(
             "jwt" => $jwt,
             "message" => "Authentication successful"
@@ -96,7 +94,7 @@ class AuthController
             'nbf'  => $date->getTimestamp(),         // ! Not before
             'exp'  => $expire_at,                    // ! Expire
             'username' => $username, 
-            'id' => $id,                // User name
+            'id' => $id,                
         ];
 
         $response['status_code_header'] = 'HTTP/1.1 200 OK';
@@ -123,7 +121,6 @@ class AuthController
     }
 
     function checkJWTExistence () {
-        // Check JWT
         if (! preg_match('/Bearer\s(\S+)/', $this -> getAuthorizationHeader(), $matches)) {
             header('HTTP/1.0 400 Bad Request');
             echo 'Token not found in request';

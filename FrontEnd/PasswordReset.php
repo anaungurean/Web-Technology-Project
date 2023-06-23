@@ -14,11 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Generate a random password reset token
     $token = bin2hex(random_bytes(32));
 
-    
-    // Send the password reset email
     $smtp_host = "smtp.gmail.com";
     $smtp_port = 587;
     $smtp_username = "ascorencele@gmail.com";  
@@ -26,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $smtp_secure = 'tls';
     $mail = new PHPMailer(true);
     try {
-        // Server settings
         $mail->isSMTP();
         $mail->Host = $smtp_host;
         $mail->Port = $smtp_port;
@@ -35,11 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Username = $smtp_username;
         $mail->Password = $smtp_password;
 
-        // Recipient
         $mail->setFrom('ascorencele@gmail.com');
         $mail->addAddress($email);
 
-        // Email content
         $mail->Subject = 'Password Reset';
         $mail->Body    = "Click the link below to reset your password:\n\n";
         $mail->Body   .= "http://localhost/TW/FrontEnd/HTML_Pages/ResetPassword.html?";

@@ -54,10 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('collector').textContent = userData.username;
     document.getElementById('date-collection').textContent = plantData.date_of_collection;
 
-    // const plantImage = document.getElementById('plant-image');
-    // plantImage.src = `../../FrontEnd/PlantsImages/${plantData.filename}`;
-    // plantImage.alt = plantData.common_name;
-
     const plantImageContainer = document.querySelector('.logo-image');
       const plantImage = document.createElement('img');
       plantImage.classList.add('plant-image');

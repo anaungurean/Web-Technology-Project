@@ -1,4 +1,4 @@
-/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -279,15 +279,6 @@ h3 {
   margin-top: 2.5em
 }
 
-h4 {
-  font-weight: 300;
-  font-size: 1.2em;
-  -webkit-font-feature-settings: "c2sc";
-  font-feature-settings: "c2sc";
-  font-variant: small-caps;
-  margin: 2em 0 .5em
-}
-
 [role=contentinfo] a {
   text-decoration: none
 }
@@ -317,6 +308,11 @@ a.onto,code,pre {
 p.issue {
   border-left: 3px solid red;
   padding: .5em 1em
+}
+
+.c4-image {
+  width: 90%;
+  height: 90%
 }
 
 @media screen and (max-width: 577px) {

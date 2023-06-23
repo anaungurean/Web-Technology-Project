@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
   body: requestBody
 })
   .then(function (response) {
-    return response.json(); // Convert the response to JSON
+    return response.json(); 
   })
   .then(function (data) {
     console.log(data.Result);
