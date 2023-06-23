@@ -18,13 +18,8 @@ body {
     height: calc(100vh - 79px);
 }
 
-.title-text{
-    display: flex;
-    color: #283618;
-    text-align: center;
-}
 
-.title-text p b{
+.title-text {
     font-size: 3rem;
     font-weight: bold;
     font-family: BasicFont;
@@ -34,6 +29,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8); /* Set the background color with transparency */
     backdrop-filter: blur(10px);
     letter-spacing: 0.2em;
+    text-align: center;
 }
 
 .first-part {

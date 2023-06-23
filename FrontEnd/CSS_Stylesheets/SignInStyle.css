@@ -20,14 +20,12 @@ body {
     flex-wrap: wrap;
     gap: 0;
 
-    /* It is a relative length unit that represents a percentage of the viewport height. One vh is equal to 1/100th of the viewport height. */
     height: 100vh; 
 }
 
 .left-section {
     margin: 0;
 
-    /* how much a flex item can grow relative to other flex items within a flex container */
     flex-grow: 1;
 
     width: 33.33%;

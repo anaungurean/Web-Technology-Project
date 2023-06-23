@@ -22,7 +22,7 @@
     }
 }
 
-.fundal-image {
+body {
     background-image: url("../Images/AboutImages/BackgroundAboutPage.jpg");
     background-position: center;
     background-repeat: no-repeat;

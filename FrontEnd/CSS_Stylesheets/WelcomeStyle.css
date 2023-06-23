@@ -5,6 +5,7 @@
     --light-brown: #DDA15E;
     --dark-brown: #BC6C25;
 }
+
 @font-face {
     font-family: myFont;
     src: url(../Fonts/Regular\ Brush.otf); 
@@ -25,8 +26,6 @@
      }
 
 }
- 
-
 
 body {
     background-image: url("../Images/AboutImages/BackgroundAboutPage.jpg");

@@ -19,19 +19,19 @@
 }
 
 *{
-      margin:0; padding: 0;
+      margin:0; 
+      padding: 0;
       box-sizing: border-box;
-      outline: none; 
+      /* outline: none; 
       border: none;
       text-decoration: none;
-      transition: .2s linear;
+      transition: .2s linear; */
 }
 
 html{
     scroll-behavior: smooth;
     scroll-padding-top: 7em; 
     overflow-x: hidden; 
-
 } 
 
 .welcomeText p{
@@ -41,7 +41,8 @@ html{
     font-size: 2rem;
     font-family: BasicFont ;
     font-weight: bold;
- 
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
     
 
@@ -111,6 +112,7 @@ html{
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.5s;
+  margin-bottom: 2rem;
  
 }
 
@@ -130,6 +132,54 @@ html{
 .add-plant-btn:hover::after {
   top: 0;
   left: 0;
+}
+
+.myGarden {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+
+  position: relative;
+  margin-top: 2rem;
+  padding: 15px 35px;
+  font-family: BasicFont;
+  font-size: 2.5vw;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  border: 3px solid #2F5C2F;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin-bottom: 2rem;
+ 
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 10px;
+  left: 10px;
+  background-color: var(--light-green);
+  border-radius: 8px;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.btn:hover::after {
+  top: 0;
+  left: 0;
+}
+
+.topButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 @media screen and (max-width: 767px){

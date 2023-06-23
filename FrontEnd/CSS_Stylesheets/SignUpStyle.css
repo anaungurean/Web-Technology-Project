@@ -25,7 +25,6 @@ body {
 .left-section {
     margin: 0;
 
-    /* how much a flex item can grow relative to other flex items within a flex container */
     flex-grow: 1;
 
     width: 33.33%;
