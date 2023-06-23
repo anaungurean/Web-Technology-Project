@@ -2,7 +2,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const urlParams = new URLSearchParams(window.location.search);
   const plantId = urlParams.get('id');
 
-  const jwt = getCookie('User');
+  var jwt = getCookie("User");
+
+    if(jwt===null){
+        const confirmed = confirm('The session has expired, you must log in');
+
+        if(confirmed){
+            window.location.href='../HTML_Pages/Welcome.html';
+        }
+    }
 
   const plantUrl = `http://localhost/TW/BackEnd/getPlant?id=${plantId}`;
   fetch(plantUrl, {
