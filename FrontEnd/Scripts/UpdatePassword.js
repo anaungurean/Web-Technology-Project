@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Function to update the password
 function updatePassword() {
   const url = 'http://localhost/TW/BackEnd/updatePassword';
   const username = document.getElementById('username').value;
@@ -32,7 +31,6 @@ function updatePassword() {
       } else if (response.status === 404) {
          displayMessage('Username not found');
       } else {
-        // An error occurred while updating the password
         displayMessage('An error occurred while updating the password');
       }
     })

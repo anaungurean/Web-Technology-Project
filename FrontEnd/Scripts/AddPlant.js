@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(function (data) {
          if (data.Result === 'Plant created successfully') {
-            // Fetch the plant data to get the ID
                     fetch(`http://localhost/TW/BackEnd/getPlant?filename=${photoFileName}`, {
               headers: {
                 'Authorization': 'Bearer ' + jwt

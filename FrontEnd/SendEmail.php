@@ -55,7 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // echo "Thank you! Your message has been sent.";
     } catch (Exception $e) {
         // echo "Sorry, there was an error sending your message. Please try again later.";
-        // echo "Mailer Error: " . $mail->ErrorInfo;
     }
 }
 ?>
