@@ -1,0 +1,33 @@
+.searchBar form {
+    display: flex;
+    align-items: center;
+}
+
+.searchBar input[type="text"] {
+    width: 40rem;
+    padding: 0.5rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 1.5rem;
+    margin-right: 0.5rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+
+.searchBar button[type="submit"] {
+    padding: 0.5rem 1rem;
+    background-color: #283618;
+    color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    margin-right: 2rem;
+    font-size: 1rem;
+}
+
+.searchBar button[type="submit"]:hover {
+    background-color: #1e2f1d;
+}
+
+.searchBar button[type="submit"]:hover {
+    background-color: #3f5222;
+}
