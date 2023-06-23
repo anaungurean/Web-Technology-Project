@@ -87,7 +87,8 @@ class AuthController
 
         $secret_Key = $this -> secret_Key;
         $date   = new DateTimeImmutable();
-        $expire_at     = $date->modify('+6 minutes')->getTimestamp();
+        // $expire_at     = $date->modify('+6 minutes')->getTimestamp();
+        $expire_at = time() + 30 * 24 * 60 * 60; 
         $domainName = $this -> domainName;
         $request_data = [
             'iat'  => $date->getTimestamp(),         // ! Issued at: time when the token was generated
@@ -167,6 +168,7 @@ class AuthController
             header('HTTP/1.1 401 Unauthorized');
             exit;
         }
+
     }
 
     private function unprocessableEntityResponse(): array

@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
       plantDiv.className = 'plant';
 
       plantDiv.onclick = function() {
-        location.href = `../HTML_Pages/PlantProfilePage.html?id=${plant.id}`;
+        location.href = `../HTML_Pages/PlantProfileNoEdit.html?id=${plant.id}`;
       };
 
 

@@ -40,101 +40,87 @@
         </header>
 
         <div class="wrapper">
-
-            <h1>Frequently Asked Questions</h1>
-      
-            <div class="faq">
-              <button class="accordion">
-                I've forgotten my password and have been locked out of my HeMa account
-                <i class="fa-solid fa-chevron-down"></i>
-              </button>
-              <div class="pannel">
-                <p>Locked out of your HeMa account?</p>
-                <p> 1.Open the HeMa app</p>
-                <p> 2.On the main view of the app, tap "Sign in"</p>
-                <p> 3.Tap "Forgot password?"</p>
-                <p> 4.Enter the email address associated with your account</p>
-                <p> 5.Tap "Send" and you will receive an email with a link to reset your password (make sure you check the junk or spam folder)</p>
-              </div>
-            </div>
-      
-            <div class="faq">
-              <button class="accordion">
-                How can I add photos of my plants?
-                <i class="fa-solid fa-chevron-down"></i>
-              </button>
-              <div class="pannel">
-                <p>Here's how to add photos/images of your plants:</p>
-                <p> 1.Tap the "Add plants to my garden" button from the Home Page </p>
-                <p> 2.Tap the "Add photo" button in the lower right corner of the main page </p>
-                <p> 3.Select an image from your photo library</p>
-                <p> 4."Save"</p>
-              </div>
-            </div>
-      
-            <div class="faq">
-              <button class="accordion">
-                How do I search for a specific plant in the app?
-                <i class="fa-solid fa-chevron-down"></i>
-              </button>
-              <div class="pannel">
-                <p>Here's how to search for a specific plant:</p>
-                <p> 1.Tap the "Find plants" button from the Home Page </p>
-                <p> 2.You will be redirected to the page all the plants where there is a filter section </p>
-                <p> 3.Tick the features you want</p>
-                <p> 4."Filter"</p>
-              </div>
-            </div>
-      
-            <div class="faq">
-              <button class="accordion">
-                How do I know if the plant is available in my area?
-                <i class="fa-solid fa-chevron-down"></i>
-              </button>
-              <div class="pannel">
-                <p>You don't know how to find out information about the plant?</p>
-                <p>1.Tap the plant button for which you want to find out its location</p>
-                <p>2.You will be redirected to the plant's profile page</p>
-                <p>3.The location should appear at "Hashtags" or "Place of collections"</p>
-              </div>
-            </div>
-      
-            <div class="faq">
-              <button class="accordion">
-                How do I leave feedback or suggestions for improving the app?
-                <i class="fa-solid fa-chevron-down"></i>
-              </button>
-              <div class="pannel">
-                <p>1.Open the app and navigate to the "Contact" section</p>
-                <p>2.This will open a form where you can write your feedback or suggestions</p>
-                <p>3.Be sure to provide as much detail as possible, including any specific features or improvements you would like to see in the app</p>
-                <p>4."Send Message"</p>
-              </div>
+          <h1>Frequently Asked Questions</h1>
+        
+          <div class="faq">
+            <button class="accordion">
+              I've forgotten my password and have been locked out of my HeMa account
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+              <p class="first-line">Locked out of your HeMa account?</p>
+              <p> 1. Open the HeMa app</p>
+              <p> 2. On the main view of the app, tap "Sign In"</p>
+              <p> 3. Tap "Forgot password?"</p>
+              <p> 4. Enter your email address </p>
+              <p> 5. Tap "Reset password" and you will receive an email with a link to reset your password (make sure you check
+                the junk or spam folder)</p>
             </div>
           </div>
-    
-          <script>
-            var acc = document.getElementsByClassName("accordion");
-            var i;
         
-            for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-                    var panel = this.nextElementSibling;
-                    if (panel.style.display === "block") {
-                        panel.style.display = "none";
-                    } else {
-                        panel.style.display = "block";
-                    }
-                });
-            }
-        </script>
+          <div class="faq">
+            <button class="accordion">
+              How can I add photos of my plants?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+              <p class="first-line">Here's how to add images of your plants:</p>
+              <p> 1. Tap the "Add plants to my garden" button from the Home Page </p>
+              <p> 2. Tap the "Choose file" button in the lower left corner of the main page </p>
+              <p> 3. Select an image from your photo library</p>
+              <p> 4. Click on "Upload" after you selected the image</p>
+              <p> 4. Only after you added all the necessary info about the plant, you can click on "Save the plant"</p>
+            </div>
+          </div>
+        
+          <div class="faq">
+            <button class="accordion">
+              How do I search for a specific plant in the app?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+              <p class="first-line">Here's how to search for a specific plant:</p>
+              <p> 1. Tap the "Find plants" button from the Home Page </p>
+              <p> 2. You will be redirected to the page all the plants where there is a filter section </p>
+              <p> 3. Tick the features you want</p>
+              <p> 4. After you selected all the criteria click on "Find the plants"</p>
+            </div>
+          </div>
+        
+          <div class="faq">
+            <button class="accordion">
+              How do I know if the plant is available in my area?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+              <p class="first-line"> You don't know how to find out information about the plant?</p>
+              <p> 1. Tap the plant button for which you want to find out its location</p>
+              <p> 2. You will be redirected to the plant's profile page</p>
+              <p> 3. The location should appear at "Hashtags" or "Place"</p>
+            </div>
+          </div>
+        
+          <div class="faq">
+            <button class="accordion">
+              How do I leave feedback or suggestions for improving the app?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="pannel">
+              <p> 1. Open the app and navigate to the "Contact" section</p>
+              <p> 2. This will open a form where you can write your feedback or suggestions</p>
+              <p> 3. Be sure to provide as much detail as possible, including any specific features or improvements you would
+                like to see in the app</p>
+              <p> 4. "Send Message"</p>
+            </div>
+          </div>
+        </div>
 
     </div>
 
 
 <script src="../Scripts/Logout.js"></script>
 <script src="../Scripts/SearchPlants.js"></script>
+<script src="../Scripts/Help.js"></script>
 
 </body>
 

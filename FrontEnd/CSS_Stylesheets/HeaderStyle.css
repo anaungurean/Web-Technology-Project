@@ -1,9 +1,9 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box;
     font-family: sans-serif;
-    text-decoration: none;
+    text-decoration: none; */
     list-style: none;
 }
 
@@ -35,16 +35,16 @@ nav {
     align-items: center;
 }
 
-.menu a {
+.menu a, button {
     display: block;
     padding: 0.438rem 0.938rem;
-    /*font-size: 17px;*/
-    font-weight: 500;
     transition: 0.2s all ease-in-out;
     color: var(--dark-green);
     font-family: 'DM Serif Display', serif;
-    font-weight: bold;
+    font-weight: 900 !important;
     font-size: 1.3rem;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .menu a:hover {

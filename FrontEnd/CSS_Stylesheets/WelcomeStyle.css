@@ -1,10 +1,18 @@
+:root{
+    --light-green: #606C38;
+    --dark-green: #283618;
+    --milky-white: #FEFAE0;
+    --light-brown: #DDA15E;
+    --dark-brown: #BC6C25;
+}
+
 @font-face {
     font-family: myFont;
-    src: url(../Fonts/Regular\ Brush.otf);
-   
+    src: url(../Fonts/Regular\ Brush.otf); 
  }
- @font-face {
-    font-family: Planr;
+
+@font-face {
+    font-family: BasicFont;
     src: url(../Fonts/SimpleHandmade.otf);
  }
 
@@ -18,28 +26,20 @@
      }
 
 }
- 
-:root{
-    --light-green: #606C38;
-    --dark-green: #283618;
-    --milky-white: #FEFAE0;
-    --light-brown: #DDA15E;
-    --dark-brown: #BC6C25;
-}
 
-.fundal-image {
+body {
     background-image: url("../Images/AboutImages/BackgroundAboutPage.jpg");
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .main-container{
 
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 1rem;
     height: calc(100vh - 82px);
 
  }
@@ -68,17 +68,16 @@
 }  
 
 .homeBtn{
-
+    margin-top: 3rem;
     display: flex;
     gap: 2rem;
     align-self: center;
     align-items:center;
-
  }
 
 
-button {
-    font-family: 'DM Serif Display', serif;
+.homeBtn button {
+    font-family: BasicFont;
     font-size: 2vw;
     padding-left: 3rem;
     padding-right: 3rem;
@@ -86,22 +85,21 @@ button {
     border-radius: 100px;
     background-color: var(--light-green);
     color: #ffffff;
+    box-shadow: 0 0 10px var(--dark-green);
     transition: all 0.3s;
     min-height: 4vw;
-    
+    border: #283618;
+    margin-bottom: 1rem;
  }
 
 
-  button:hover {
-
-    background-color: #BC6C25;
-    box-shadow: 0 0 10px var(--dark-green);
-    transform: translateY(-5px);
-
-  } 
+.homeBtn button:hover {
+background-color: #BC6C25;
+box-shadow: 0 0 10px var(--dark-green);
+transform: translateY(-5px);
+font-weight: bold;
+} 
  
-
-
 
  @media screen and (min-width: 1024px){
 
@@ -115,15 +113,13 @@ button {
 
   @media screen and (max-width: 767px){
     .title-text p{
-        font-size: 15vw;
+        font-size: 12vw;
         margin-top: 0rem;
 
     }
-    button {
-
+    .homeBtn button {
         font-size: 5vw;
         min-height: 10vw;
-        
      }
   } 
   

@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', function() {
 
      var button = document.getElementById("view-garden-button");

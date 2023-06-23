@@ -5,13 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>MyGarden Page</title>
+    
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../CSS_Stylesheets/MyGardenStyle.css">
     <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
     <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+
     <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
 
 </head>
@@ -48,13 +52,15 @@
 
         <div id="plantsContainer" class="plants"></div>
 
-        <button id="downloadRSSButton" onclick="toprss()"> Ranking RSS </button>
+        <div class="topButtons">
+        <button class="btn" id="downloadRSSButton" onclick="toprss()"> Ranking RSS </button>
 
-        <button id="csvButton">Download CSV</button>
+        <button class="btn" id="csvButton">Download CSV</button>
 
-        <button id="pdfButton">Download PDF</button>
+        <button class="btn" id="pdfButton">Download PDF</button>
 
-        <button id="jsonButton">Download JSON</button>
+        <button class="btn" id="jsonButton">Download JSON</button>
+        </div>
 
     </main>
 

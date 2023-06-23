@@ -15,13 +15,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function createWordArray(keyword) {
-  // Remove leading and trailing spaces (if any)
   keyword = keyword.trim();
 
-  // Split the keyword into an array of words
   var wordArray = keyword.split(' ');
 
-  // Capitalize the first letter of each word
   wordArray = wordArray.map(function(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
   });
