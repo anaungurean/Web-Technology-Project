@@ -4,6 +4,7 @@ class Dispatcher
 {
     public static function dispatch($requestMethod, $request): void
     {
+        $authController = new AuthController($requestMethod);
         switch ($request[0]) {
             case 'register':
                 $controller = new SignUpController($requestMethod, $request);
@@ -14,19 +15,27 @@ class Dispatcher
                 $controller->processRequest();
                 break;
             case 'addPlant':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $controller = new AddPlantController($requestMethod, $request);
                 $controller->processRequest();
                 break;
             case 'users':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $userId = (int) $_GET['id'];
                 $controller = new UserProfileController($requestMethod, $userId);
                 $controller->processRequest();
                 break;
             case 'profile':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $controller = new EditProfileController($requestMethod, $request);
                 $controller->processRequest();
                 break;
             case 'getPlant':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 if (isset($_GET['id'])) {
                     $plantId = (int) $_GET['id'];
                     $controller = new GetPlantController($requestMethod, $plantId);
@@ -40,6 +49,10 @@ class Dispatcher
                 $controller->processRequest();
                 break;
             case 'getUser':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $userId = null;
                 if (isset($_GET['id'])) {
                     $userId = (int) $_GET['id'];
@@ -48,6 +61,8 @@ class Dispatcher
                 $controller->processRequest();
                 break;
             case 'getMyCollection':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                  $userId = null;
                 if (isset($_GET['UserId'])) {
                     $userId = (int) $_GET['UserId'];
@@ -56,10 +71,14 @@ class Dispatcher
                 $controller->processRequest();
                 break;
             case 'getCollections':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $controller = new  GetAllCollectionController($requestMethod);
                 $controller->processRequest();
                 break;
             case 'deleteUser':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $userId = null;
                 if (isset($_GET['id'])) {
                     $userId = (int) $_GET['id'];
@@ -68,14 +87,20 @@ class Dispatcher
                 $controller->processRequest();
                 break;
             case 'getTop':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $controller = new  GetTopController($requestMethod);
                 $controller->processRequest();
                 break;
             case 'updatePassword':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $controller = new UpdatePasswordController($requestMethod, $request);
                 $controller->processRequest();
                 break;
             case 'updatePlant':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $plantId = null;
                 if (isset($_GET['id'])) {
                     $plantId = (int) $_GET['id'];
@@ -84,6 +109,8 @@ class Dispatcher
                 $controller->processRequest();
                 break;
             case 'deletePlant':
+                $jwt = $authController-> checkJWTExistence();
+                $authController -> validateJWT($jwt);
                 $plantId = null;
                 if (isset($_GET['id'])) {
                     $plantId = (int) $_GET['id'];
