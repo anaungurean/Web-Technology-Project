@@ -70,9 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return response.json();
     })
     .then(function (data) {
-        if (data.Result === 'Plant created successfully') {
+         if (data.Result === 'Plant created successfully') {
             // Fetch the plant data to get the ID
-            fetch(`http://localhost/TW/BackEnd/getPlant?filename=${photoFileName}`)
+                    fetch(`http://localhost/TW/BackEnd/getPlant?filename=${photoFileName}`, {
+              headers: {
+                'Authorization': 'Bearer ' + jwt
+              }
+            })
               .then(response => response.json())
               .then(data => {
                 // Extract the ID value
@@ -96,15 +100,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function getCookie(name) {
-    var cookieArr = document.cookie.split(";");
-    for (var i = 0; i < cookieArr.length; i++) {
-        var cookiePair = cookieArr[i].split("=");
-        if (name === cookiePair[0].trim()) {
-            return decodeURIComponent(cookiePair[1]);
-        }
+  var cookieArr = document.cookie.split(";");
+  for (var i = 0; i < cookieArr.length; i++) {
+    var cookiePair = cookieArr[i].split("=");
+    if (name === cookiePair[0].trim()) {
+      return decodeURIComponent(cookiePair[1]);
     }
-    return null;
+  }
+  throw new Error("Cookie '" + name + "' does not exist.");
 }
+
 
 function parseJwt(token) {
     var base64Url = token.split('.')[1];
