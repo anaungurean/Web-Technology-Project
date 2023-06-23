@@ -3,12 +3,12 @@
     src: url(../Fonts/SimpleHandmade.otf);
  }
 
-.fundal-image {
+body {
     background-image: url("../Images/ContactImages/fundal.jpg");
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .main-container{
@@ -18,17 +18,18 @@
     height: calc(100vh - 79px);
 }
 
-.title-text{
-    display: flex;
-    color: #283618;
-    text-align: center;
-}
 
-.title-text p b{
+.title-text {
     font-size: 3rem;
+    font-weight: bold;
     font-family: BasicFont;
+    font-style: italic;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8); /* Set the background color with transparency */
+    backdrop-filter: blur(10px);
+    letter-spacing: 0.2em;
+    text-align: center;
 }
 
 .first-part {

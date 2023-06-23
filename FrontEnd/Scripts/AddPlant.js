@@ -1,12 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  var saveButton = document.getElementById('saveButton');
-  saveButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    // Retrieve the JWT from the "User" cookie
     var jwt = getCookie("User");
 
-    // Decode the JWT to extract the user ID
+    if(jwt===null){
+        const confirmed = confirm('The session has expired, you must log in');
+
+        if(confirmed){
+            window.location.href='../HTML_Pages/Welcome.html';
+        }
+    }
+
+    var saveButton = document.getElementById('saveButton');
+    saveButton.addEventListener('click', function(event) {
+    event.preventDefault();
+
     var decodedJwt = parseJwt(jwt);
     var id_user = decodedJwt.id;
 
@@ -79,10 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
             })
               .then(response => response.json())
               .then(data => {
-                // Extract the ID value
                 const plantId = data.id;
 
-                // Redirect to the next HTML page with the ID as a query parameter
                 window.location.href = `../HTML_Pages/PlantProfilePage.html?id=${plantId}`;
               })
               .catch(error => {

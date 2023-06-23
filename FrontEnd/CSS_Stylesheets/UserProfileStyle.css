@@ -8,12 +8,12 @@
     src: url(../Fonts/SimpleHandmade.otf);
  }
 
-.image-backgroud {
+body {
     background-image: url("../Images/UserProfileImages/fundal1.jpg");
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .main-container{
@@ -86,9 +86,6 @@
 .form-group p {
     display: flex;
     justify-content: center;
-}
-
-p {
     font-family: BasicFont;
     font-size: 1.3rem;
 }
@@ -96,6 +93,7 @@ p {
 .form-group label {
     font-size: 1.5rem;
     font-family: BasicFont;
+    font-weight: bold;
 }
 
 .form-group input {
@@ -155,6 +153,11 @@ p {
     background-color: #283618;
 }
 
+.one-button{
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
+
 
 @media screen and (max-width: 118.75rem) {
     .image-backgroud{
@@ -169,6 +172,19 @@ p {
 
 }
 
+@media screen and (max-width: 830px) {
+   .one-button{
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+}
+
+@media screen and (max-width: 490px) {
+   .one-button{
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+}
 
 
 

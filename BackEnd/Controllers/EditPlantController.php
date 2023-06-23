@@ -38,8 +38,6 @@ class EditPlantController
         $response['content_type_header'] = 'Content-Type: application/json';
 
         $plantId = $this->request;
-        
-        var_dump($plantId);
 
         $input = (array) json_decode(file_get_contents('php://input'), TRUE);
 

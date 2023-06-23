@@ -55,7 +55,7 @@ main{
     font-size: 2em;
 }
 
-li {
+.elements li {
     text-align:left;
     font-family: BasicFont;
     font-weight: 400;
@@ -81,7 +81,7 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-     padding: 1.1em;
+    padding: 1.1em;
 
     background-color: #F2F9F1;    
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -148,6 +148,8 @@ li {
     border-radius: 9px;
     color: var(--dark-green);
     font-size: 2em;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
  .btn:hover {

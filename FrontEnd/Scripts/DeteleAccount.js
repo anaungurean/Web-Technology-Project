@@ -1,22 +1,15 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the delete account button element
+
     var deleteButton = document.getElementById("delete-account-button");
     var jwt = getCookie("User");
     var decodedJwt = parseJwt(jwt);
     var id_user = decodedJwt.id;
     const deleteUrl = `http://localhost/TW/BackEnd/deleteUser?id=${id_user}`;
 
-
-    // Add a click event listener to the button
     deleteButton.addEventListener("click", function() {
-        // Display a confirmation pop-up
         var confirmed = confirm("Are you sure that you want to delete your account?");
         
-        // Check the user's response
         if (confirmed) {
-            // If the user clicked "Yes", perform account deletion
             fetch(deleteUrl, {
                 method: 'DELETE'
             })

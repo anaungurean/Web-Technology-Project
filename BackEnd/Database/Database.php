@@ -6,7 +6,6 @@
 
     private function __construct()
     {
-        // Perform the database connection here
         $this->conn = new mysqli('localhost', 'root','', 'hemadatabase');
 
     if (!$this->conn) {
