@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
+    var jwt = getCookie("User");
+
+    if(jwt===null){
+        const confirmed = confirm('The session has expired, you must log in');
+
+        if(confirmed){
+            window.location.href='../HTML_Pages/Welcome.html';
+        }
+    }
+  
     const usernameInput = document.getElementById('username');
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
@@ -13,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const editProfileButton = document.querySelector('.button2');
   
-    var jwt = getCookie("User");
     var decodedJwt = parseJwt(jwt);
     var id_user = decodedJwt.id;
   
