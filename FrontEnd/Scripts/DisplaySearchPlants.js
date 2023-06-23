@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const words = JSON.parse(decodeURIComponent(urlParams.get('words')));
 
   // Use the 'words' array as needed
-  console.log(words);
    var jwt = getCookie('User');
     var decodedJwt = parseJwt(jwt);
     var id_user = decodedJwt.id;

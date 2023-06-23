@@ -2,14 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var jwt = getCookie("User");
 
-    if(jwt===null){
-        const confirmed = confirm('The session has expired, you must log in');
-
-        if(confirmed){
-            window.location.href='../HTML_Pages/Welcome.html';
-        }
-    }
-
     var saveButton = document.getElementById('saveButton');
     saveButton.addEventListener('click', function(event) {
     event.preventDefault();

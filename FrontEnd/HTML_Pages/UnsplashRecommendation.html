@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MyGarden Page</title>
-    
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet">
@@ -15,10 +15,9 @@
     <link rel="stylesheet" href="../CSS_Stylesheets/MyGardenStyle.css">
     <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
     <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
-
+    <link rel="stylesheet" href="../CSS_Stylesheets/UnsplashRecommendations.css">
     <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
     <script src="../Scripts/Redirect.js"></script>
-
 
 </head>
 
@@ -31,12 +30,6 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">&#9776;</label>
             <ul class="menu">
-                <li>
-                    <form id="searchForm">
-                        <input type="text" name="keyword" placeholder="Search a plant...">
-                        <button id="searchButton" type="submit">Search</button>
-                    </form>
-                </li>
                 <li><a href="HomePage.html">Home</a></li>
                 <li><a href="AboutLoggedIn.html">About</a></li>
                 <li><a href="HelpLoggedIn.html">Help</a></li>
@@ -46,40 +39,27 @@
         </nav>
     </header>
 
-    <main>
-
+    <main class="myGarden">
         <div class="welcomeText">
-            <p id="message"></p>
+            <p>Here you can find recommendations of plants from Unsplash!</p>
         </div>
+
+        <div class="searchBar">
+            <form id="searchForm">
+                <input type="text" name="keyword" placeholder="Search a plant...">
+                <button id="searchButton" type="submit">Search</button>
+            </form>
+        </div>
+
+
+
 
         <div id="plantsContainer" class="plants"></div>
 
-        <div class="topButtons">
-        <button class="btn" id="downloadRSSButton" onclick="toprss()"> Ranking RSS </button>
-
-        <button class="btn" id="csvButton">Download CSV</button>
-
-        <button class="btn" id="pdfButton">Download PDF</button>
-
-        <button class="btn" id="jsonButton">Download JSON</button>
-        </div>
-
     </main>
 
-
-    <script>
-        function toprss() {
-            window.location.href = "./TopRSS.html";
-            downloadXMLFile(collectionData);
-        }
-    </script>
-
     <script src="../Scripts/Logout.js"></script>
-    <script src="../Scripts/Top.js"></script>
-    <script src="../Scripts/CSV.js"></script>
-    <script src="../Scripts/PDF.js"></script>
-    <script src="../Scripts/SearchPlants.js"></script>
-    <script src="../Scripts/JSON.js"></script>
+    <script src="../Scripts/Unsplash.js"></script>
 
 </body>
 
