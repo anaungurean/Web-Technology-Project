@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function createPlantElements(collectionData) {
     const rightSectionContainer = document.querySelector('.right-section');
-    rightSectionContainer.innerHTML = ''; // Clear existing plant elements
+    rightSectionContainer.innerHTML = ''; 
 
     collectionData.forEach(function(plant) {
 

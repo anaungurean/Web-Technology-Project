@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Function to update the password
 function updatePassword() {
   const url = 'http://localhost/TW/BackEnd/updatePassword';
   const username = document.getElementById('username').value;
@@ -18,8 +17,7 @@ function updatePassword() {
     username: username,
     password: password
   };
-  console.log(data);
-  fetch(url, {
+   fetch(url, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -32,7 +30,6 @@ function updatePassword() {
       } else if (response.status === 404) {
          displayMessage('Username not found');
       } else {
-        // An error occurred while updating the password
         displayMessage('An error occurred while updating the password');
       }
     })

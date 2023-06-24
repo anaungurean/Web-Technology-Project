@@ -4,14 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
  
   var jwt = getCookie("User");
 
-    if(jwt===null){
-        const confirmed = confirm('The session has expired, you must log in');
-
-        if(confirmed){
-            window.location.href='../HTML_Pages/Welcome.html';
-        }
-    }
-
   const plantUrl = `http://localhost/TW/BackEnd/getPlant?id=${plantId}`;
   fetch(plantUrl, {
     method: 'GET',
@@ -71,9 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('collector').value = userData.username;
     document.getElementById('date-collection').value = plantData.date_of_collection;
 
-    // const plantImage = document.getElementById('plant-image');
-    // plantImage.src = `../../FrontEnd/PlantsImages/${plantData.filename}`;
-    // plantImage.alt = plantData.common_name;
      const plantImageContainer = document.querySelector('.logo-image');
       const plantImage = document.createElement('img');
       plantImage.classList.add('plant-image');

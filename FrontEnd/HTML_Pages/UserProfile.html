@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>UserProfilePage</title>
 
@@ -16,123 +17,135 @@
 </head>
 
 <body>
-<div>
-    <header class="header">
-        <nav>
-            <div class="logo">
-                <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
-            </div>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">&#9776;</label>
-            <ul class="menu">
-                <li>
-                    <form id="searchForm">
-                        <input type="text" name="keyword" placeholder="Search a plant...">
-                        <button id="searchButton" type="submit">Search</button>
-                    </form>
-                </li>
-                <li><a href="HomePage.html">Home</a></li>
-                <li><a href="AboutLoggedIn.html">About</a></li>
-                <li><a href="HelpLoggedIn.html">Help</a></li>
-                <li><a href="ContactLoggedIn.html">Contact</a></li>
-                <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div>
+        <header class="header">
+            <nav>
+                <div class="logo">
+                    <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+                </div>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <ul class="menu">
+                    <li>
+                        <form id="searchForm">
+                            <input type="text" name="keyword" placeholder="Search a plant...">
+                            <button id="searchButton" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="AboutLoggedIn.html">About</a></li>
+                    <li><a href="HelpLoggedIn.html">Help</a></li>
+                    <li><a href="ContactLoggedIn.html">Contact</a></li>
+                    <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <div class="main-container image-backgroud">
+        <div class="main-container image-backgroud">
 
-        <div class="user-profile-card w-70">
-            <div class="row">
-                <div class="photo-profile w-100 w-xl-25">
-                    <div class="logo-image w-100">
-                        <img src="../Images/UserProfileImages/user.png" alt="photo">
-                    </div>
-                        
-                    <div class="form-group w-100">
-                        <label class="label" for="descriere">Description</label>
-                        <input type="text" class="form-control" name="descriere" id="descriere" placeholder=" ">
-                    </div>
-                    <div class="form-group w-100">
-                        <label class="label" for="hobby">Hobby</label>
-                        <input type="text" class="form-control" name="hobby"  id="hobby" placeholder=" ">
+            <div class="user-profile-card w-70">
+                <div class="row">
+                    <div class="photo-profile w-100 w-xl-25">
+                        <div class="logo-image w-100">
+                            <img src="../Images/UserProfileImages/user.png" alt="Profile Picture">
+                        </div>
+
+                        <div class="form-group w-100">
+                            <label class="label" for="descriere">Description</label>
+                            <input type="text" class="form-control" name="descriere" disabled id="descriere"
+                                placeholder=" ">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="hobby">Hobby</label>
+                            <input type="text" class="form-control" name="hobby" disabled id="hobby"
+                                placeholder=" ">
+                        </div>
+
+                        <div class="form-group w-100">
+                            <label class="label" for="interes_plant">Plants of interest</label>
+                            <input type="text" class="form-control" name="interes_plant" disabled
+                                id="interes_plant" placeholder=" ">
+                        </div>
+
+                        <div class="form-group w-100">
+                            <label class="label" for="count">Number of plants</label>
+                            <input type="text" class="form-control" name="count" disabled id="count"
+                                placeholder=" ">
+                        </div>
+
                     </div>
 
-                    <div class="form-group w-100">
-                        <label class="label" for="interes_plant">Plants of interest</label>
-                        <input type="text" class="form-control" name="interes_plant"  id="interes_plant" placeholder=" ">
+
+                    <div class="info-profile w-100 w-xl-50">
+                        <div class="form-group w-100">
+                            <label class="label" for="username">User Name</label>
+                            <input type="text" class="form-control" name="username" disabled id="username"
+                                placeholder=" ">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="firstname">First Name</label>
+                            <input type="text" class="form-control" name="firstname" disabled id="firstname"
+                                placeholder=" ">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="lastname">Last Name</label>
+                            <input type="text" class="form-control" name="lastname" disabled id="lastname"
+                                placeholder=" ">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="email">Email</label>
+                            <input type="email" class="form-control" name="email" disabled id="email"
+                                placeholder=" ">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="phone">Phone</label>
+                            <input type="tel" class="form-control" name="phone" disabled id="phone"
+                                placeholder=" ">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="password">Password</label>
+                            <input type="password" class="form-control" name="password" disabled id="password"
+                                placeholder=" ">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="adresa">Address</label>
+                            <input type="text" class="form-control" name="adresa" disabled id="adresa"
+                                placeholder=" ">
+                        </div>
+
+                        <div class="container-buttons w-100">
+
+                            <div class="first-button w-100 w-md-45">
+                                <div class="form-group w-100 ">
+                                    <button class="button button1 "
+                                        onclick="location.href = '../HTML_Pages/MyGarden.html'">View My Garden</button>
+                                </div>
+                            </div>
+
+                            <div class="second-button w-100 w-md-45">
+                                <div class="form-group w-100 ">
+                                    <button class="button button2 ">Edit Profile</button>
+                                </div>
+                            </div>
+
+                            <div class="second-button w-100 w-md-45">
+                                <div class="form-group w-100 ">
+                                    <button class="button button2" id="delete-account-button">Delete Account</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+
                     </div>
 
-                    <div class="form-group w-100">
-                        <label class="label" for="count">Number of plants</label>
-                        <input type="text" class="form-control" name="count"  id="count" placeholder=" ">
-                    </div>
 
                 </div>
 
-
-                <div class="info-profile w-100 w-xl-50">
-                    <div class="form-group w-100">
-                        <label class="label" for="username">User Name</label>
-                        <input type="text" class="form-control" name="username"  id="username" placeholder=" ">
-                    </div>
-                    <div class="form-group w-100">
-                        <label class="label" for="firstname">First Name</label>
-                        <input type="text" class="form-control" name="firstname"  id="firstname" placeholder=" ">
-                    </div>
-                    <div class="form-group w-100">
-                        <label class="label" for="lastname">Last Name</label>
-                        <input type="text" class="form-control" name="lastname"  id="lastname" placeholder=" ">
-                    </div>
-                    <div class="form-group w-100">
-                        <label class="label" for="email">Email</label>
-                        <input type="email" class="form-control" name="email"  id="email" placeholder=" ">
-                    </div>
-                    <div class="form-group w-100">
-                        <label class="label" for="phone">Phone</label>
-                        <input type="tel" class="form-control" name="phone" id="phone" placeholder=" ">
-                    </div>
-                    <div class="form-group w-100">
-                        <label class="label" for="password">Password</label>
-                        <input type="password" class="form-control" name="password"  id="password" placeholder=" ">
-                    </div>
-                    <div class="form-group w-100">
-                        <label class="label" for="adresa">Address</label>
-                        <input type="text" class="form-control" name="adresa"  id="adresa" placeholder=" ">
-                    </div>
-
-                    <div class="container-buttons w-100">
-
-                        <div class="first-button w-100 w-md-45">
-                            <div class="form-group w-100 ">
-                                <button class="button button1 "  onclick="location.href = '../HTML_Pages/MyGarden.html'">View My Garden</button>
-                            </div>
-                        </div>
-    
-                        <div class="second-button w-100 w-md-45">
-                            <div class="form-group w-100 ">
-                                <button class="button button2 ">Edit Profile</button>
-                            </div>
-                        </div>
-
-                        <div class="second-button w-100 w-md-45">
-                            <div class="form-group w-100 ">
-                                 <button class="button button2" id="delete-account-button">Delete Account</button>
-                             </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
             </div>
-
         </div>
-    </div>
 
-</div>
+    </div>
     <script src="../Scripts/UserProfileBeforeEdit.js"></script>
     <script src="../Scripts/Logout.js"></script>
     <script src="../Scripts/DeteleAccount.js"></script>

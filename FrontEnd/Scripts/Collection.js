@@ -1,14 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     var jwt = getCookie("User");
-
-    if(jwt===null){
-        const confirmed = confirm('The session has expired, you must log in');
-
-        if(confirmed){
-            window.location.href='../HTML_Pages/Welcome.html';
-        }
-    }
     var decodedJwt = parseJwt(jwt);
     var id_user = decodedJwt.id;
 
@@ -43,7 +35,6 @@ function createPlantElements(collectionData) {
     const plantDiv = document.createElement('div');
     plantDiv.className = 'plant';
 
-    // Set the onclick event to redirect to the plant profile page
     plantDiv.onclick = function() {
       location.href = `../HTML_Pages/PlantProfilePage.html?id=${plant.id}`;
     };

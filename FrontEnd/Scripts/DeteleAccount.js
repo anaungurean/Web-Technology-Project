@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error("An error occurred during account deletion:", error);
             });
         } else {
-            // If the user clicked "No" or closed the pop-up, do nothing
+            // If the user clicked "No" do nothing
         }
     });
 });

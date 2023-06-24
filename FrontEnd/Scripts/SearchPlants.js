@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var searchButton = document.getElementById('searchButton');
 
   searchButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the form from submitting
+    event.preventDefault(); 
 
     var keyword = searchForm.keyword.value;
     var words = createWordArray(keyword);
