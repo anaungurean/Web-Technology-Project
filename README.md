@@ -10,6 +10,9 @@ Team Members:
 
 Bodnar Florina-Alina, Chirilă Gabriela-Valentina, Ungurean Ana-Maria
 
+Link video:
+https://www.youtube.com/watch?v=BwNTyuxGESc
+
 Screenshots:
 
 ![1](https://github.com/anaungurean/TW/assets/100145889/1bc881e7-b11d-4586-8c81-56671bc3f62a)
