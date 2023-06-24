@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PlantProfilePage</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/PlantProfileStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
+    <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
+    <script src="../Scripts/Redirect.js"></script>
+
+</head>
+
+<body>
+    <div>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu">
+                <li>
+                    <form id="searchForm">
+                        <input type="text" name="keyword" placeholder="Search a plant...">
+                        <button id="searchButton" type="submit">Search</button>
+                    </form>
+                </li>
+                <li><a href="HomePage.html">Home</a></li>
+                <li><a href="AboutLoggedIn.html">About</a></li>
+                <li><a href="HelpLoggedIn.html">Help</a></li>
+                <li><a href="ContactLoggedIn.html">Contact</a></li>
+                <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        <div class="main-container image-backgroud">
+            <div class="user-profile-card w-70">
+                <div class="row">
+                    <div class="photo-profile w-100 w-xl-25">
+                        <div class="logo-image w-100">
+                            
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="hashtags">Hashtags</label>
+                            <input type="text" class="form-control" name="hashtags" disabled  id="hashtags">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="collection-name">Collection Name</label>
+                            <input type="text" class="form-control" name="collection-name" disabled 
+                                id="collection-name">
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="date-collection">Date Of Collection</label>
+                            <input type="text" class="form-control" name="date-collection" disabled 
+                                id="date-collection" >
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Collector name</label>
+                            <a href="#" id="collector" class="collector-link"></a>
+                        </div>
+                    </div>
+
+                    <div class="info-profile w-100 w-xl-50">
+                        <div class="form-group w-100">
+                            <label class="label" for="common-name">Common Name</label>
+                            <input type="text" class="form-control" name="common-name" disabled  id="common-name"
+                                >
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="scientific-name">Scientific Name</label>
+                            <input type="text" class="form-control" name="scientific-name"  disabled 
+                                id="scientific-name" >
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="family">Family</label>
+                            <input type="text" class="form-control" name="family" id="family" disabled 
+                                >
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="genus">Genus</label>
+                            <input type="text" class="form-control" name="genus"  id="genus" disabled 
+                                >
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="species">Species</label>
+                            <input type="text" class="form-control" name="species"  id="species" disabled 
+                                >
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="place">Place</label>
+                            <input type="text" class="form-control" name="place"  id="place" disabled  
+                                >
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" for="color-plant">Color of the plant</label>
+                            <input type="text" class="form-control" name="color-plant"  id="color-plant" disabled 
+                                >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Scripts/Logout.js"></script>
+    <script src="../Scripts/PlantProfileNoEdit.js"></script>
+    <script src="../Scripts/SearchPlants.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+:root{
+    --light-green: #606C38;
+    --dark-green: #283618;
+    --milky-white: #FEFAE0;
+    --light-brown: #DDA15E;
+    --dark-brown: #BC6C25;
+}
+@font-face {
+    font-family: BasicFont;
+    src: url(../Fonts/SimpleHandmade.otf);
+ }
+
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    height: 100vh; 
+}
+
+.left-section {
+    margin: 0;
+
+    flex-grow: 1;
+
+    width: 33.33%;
+    height: 100%;
+}
+
+.left-section .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right-section {
+    background-image: url("../Images/SignUpImages/right-section.jpg");
+    background-size: cover;
+    background-position: center;
+    
+    position: relative;
+
+    width: 66.66%;
+    height: 100%;
+
+    display: flex;
+    flex-grow: 2; 
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    font-family: BasicFont;
+    
+  }
+  
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9em;
+
+  border: 2px dashed var(--dark-brown);
+  border-radius: 15px;
+
+  background-color: var(--light-brown);
+  box-shadow: 0 0 0 4px var(--light-brown), 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+  transition: .4s ease-in-out;
+  opacity: 0.9;
+
+  width: 28em;
+  height: 38em;
+
+  position: relative;
+  z-index: 1;
+}
+
+::placeholder {
+  color: var(--dark-brown);
+  text-align: center;
+  font-weight: 450;
+  font-size: 1.1em;
+}
+
+.form .heading {
+  color: var(--dark-green);
+  background-color: transparent;
+
+  letter-spacing: 0.5em;
+  text-align: center;
+  text-shadow: 1px 1px 2px #000, -1px -1px 2px var(--light-green);
+  font-size: 2.5em;
+
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.form .input {
+  outline: none;
+  border: 1px solid var(--dark-brown);
+  color: var(--dark-green);
+
+  width: 20em;
+  height: 3.8em;
+
+  border-radius: 10px;
+  background-color: var(--light-brown);
+  text-align: center;
+}
+  
+.form .btn {
+  font-family: BasicFont;
+  font-size: 1.8em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0;
+  cursor: pointer;
+  border-radius: 100px;
+  background-color: var(--light-green);
+  color: #ffffff;
+  box-shadow: 0 0 10px var(--dark-green);
+  transition: all 0.3s;
+  border: #283618;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+
+.form .btn:hover {
+background-color: #BC6C25;
+box-shadow: 0 0 10px var(--dark-green);
+transform: translateY(-5px);
+font-weight: bold;
+} 
+  
+.form .btn:active {
+  transform: translateX(0.1em) translateY(0.1em);
+  box-shadow: none;
+}
+
+.form .sign-in {
+  font-size: 1.6em;
+  color: var(--dark-green);
+  font-weight: bold;
+}
+
+.form .sign-in a {
+  color: var(--light-green);
+}
+
+.btn a {
+  color: var(--light-brown);
+  text-decoration: none;
+
+}
+
+@media screen and (max-width: 767px) {
+  .left-section{
+    flex-grow: 0.5;
+    margin-right: -12rem;
+  } 
+
+  .right-section{
+    flex-grow: 1.5;
+  }
+
+  .form {
+    width: 18em;
+    height: 28em;
+  }
+
+  .form .heading {
+    font-size: 1.5em;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  .left-section{
+  flex-grow: 0.5;
+  margin-right: -7.6rem;
+} 
+
+.right-section{
+  flex-grow: 1.5;
+}
+
+.form {
+  width: 16em;
+  height: 26em;
+}
+
+.form .heading {
+  font-size: 1.5em;
+}
+
+.form .input {
+  width: 14em;
+  height: 2em;
+}
+
+.form .sign-in {
+  font-size: 0.9em;
+}
+
+}
+
+

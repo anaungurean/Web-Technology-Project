@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PlantProfilePage</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/PlantProfileStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
+    <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
+    <script src="../Scripts/Redirect.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <header class="header">
+            <nav>
+                <div class="logo">
+                    <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+                </div>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <ul class="menu">
+                    <li>
+                        <form id="searchForm">
+                            <input type="text" name="keyword" placeholder="Search a plant...">
+                            <button id="searchButton" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li><a href="HomePage.html">Home</a></li>
+                    <li><a href="AboutLoggedIn.html">About</a></li>
+                    <li><a href="HelpLoggedIn.html">Help</a></li>
+                    <li><a href="ContactLoggedIn.html">Contact</a></li>
+                    <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+        <div class="main-container image-backgroud">
+            <div class="user-profile-card w-70">
+                <div class="row">
+                    <div class="photo-profile w-100 w-xl-25">
+                        <div class="logo-image w-100" id="plant-image">
+                            
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Hashtags</label>
+                            <p id="hashtags" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Collection Name</label>
+                            <p id="collection-name" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Date Of Collection</label>
+                            <p id="date-collection" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Collector name</label>
+                            <p id="collector" class="form-control"></p>
+                        </div>
+                    </div>
+
+                    <div class="info-profile w-100 w-xl-50">
+                        <div class="form-group w-100">
+                            <label class="label" >Common Name</label>
+                            <p id="common-name" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Scientific Name</label>
+                            <p id="scientific-name" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Family</label>
+                            <p id="family" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Genus</label>
+                            <p id="genus" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Species</label>
+                            <p id="species" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Place</label>
+                            <p id="place" class="form-control"></p>
+                        </div>
+                        <div class="form-group w-100">
+                            <label class="label" >Color</label>
+                            <p id="color-plant" class="form-control"></p>
+                        </div>
+
+                        <div class="container-buttons w-100">
+                            <div class="first-button w-100 w-md-45">
+                                <div class="form-group w-100">
+                                    <button class="button button1"
+                                        onclick="location.href = '../HTML_Pages/MyGarden.html'">View My
+                                        Garden</button>
+                                </div>
+                            </div>
+
+                            <div class="second-button w-100 w-md-45">
+                                <div class="form-group w-100">
+                                    <button class="button button2" id="edit-button">Edit Plant</button>
+                                </div>
+                            </div>
+
+                            <div class="second-button w-100 w-md-45">
+                                <div class="form-group w-100 ">
+                                    <button class="button button2" id="delete-plant-button">Delete Plant</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+        
+    </div>
+
+    <script src="../Scripts/Logout.js"></script>
+    <script src="../Scripts/PlantProfile.js"></script>
+    <script src="../Scripts/DeletePlant.js"></script>
+    <script src="../Scripts/SearchPlants.js"></script>
+
+</body>
+
+</html>

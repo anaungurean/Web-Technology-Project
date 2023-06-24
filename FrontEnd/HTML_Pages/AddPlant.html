@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Plant</title>
+    
+    <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/AddPlantStyle.css">
+    <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
+    <script src="../Scripts/Redirect.js"></script>
+
+
+</head>
+
+<body>
+
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu">
+                <li>
+                    <form id="searchForm">
+                        <input type="text" name="keyword" placeholder="Search a plant...">
+                        <button id="searchButton" type="submit">Search</button>
+                    </form>
+                </li>
+                <li><a href="HomePage.html">Home</a></li>
+                <li><a href="AboutLoggedIn.html">About</a></li>
+                <li><a href="HelpLoggedIn.html">Help</a></li>
+                <li><a href="ContactLoggedIn.html">Contact</a></li>
+                <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container image-backgroud">
+
+        <div class="user-profile-card w-70">
+
+            <div class="title">
+                <p> Add a new plant in your garden ! </p>
+            </div>
+
+                <div class="form">
+                     <div class="form-group w-100">
+                        <label class="label" for="CommonName">Common Name</label>
+                        <select class="form-control" name="CommonName" id="CommonName">
+                            <option value="" disabled selected>Select Common Name</option>
+                            <option value="Amaryllis">Amaryllis</option>
+                            <option value="Begonia">Begonia</option>
+                            <option value="Bluebell">Bluebell</option>
+                            <option value="Carnation">Carnation</option>
+                            <option value="Chrysanthemum">Chrysanthemum</option>
+                            <option value="Cosmos">Cosmos</option>
+                            <option value="Daffodil">Daffodil</option>
+                            <option value="Dahlia">Dahlia</option>
+                            <option value="Daisy">Daisy</option>
+                            <option value="Dandelion">Dandelion</option>
+                            <option value="Forget-me-not">Forget-me-not</option>
+                            <option value="Foxglove">Foxglove</option>
+                            <option value="Fuchsia">Fuchsia</option>
+                            <option value="Geranium">Geranium</option>
+                            <option value="Gladiolus">Gladiolus</option>
+                            <option value="Honeysuckle">Honeysuckle</option>
+                            <option value="Hollyhock">Hollyhock</option>
+                            <option value="Hyacinth">Hyacinth</option>
+                            <option value="Iris">Iris</option>
+                            <option value="Jasmine">Jasmine</option>
+                            <option value="Jonquil">Jonquil</option>
+                            <option value="Lavender">Lavender</option>
+                            <option value="Lily">Lily</option>
+                            <option value="Lupine">Lupine</option>
+                            <option value="Magnolia">Magnolia</option>
+                            <option value="Marigold">Marigold</option>
+                            <option value="Narcissus">Narcissus</option>
+                            <option value="Orchid">Orchid</option>
+                            <option value="Pansy">Pansy</option>
+                            <option value="Petunia">Petunia</option>
+                            <option value="Poppy">Poppy</option>
+                            <option value="Primrose">Primrose</option>
+                            <option value="Rhododendron">Rhododendron</option>
+                            <option value="Rose">Rose</option>
+                            <option value="Snapdragon">Snapdragon</option>
+                            <option value="Sunflower">Sunflower</option>
+                            <option value="Sweet pea">Sweet pea</option>
+                            <option value="Tulip">Tulip</option>
+                            <option value="Violet">Violet</option>
+                            <option value="Yarrow">Yarrow</option>
+                            <option value="Zinnia">Zinnia</option>
+
+                        </select>
+                    </div>
+                 
+            <div class="form-group w-100">
+                <label class="label" for="ScientificName">Scientific Name</label>
+                <select class="form-control" name="ScientificName" id="ScientificName">
+                    <option value=""  disabled selected >Select the Scientific Name</option>
+                    <option value="Achillea">Achillea</option>
+                    <option value="Alcea">Alcea</option>
+                    <option value="Amaryllis">Amaryllis</option>
+                    <option value="Antirrhinum">Antirrhinum</option>
+                    <option value="Bellis perennis">Bellis perennis</option>
+                    <option value="Begonia">Begonia</option>
+                    <option value="Chrysanthemum">Chrysanthemum</option>
+                    <option value="Cosmos bipinnatus">Cosmos bipinnatus</option>
+                    <option value="Daffodil">Daffodil</option>
+                    <option value="Dahlia">Dahlia</option>
+                    <option value="Daisy">Daisy</option>
+                    <option value="Digitalis">Digitalis</option>
+                    <option value="Dianthus caryophyllus">Dianthus caryophyllus</option>
+                    <option value="Fuchsia">Fuchsia</option>
+                    <option value="Gladiolus">Gladiolus</option>
+                    <option value="Helianthus annuus">Helianthus annuus</option>
+                    <option value="Hippeastrum">Hippeastrum</option>
+                    <option value="Hyacinthus">Hyacinthus</option>
+                    <option value="Hyacinthoides non-scripta">Hyacinthoides non-scripta</option>
+                    <option value="Iris">Iris</option>
+                    <option value="Jasminum">Jasminum</option>
+                    <option value="Lathyrus odoratus">Lathyrus odoratus</option>
+                    <option value="Lavandula">Lavandula</option>
+                    <option value="Lilium">Lilium</option>
+                    <option value="Lonicera">Lonicera</option>
+                    <option value="Magnolia">Magnolia</option>
+                    <option value="Marigold">Marigold</option>
+                    <option value="Myosotis">Myosotis</option>
+                    <option value="Narcissus">Narcissus</option>
+                    <option value="Narcissus jonquilla">Narcissus jonquilla</option>
+                    <option value="Orchidaceae">Orchidaceae</option>
+                    <option value="Paeonia">Paeonia</option>
+                    <option value="Papaver">Papaver</option>
+                    <option value="Pelargonium">Pelargonium</option>
+                    <option value="Primula">Primula</option>
+                    <option value="Rhododendron">Rhododendron</option>
+                    <option value="Rosa">Rosa</option>
+                    <option value="Tagetes">Tagetes</option>
+                    <option value="Taraxacum">Taraxacum</option>
+                    <option value="Tulipa">Tulipa</option>
+                    <option value="Viola">Viola</option>
+                    <option value="Viola tricolor">Viola tricolor</option>
+                    <option value="Zinnia">Zinnia</option>
+
+                </select>
+            </div>
+
+              
+                    <div class="form-group w-100">
+                        <label class="label" for="Family">Family</label>
+                        <select class="form-control" name="Family" id="Family">
+                            <option value="" disabled selected>Select a family</option>
+                            <option value="Asteraceae">Asteraceae</option>
+                            <option value="Apiaceae">Apiaceae</option>
+                            <option value="Asparagaceae">Asparagaceae</option>
+                            <option value="Amaryllidaceae">Amaryllidaceae</option>
+                            <option value="Begoniaceae">Begoniaceae</option>
+                            <option value="Brassicaceae">Brassicaceae</option>
+                            <option value="Caprifoliaceae">Caprifoliaceae</option>
+                            <option value="Caryophyllaceae">Caryophyllaceae</option>
+                            <option value="Chrysanthemum">Chrysanthemum</option>
+                            <option value="Dahlia">Dahlia</option>
+                            <option value="Ericaceae">Ericaceae</option>
+                            <option value="Fabaceae">Fabaceae</option>
+                            <option value="Geraniaceae">Geraniaceae</option>
+                            <option value="Hyacinthaceae">Hyacinthaceae</option>
+                            <option value="Iridaceae">Iridaceae</option>
+                            <option value="Lamiaceae">Lamiaceae</option>
+                            <option value="Liliaceae">Liliaceae</option>
+                            <option value="Malvaceae">Malvaceae</option>
+                            <option value="Onagraceae">Onagraceae</option>
+                            <option value="Orchidaceae">Orchidaceae</option>
+                            <option value="Oleaceae">Oleaceae</option>
+                            <option value="Paeoniaceae">Paeoniaceae</option>
+                            <option value="Papaveraceae">Papaveraceae</option>
+                            <option value="Plantaginaceae">Plantaginaceae</option>
+                            <option value="Primulaceae">Primulaceae</option>
+                            <option value="Ranunculaceae">Ranunculaceae</option>
+                            <option value="Rosaceae">Rosaceae</option>
+                            <option value="Scrophulariaceae">Scrophulariaceae</option>
+                            <option value="Solanaceae">Solanaceae</option>
+                            <option value="Violaceae">Violaceae</option>
+                        </select>
+                    </div>
+             
+                    <div class="form-group w-100">
+                        <label class="label" for="Genus">Genus</label>
+                        <select class="form-control" name="Genus" id="Genus">
+                            <option value="" disabled selected>Select Genus</option>
+                            <option value="Achillea">Achillea</option>
+                            <option value="Alcea">Alcea</option>
+                            <option value="Amaryllis">Amaryllis</option>
+                            <option value="Begonia">Begonia</option>
+                            <option value="Bellis">Bellis</option>
+                            <option value="Calendula">Calendula</option>
+                            <option value="Campanula">Campanula</option>
+                            <option value="Chrysanthemum">Chrysanthemum</option>
+                            <option value="Cosmos">Cosmos</option>
+                            <option value="Dahlia">Dahlia</option>
+                            <option value="Dianthus">Dianthus</option>
+                            <option value="Digitalis">Digitalis</option>
+                            <option value="Fuchsia">Fuchsia</option>
+                            <option value="Gladiolus">Gladiolus</option>
+                            <option value="Hyacinthus">Hyacinthus</option>
+                            <option value="Iris">Iris</option>
+                            <option value="Jasminum">Jasminum</option>
+                            <option value="Lavandula">Lavandula</option>
+                            <option value="Lilium">Lilium</option>
+                            <option value="Lonicera">Lonicera</option>
+                            <option value="Lupinus">Lupinus</option>
+                            <option value="Magnolia">Magnolia</option>
+                            <option value="Myosotis">Myosotis</option>
+                            <option value="Narcissus">Narcissus</option>
+                            <option value="Orchidaceae">Orchidaceae</option>
+                            <option value="Pelargonium">Pelargonium</option>
+                            <option value="Taraxacum">Taraxacum</option>
+                            <option value="Viola">Viola</option>
+                            <option value="Zinnia">Zinnia</option>
+                        </select>
+                    </div>
+             
+                    <div class="form-group w-100">
+                        <label class="label" for="Species">Species</label>
+                        <select class="form-control" name="Species" id="Species">
+                        <option value="" disabled selected>Select a species</option>
+                        <option value="Alpina">Alpina</option>
+                        <option value="Biflora">Biflora</option>
+                        <option value="Californica">Californica</option>
+                        <option value="Domestica">Domestica</option>
+                        <option value="Eximia">Eximia</option>
+                        <option value="Fruticosa">Fruticosa</option>
+                        <option value="Gigantea">Gigantea</option>
+                        <option value="Hirsuta">Hirsuta</option>
+                        <option value="Imperialis">Imperialis</option>
+                        <option value="Japonica">Japonica</option>
+                        <option value="Kewensis">Kewensis</option>
+                        <option value="Liliflora">Liliflora</option>
+                        <option value="Macrocarpa">Macrocarpa</option>
+                        <option value="Nana">Nana</option>
+                        <option value="Orientalis">Orientalis</option>
+                        <option value="Picta">Picta</option>
+                        <option value="Quadrifolia">Quadrifolia</option>
+                        <option value="Rosmarinifolia">Rosmarinifolia</option>
+                        <option value="Sativum">Sativum</option>
+                        <option value="Tenuifolia">Tenuifolia</option>
+                        <option value="Umbellata">Umbellata</option>
+                        <option value="Virginiana">Virginiana</option>
+                        <option value="Warszewicziana">Warszewicziana</option>
+                        <option value="Xanthocarpa">Xanthocarpa</option>
+                        <option value="Yunnanensis">Yunnanensis</option>
+                        <option value="Zebrina">Zebrina</option>
+                        </select>
+                    </div>
+             
+                    <div class="form-group w-100">
+                        <label class="label" for="Place">Place</label>
+                        <select class="form-control" name="Place" id="Place">
+                            <option value=""  disabled selected >Select a place</option>
+                            <option value="Arboretum">Arboretum</option>
+                            <option value="Backyard">Backyard</option>
+                            <option value="Balcony">Balcony</option>
+                            <option value="Botanic reserve">Botanic reserve</option>
+                            <option value="Botanical garden">Botanical garden</option>
+                            <option value="Coastline">Coastline</option>
+                            <option value="Container">Container</option>
+                            <option value="Countryside">Countryside</option>
+                            <option value="Desert">Desert</option>
+                            <option value="Farmland">Farmland</option>
+                            <option value="Forest">Forest</option>
+                            <option value="Garden">Garden</option>
+                            <option value="Greenhouse">Greenhouse</option>
+                            <option value="Hedge">Hedge</option>
+                            <option value="Indoor">Indoor</option>
+                            <option value="Meadow">Meadow</option>
+                            <option value="Mountains">Mountains</option>
+                            <option value="Orchard">Orchard</option>
+                            <option value="Patio">Patio</option>
+                            <option value="Park">Park</option>
+                            <option value="Roadside">Roadside</option>
+                            <option value="Rock garden">Rock garden</option>
+                            <option value="Terrarium">Terrarium</option>
+                            <option value="Vineyard">Vineyard</option>
+                            <option value="Water garden">Water garden</option>
+                            <option value="Wetland">Wetland</option>
+                            <option value="Wild">Wild</option>
+                        </select>
+                    </div>
+
+                <div class="form-group w-100">
+                    <label class="label" for="Dateofcollection">Date of collection</label>
+                    <input type="date" class="form-control" name="Dateofcollection" id="Dateofcollection" >
+                </div>
+
+             
+                    <div class="form-group w-100">
+                        <label class="label" for="CollectionName">Collection name</label>
+                        <select class="form-control" name="CollectionName" id="CollectionName">
+                            <option value="" disabled selected>Select a collection</option>
+                            <option value="Aromatic Herbs">Aromatic Herbs</option>
+                            <option value="Botanical Remedies">Botanical Remedies</option>
+                            <option value="Butterfly Haven">Butterfly Haven</option>
+                            <option value="Culinary Delights">Culinary Delights</option>
+                            <option value="Desert Oasis">Desert Oasis</option>
+                            <option value="Drought-tolerant Gems">Drought-tolerant Gems</option>
+                            <option value="Eco-friendly Plants">Eco-friendly Plants</option>
+                            <option value="Edible Treasures">Edible Treasures</option>
+                            <option value="Exotic Medicinals">Exotic Medicinals</option>
+                            <option value="Fragrant Favourites">Fragrant Favourites</option>
+                            <option value="Healing Garden">Healing Garden</option>
+                            <option value="Medicinal Marvels">Medicinal Marvels</option>
+                            <option value="Native Flora">Native Flora</option>
+                            <option value="Ornamental Grasses">Ornamental Grasses</option>
+                            <option value="Pollinator Paradise">Pollinator Paradise</option>
+                            <option value="Rare and Endangered">Rare and Endangered</option>
+                            <option value="Sacred Plants">Sacred Plants</option>
+                            <option value="Shade-loving Beauties">Shade-loving Beauties</option>
+                            <option value="Succulent Garden">Succulent Garden</option>
+                            <option value="Air-purifying Wonders">Air-purifying Wonders</option>
+                            <option value="Native Flora">Native Flora</option>
+                        </select>
+                    </div>
+
+                <div class="form-group w-100">
+                    <label class="label" for="Hashtags">Add hashtags</label>
+                    <select class="form-control" name="Hashtags" id="Hashtags">
+                        <option value=""  disabled selected >Select a hashtag</option>
+                        <option value="#beautiful">#beautiful</option>
+                        <option value="#botanical">#botanical</option>
+                        <option value="#botany">#botany</option>
+                        <option value="#blooms">#blooms</option>
+                        <option value="#floral">#floral</option>
+                        <option value="#florallove">#florallove</option>
+                        <option value="#flowerpower">#flowerpower</option>
+                        <option value="#flowerstagram">#flowerstagram</option>
+                        <option value="#flowers">#flowers</option>
+                        <option value="#gardenlife">#gardenlife</option>
+                        <option value="#gardenlove">#gardenlove</option>
+                        <option value="#gardening">#gardening</option>
+                        <option value="#green">#green</option>
+                        <option value="#greenery">#greenery</option>
+                        <option value="#instagarden">#instagarden</option>
+                        <option value="#landscape">#landscape</option>
+                        <option value="#nature">#nature</option>
+                        <option value="#naturelovers">#naturelovers</option>
+                        <option value="#plantlife">#plantlife</option>
+                        <option value="#plantlover">#plantlover</option>
+                        <option value="#plantsofinstagram">#plantsofinstagram</option>
+                        <option value="#plants">#plants</option>
+                        <option value="#urbanjungle">#urbanjungle</option>
+                        <option value="#wildflowers">#wildflowers</option>
+                    </select>
+                </div>
+
+                    <div class="form-group w-100">
+                        <label class="label" for="Coloroftheplant">Color of the plant</label>
+                        <select class="form-control" name="Coloroftheplant" id="Coloroftheplant">
+                            <option value=""  disabled selected >Select a color</option>
+                            <option value="Black">Black</option>
+                            <option value="Blue">Blue</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Coral">Coral</option>
+                            <option value="Crimson">Crimson</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Gray">Gray</option>
+                            <option value="Green">Green</option>
+                            <option value="Indigo">Indigo</option>
+                            <option value="Lavender">Lavender</option>
+                            <option value="Maroon">Maroon</option>
+                            <option value="Magenta">Magenta</option>
+                            <option value="Olive">Olive</option>
+                            <option value="Orange">Orange</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Purple">Purple</option>
+                            <option value="Red">Red</option>
+                            <option value="Sage">Sage</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Teal">Teal</option>
+                            <option value="Turquoise">Turquoise</option>
+                            <option value="White">White</option>
+                            <option value="Yellow">Yellow</option>
+                        </select>
+                    </div>
+
+       <div class="form-group w-100">
+        <label class="label">Image of the plant</label>
+             <input type="file" id="photoInput" name="photoInput" accept="image/*">
+       </div>
+ 
+        <p id="FileName"></p>
+        
+        <div class="container-buttons w-100">
+            <div class="first-button w-100 w-lg-45">
+                <div class="form-group w-100 ">
+                     <button class="button1" type="submit" onclick="uploadFile(displayFileName)">Upload Photo</button>
+                      <p id="message"></p>
+                     <button class="button1" id="saveButton">Save the plant</button>
+                    <div class="response-message" id="response-message"></div>
+                </div>
+
+                
+        </div>  
+    </div>
+    </div>
+    </div>
+    </div>
+        <script src="../Scripts/AddPhoto.js"></script>
+        <script src="../Scripts/AddPlant.js"></script>
+        <script src="../Scripts/Logout.js"></script>
+        <script src="../Scripts/SearchPlants.js"></script>
+
+ 
+</body>
+</html>

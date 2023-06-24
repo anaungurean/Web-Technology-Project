@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign In</title>
+
+    <link rel="stylesheet" href="../CSS_Stylesheets/SignInStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
+
+</head>
+
+<body>
+
+    <main>
+
+        <div class="main">
+
+            <div class="left-section">
+                <img src="../Images/SignInImages/left-section.jpg" alt="image" class="image">
+            </div>
+
+            <div class="right-section">
+
+                <form class="form" id="login-form">
+                    <p class="heading">SIGN IN</p>
+                    <input id="username-input" placeholder="Username" class="input" type="text">
+                    <input id="password-input" placeholder="Password" class="input" type="password">
+                    <a class="forgot-password" href="ForgotPassword.html">Forgot password?</a>
+                    <button class="btn" type="submit" id="submit-button">Submit</button>
+                    <div id="response-message"></div>
+                    <p class="sign-up"> Don't have an account? <a href="SignUp.html">Sign Up</a></p>
+                </form>
+
+            </div>
+        </div>
+
+    </main> 
+    <script src="../Scripts/Login.js"></script>
+</body>
+ 
+</html>

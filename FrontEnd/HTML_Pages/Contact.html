@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ContactPage</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/ContactStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
+    <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
+
+</head>
+
+<body>
+<div>
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu">
+                <li><a href="../HTML_Pages/Welcome.html"> Home </a></li>
+                <li><a href="../HTML_Pages/About.html"> About </a></li>
+                <li><a href="../HTML_Pages/Help.html"> Help </a></li>
+                <li><a href="../HTML_Pages/Contact.html"> Contact </a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-container fundal-image">
+        <section class="first-part w-100 w-md-50">
+                <h2 class="title-text">Reach out for a new project or just say hello</h2>
+        </section>
+        <section class="w-100 w-md-50">
+            
+            <div>
+                <form method="POST" id="contactForm" name="contactForm" class="contactForm" action="../SendEmail.php">
+                    <div class="row">
+                        <div class="form-group w-100 w-md-45">
+                            <label class="label" for="name">Full Name</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        </div>
+
+                        <div class="form-group w-100 w-md-45">
+                            <label class="label" for="email">Email Address</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group w-100">
+                            <label class="label" for="subject">Subject</label>
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group w-100">
+                            <label class="label" for="message">Message</label>
+                            <textarea name="message" class="form-control" id="message" rows="6"
+                                      placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn">Send Message</button>
+                    </div>
+
+                    <div id="status-message" class="label"></div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+    <script src="../Scripts/SendEmail.js"></script>
+</body>
+
+</html>

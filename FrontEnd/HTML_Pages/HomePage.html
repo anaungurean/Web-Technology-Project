@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../CSS_Stylesheets/HeaderStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/ThemeStyle.css">
+    <link rel="stylesheet" href="../CSS_Stylesheets/HomePage.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../Images/WelcomeImages/Logo.png">
+
+    <title>HomePage</title>
+</head>
+
+
+<body> 
+    <header class="header">
+        <nav>
+            <div class="logo">
+                <img src="../Images/AboutImages/Logo.png" alt="LogoImage">
+            </div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+            <ul class="menu">
+                <li>
+                    <form id="searchForm">
+                        <input type="text" name="keyword" placeholder="Search a plant...">
+                        <button id="searchButton" type="submit">Search</button>
+                    </form>
+                </li>
+                <li><a href="HomePage.html">Home</a></li>
+                <li><a href="AboutLoggedIn.html">About</a></li>
+                <li><a href="HelpLoggedIn.html">Help</a></li>
+                <li><a href="ContactLoggedIn.html">Contact</a></li>
+                <li><a href="../HTML_Pages/SignIn.html" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="user-options">
+
+        <div class="option" onclick="findPlants()">
+            <div class="option-name">
+                <p>FIND PLANTS</p>
+            </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/potted-plant.svg" alt="image">
+            </div>
+        </div>
+
+        <div class="option" onclick="addPlants()">
+            <div class="option-name">
+                <p>ADD PLANTS TO MY GARDEN</p>
+            </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/potted-plant-fill.svg" alt="image">
+            </div>
+        </div>
+
+        <div class="option" onclick="myGarden()">
+            <div class="option-name">
+                <p>MY GARDEN</p>
+            </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/plant-fill.svg" alt="image">
+            </div>
+        </div>
+
+        <div class="option" onclick="myProfile()">
+            <div class="option-name">
+                <p>MY PROFILE</p>
+            </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/profile-circle.svg" alt="image">
+            </div>
+        </div>
+
+        <div class="option" onclick="clasament()">
+            <div class="option-name">
+                <p>TOP</p>
+            </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/podium.svg" alt="image">
+            </div>
+        </div>
+
+        <div class="option" onclick="unsplash()">
+            <div class="option-name">
+                <p>UNSPLASH </p>
+            </div>
+            <div class="icon">
+                <img class="icon-svg" src="../Images/HomePageImages/camera_icon.svg" alt="image">
+            </div>
+        </div>
+
+    </main>
+
+   
+    <script src="../Scripts/Logout.js"></script>
+    <script src="../Scripts/HomePage.js"></script>
+    <script src="../Scripts/SearchPlants.js"></script>
+    
+</body>
+
+
+
+</html>
