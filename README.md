@@ -15,7 +15,7 @@ https://www.youtube.com/watch?v=BwNTyuxGESc
 
 Screenshots:
 
-![1](https://github.com/anaungurean/TW/assets/100145889/1bc881e7-b11d-4586-8c81-56671bc3f62a)
+![1](https://github.com/anaungurean/Web-Technology-Project/assets/100145889/1bc881e7-b11d-4586-8c81-56671bc3f62a)
 ![2](https://github.com/anaungurean/TW/assets/100145889/cf51f3bd-f8d5-4d6c-a9cf-bd88a930bf70)
 ![3](https://github.com/anaungurean/TW/assets/100145889/6dd1284f-b1bd-4864-8a5e-891dec1cb9fd)
 ![4](https://github.com/anaungurean/TW/assets/100145889/5a3e9671-fd34-4398-8060-98360fe659cd)
